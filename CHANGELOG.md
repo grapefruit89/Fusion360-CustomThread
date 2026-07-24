@@ -64,7 +64,7 @@ Abschnitt „Geändert" lesen, bevor du weiterdruckst.
 
 - Gewinde-Außendurchmesser von PCO 1881: die Dateien rechnen mit 28 mm, Quellen nennen
   ~27,4 mm für das Gewinde (28 mm ist die Bezeichnung des Flaschenhalses). Braucht eine
-  Messung am echten Teil — [Issue #1](https://github.com/grapefruit89/Fusion360-CustomThread/issues/1).
+  Messung am echten Teil — [Issue #3](https://github.com/grapefruit89/Fusion360-CustomThread/issues/3).
 
 ## [0.9.0] — 2026-07-24
 

@@ -195,10 +195,11 @@ hat am Flankendurchmesser zwischen 0,042 mm und rund 0,42 mm Luft, typisch etwa 
 0,15 mm liegt damit **in derselben Größenordnung wie eine serienmäßige
 Metallverschraubung**, eher am strammen Ende.
 
-> [!WARNING]
-> Nicht mit ISO-286-Toleranzen oder „H7" argumentieren. Die beschreiben *glatte* Maße —
-> Bohrungen und Wellen. Gewinde laufen über ISO 965 (6H/6g), und H7 hält ohnehin kein
-> FDM-Drucker.
+> [!NOTE]
+> **Warum hier nirgends „H7" steht.** ISO-286-Toleranzen wie H7 beschreiben *glatte* Maße —
+> Bohrungen und Wellen. Für Gewinde gilt eine andere Norm, ISO 965 mit Klassen wie 6H/6g.
+> Die beiden Systeme lassen sich nicht ineinander umrechnen. Und H7 wären bei Ø 28 mm
+> gerade 0,021 mm — das hält kein FDM-Drucker, und für ein Gewinde bräuchte es das auch nicht.
 
 Was dich wirklich begrenzt, ist das Verfahren, nicht eine Norm:
 
@@ -348,7 +349,7 @@ Fragen, Druckergebnisse und Erfahrungswerte gehören in die
 
 | Kategorie | Wofür |
 |-----------|-------|
-| [📏 Toleranzen](../../discussions/categories/toleranzen) | **Der wichtigste Thread.** Welche Klasse passt auf deinem Drucker mit deinem Material? Genau das lässt sich nicht ausrechnen, nur sammeln. |
+| [📏 Toleranzen](../../discussions/1) | **Der wichtigste Thread.** Welche Klasse passt auf deinem Drucker mit deinem Material? Genau das lässt sich nicht ausrechnen, nur sammeln. |
 | [❓ Q&A](../../discussions/categories/q-a) | „Welche Klasse nehme ich für …?", „Wie messe ich das aus?" |
 | [🖨️ Show and tell](../../discussions/categories/show-and-tell) | Zeig, was du damit gebaut hast. Fotos willkommen. |
 | [💡 Ideen](../../discussions/categories/ideas) | Vorschläge fürs Projekt |
@@ -370,7 +371,7 @@ reproduzierbar machen. Wie du beim Mitmachen am meisten hilfst, steht in
 - [x] TR8×2-Konflikt aufgelöst — beide bleiben, aber eindeutig benannt[^tr8]
 - [x] Steigung von PCO 1881 korrigiert: 2,508 mm → **2,7 mm**
 - [x] CI-Validierung aller XML-Dateien bei jedem Push
-- [ ] Gewindedurchmesser von PCO 1881 nachmessen ([Issue #1](../../issues/1))
+- [ ] Gewindedurchmesser von PCO 1881 nachmessen ([Issue #3](../../issues/3))
 
 **v2.0 — das Add-in**
 
@@ -442,7 +443,7 @@ willkommen.
 
 [^dia]: „28 mm" ist die Bezeichnung des *Flaschenhalses*, nicht der Gewindedurchmesser.
     Quellen geben den Gewinde-Außendurchmesser mit ~27,4 mm an. Die Dateien rechnen bisher
-    mit 28 mm — offen als [Issue #1](../../issues/1). Die Steigung wurde in v1.0.0 von
+    mit 28 mm — offen als [Issue #3](../../issues/3). Die Steigung wurde in v1.0.0 von
     2,508 mm auf die belegten **2,7 mm** korrigiert.
 
 [^tr8]: TR8×2 gibt es hier zweimal: normgerecht mit 30° (diese Datei) und druckfreundlich

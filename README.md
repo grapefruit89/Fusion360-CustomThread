@@ -190,9 +190,11 @@ between 0.042 mm and roughly 0.42 mm of clearance at the pitch diameter, typical
 So 0.15 mm sits **in the same ballpark as a production metal fastener**, towards the tight
 end.
 
-> [!WARNING]
-> Don't reach for ISO 286 IT grades or "H7" here. Those describe *plain* dimensions —
-> bores and shafts. Threads use ISO 965 (6H/6g), and no FDM printer holds H7 anyway.
+> [!NOTE]
+> **Why you won't find "H7" anywhere here.** ISO 286 grades like H7 describe *plain*
+> dimensions — bores and shafts. Threads follow a different standard, ISO 965, with classes
+> such as 6H/6g. The two systems don't convert into one another. And H7 at Ø 28 mm would be
+> 0.021 mm — no FDM printer holds that, and a thread wouldn't need it anyway.
 
 What actually limits you is the process, not a standard:
 
@@ -340,7 +342,7 @@ Questions, prints and real-world numbers belong in
 
 | Category | For |
 |----------|-----|
-| [📏 Toleranzen / Clearances](../../discussions/categories/toleranzen) | **The important one.** Which class works on your printer with your material? This can't be calculated, only collected. |
+| [📏 Toleranzen / Clearances](../../discussions/1) | **The important one.** Which class works on your printer with your material? This can't be calculated, only collected. |
 | [❓ Q&A](../../discussions/categories/q-a) | "Which class do I take for …?", "How do I measure this?" |
 | [🖨️ Show and tell](../../discussions/categories/show-and-tell) | Show what you built. Photos welcome. |
 | [💡 Ideas](../../discussions/categories/ideas) | Suggestions for the project |
@@ -361,7 +363,7 @@ reproducible. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to help most.
 - [x] TR8×2 conflict resolved — both stay, but are now named unambiguously[^tr8]
 - [x] PCO 1881 pitch corrected: 2.508 mm → **2.7 mm**
 - [x] CI validation of every XML file on each push
-- [ ] Measure the PCO 1881 thread diameter ([issue #1](../../issues/1))
+- [ ] Measure the PCO 1881 thread diameter ([issue #3](../../issues/3))
 
 **v2.0 — the add-in**
 
@@ -427,7 +429,7 @@ welcome.
 
 [^dia]: "28 mm" designates the *bottle neck*, not the thread diameter. Sources give the
     thread outer diameter as ~27.4 mm; these files still assume 28 mm — tracked as
-    [issue #1](../../issues/1). The pitch was corrected from 2.508 mm to the well-documented
+    [issue #3](../../issues/3). The pitch was corrected from 2.508 mm to the well-documented
     **2.7 mm** in v1.0.0.
 
 [^tr8]: TR8×2 appears twice: standards-compliant at 30° (this file) and print-friendly at
