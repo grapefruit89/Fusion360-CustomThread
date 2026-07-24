@@ -4,6 +4,8 @@
 
 **Gewindeprofile für den FDM-Druck in Autodesk Fusion — kein Sweep, kein verdrehtes Profil.**
 
+[![Validate](https://github.com/grapefruit89/Fusion360-CustomThread/actions/workflows/validate.yml/badge.svg)](https://github.com/grapefruit89/Fusion360-CustomThread/actions/workflows/validate.yml)
+[![Discussions](https://img.shields.io/github/discussions/grapefruit89/Fusion360-CustomThread)](https://github.com/grapefruit89/Fusion360-CustomThread/discussions)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/Gewindedaten-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Plattform-Windows%20%7C%20macOS-informational)](#installation)
@@ -32,6 +34,7 @@
 - [Das Update-Problem](#das-update-problem)
 - [Eigene Gewinde bauen](#eigene-gewinde-bauen)
 - [Wie so eine Gewinde-XML funktioniert](#wie-so-eine-gewinde-xml-funktioniert)
+- [Community](#-community)
 - [Roadmap](#roadmap)
 - [Sicherheit](#-sicherheit)
 - [Herkunft & Lizenz](#herkunft--lizenz)
@@ -68,15 +71,15 @@ Verdrehen. Und die Zahlen in dieser Datei berücksichtigen bereits, wie sich FDM
 
 | # | Datei | Gewinde | Ø | Steigung | Winkel | Wofür |
 |:-:|-------|---------|--:|---------:|-------:|-------|
-| 1 | `01_TR21x4_Sodastream.xml` | TR21×4 | 21 mm | 4 mm | 30° | Sodastream-Zylinder |
-| 2 | `02_DIN477_CO2.xml` | W 21,8 × 1/14" | 21,8 mm | 14 TPI | 55° | CO₂- / Gasflaschen (DIN 477) |
-| 3 | `03_PCO1881_PET.xml` | PCO 1881 | 28 mm | 2,508 mm[^pitch] | 60° | PET-Getränkeflaschen |
-| 4 | `04_G34_Gardena.xml` | G 3/4" | 26,441 mm | 14 TPI | 55° | Gartenschlauch, Wasserhahn, Gardena |
-| 5 | `05_UNC_1-4_Tripod.xml` | 1/4"-20 UNC | 6,35 mm | 20 TPI | 60° | Kamera- / Fotostativ |
-| 6 | `06_UNC_3-8_Tripod.xml` | 3/8"-16 UNC | 9,525 mm | 16 TPI | 60° | Profi-Stativ |
-| 7 | `07_E27_LampSocket.xml` | E27 | 27 mm | 3,629 mm | 60° | Lampenfassung (nur Deko!) |
-| 8 | `08_Trapezoidal_FDM_TR8-TR150.xml` | **TR8×2 → TR150×16** | 8–150 mm | 2–16 mm | **45°** | 33 Größen. Spindeln, Klemmen, große Deckel |
-| 9 | `09_TR8x2_ISO30.xml` | TR8×2 | 8 mm | 2 mm | 30° | Normgerechtes Trapezgewinde |
+| 1 | [`01_TR21x4_Sodastream.xml`](threads/01_TR21x4_Sodastream.xml) | TR21×4 | 21 mm | 4 mm | 30° | Sodastream-Zylinder |
+| 2 | [`02_DIN477_CO2.xml`](threads/02_DIN477_CO2.xml) | W 21,8 × 1/14" | 21,8 mm | 14 TPI | 55° | CO₂- / Gasflaschen (DIN 477) |
+| 3 | [`03_PCO1881_PET.xml`](threads/03_PCO1881_PET.xml) | PCO 1881 | 28 mm[^dia] | 2,7 mm | 60° | PET-Getränkeflaschen |
+| 4 | [`04_G34_Gardena.xml`](threads/04_G34_Gardena.xml) | G 3/4" | 26,441 mm | 14 TPI | 55° | Gartenschlauch, Wasserhahn, Gardena |
+| 5 | [`05_UNC_1-4_Tripod.xml`](threads/05_UNC_1-4_Tripod.xml) | 1/4"-20 UNC | 6,35 mm | 20 TPI | 60° | Kamera- / Fotostativ |
+| 6 | [`06_UNC_3-8_Tripod.xml`](threads/06_UNC_3-8_Tripod.xml) | 3/8"-16 UNC | 9,525 mm | 16 TPI | 60° | Profi-Stativ |
+| 7 | [`07_E27_LampSocket.xml`](threads/07_E27_LampSocket.xml) | E27 | 27 mm | 3,629 mm | 60° | Lampenfassung (nur Deko!) |
+| 8 | [`08_Trapezoidal_FDM_TR8-TR150.xml`](threads/08_Trapezoidal_FDM_TR8-TR150.xml) | **TR8×2 → TR150×16** | 8–150 mm | 2–16 mm | **45°** | 33 Größen. Spindeln, Klemmen, große Deckel |
+| 9 | [`09_TR8x2_ISO30.xml`](threads/09_TR8x2_ISO30.xml) | TR8×2 | 8 mm | 2 mm | 30° | Normgerechtes Trapezgewinde[^tr8] |
 
 Dazu:
 
@@ -159,13 +162,33 @@ Projekt.
 
 ## Toleranzklassen
 
-Jede Datei bringt mehrere Passungen mit. Auswahl in Fusion unter **Klasse** — es muss nichts
-bearbeitet werden.
+Jede Datei bringt **sechs Passungen** mit. Auswahl in Fusion unter **Klasse** — es muss
+nichts bearbeitet werden.
 
-| Klasse | Gesamtspiel | Fühlt sich an wie | Nimm sie, wenn |
-|--------|------------:|-------------------|----------------|
-| `0.15mm (Tight)` | 0,15 mm | straff, braucht Handkraft, kein Wackeln | dein Drucker gut kalibriert ist |
-| `0.20mm (Safe)` | 0,20 mm | dreht leicht, minimal Spiel | älterer/schneller Drucker, große Ø |
+Zuerst die Frage, die alles entscheidet: **Ist das Gegenstück echt, oder druckst du beide
+Teile?**
+
+| Klasse | Versatz innen / außen | Ergibt |
+|--------|----------------------:|--------|
+| `0.10 mm - stramm (gegen echtes Teil)` | +0,10 / −0,10 | 0,10 mm gegen das echte Teil |
+| `0.15 mm - Standard (gegen echtes Teil)` | +0,15 / −0,15 | 0,15 mm gegen das echte Teil ← **Voreinstellung** |
+| `0.20 mm - locker (gegen echtes Teil)` | +0,20 / −0,20 | 0,20 mm gegen das echte Teil |
+| `0.10 mm - stramm (beide gedruckt)` | +0,05 / −0,05 | 0,10 mm zwischen deinen zwei Teilen |
+| `0.15 mm - Standard (beide gedruckt)` | +0,075 / −0,075 | 0,15 mm zwischen deinen zwei Teilen |
+| `0.20 mm - locker (beide gedruckt)` | +0,10 / −0,10 | 0,20 mm zwischen deinen zwei Teilen |
+
+**Warum es nur zwei Fälle sind und nicht drei:** Wenn das Gegenstück echt ist, druckst du
+entweder den Deckel *oder* den Bolzen — Fusion benutzt dann sowieso nur die Hälfte der
+Klasse, die zu deinem Bauteil gehört. Ob „Deckel gedruckt" oder „Bolzen gedruckt" spielt für
+die Zahlen also keine Rolle. Nur wenn **beide** Teile aus dem Drucker kommen, addieren sich
+die Abweichungen — dann bekommt jede Seite die Hälfte.
+
+> [!IMPORTANT]
+> **Verhaltensänderung gegenüber v0.9.0.** Die alten Klassen haben dem Innengewinde das
+> *Doppelte* des genannten Werts zugeschlagen (`0.15mm (Tight)` bedeutete real +0,30 mm) und
+> dem Außengewinde den einfachen — in Summe 0,45 mm statt 0,15 mm. Die neuen Klassen halten,
+> was ihr Name sagt. Wer bisher „Tight" gedruckt hat, findet `0.15 Standard` deutlich
+> strammer. Falls es klemmt: **eine Stufe hochgehen.**
 
 Zur Einordnung: Ein ganz normales **M20×2,5 in 6H/6g** — die Schraube aus dem Baumarkt —
 hat am Flankendurchmesser zwischen 0,042 mm und rund 0,42 mm Luft, typisch etwa 0,2 mm.
@@ -318,16 +341,36 @@ Harte Regel: `MajorDia > PitchDia > MinorDia`. Wer das verletzt, stülpt das Pro
 
 ---
 
+## 💬 Community
+
+Fragen, Druckergebnisse und Erfahrungswerte gehören in die
+**[Discussions](../../discussions)** — dort geht nichts unter und andere finden es wieder.
+
+| Kategorie | Wofür |
+|-----------|-------|
+| [📏 Toleranzen](../../discussions/categories/toleranzen) | **Der wichtigste Thread.** Welche Klasse passt auf deinem Drucker mit deinem Material? Genau das lässt sich nicht ausrechnen, nur sammeln. |
+| [❓ Q&A](../../discussions/categories/q-a) | „Welche Klasse nehme ich für …?", „Wie messe ich das aus?" |
+| [🖨️ Show and tell](../../discussions/categories/show-and-tell) | Zeig, was du damit gebaut hast. Fotos willkommen. |
+| [💡 Ideen](../../discussions/categories/ideas) | Vorschläge fürs Projekt |
+
+Etwas ist **kaputt** oder ein Gewinde **passt nicht**? Dann bitte ein
+[Issue](../../issues/new/choose) — die Vorlagen fragen genau die Werte ab, die es
+reproduzierbar machen. Wie du beim Mitmachen am meisten hilfst, steht in
+[CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
 ## Roadmap
 
-**v1.0 — die Daten in Ordnung bringen**
+**v1.0 — die Daten in Ordnung bringen** ✅ *erledigt*
 
-- [ ] `SortOrder` auf 200+ (kollidiert aktuell mit Autodesks 1–63)
-- [ ] Toleranzklassen vereinheitlichen → `0.10 stramm` / `0.15 Standard` / `0.20 leichtgängig`
-- [ ] Spiel sauber nach Fall A / B / C aufteilen
-- [ ] TR8×2-Konflikt auflösen (30° und 45° liegen beide bei)
-- [ ] Steigung von PCO 1881 verifizieren[^pitch]
-- [ ] CI-Validierung aller XML-Dateien
+- [x] `SortOrder` auf 201–209 (kollidierte mit Autodesks 1–63)
+- [x] Toleranzklassen vereinheitlicht → sechs Klassen, zwei Fälle × drei Spielwerte
+- [x] Spiel sauber nach Fall aufgeteilt (Gegenstück echt / beide gedruckt)
+- [x] TR8×2-Konflikt aufgelöst — beide bleiben, aber eindeutig benannt[^tr8]
+- [x] Steigung von PCO 1881 korrigiert: 2,508 mm → **2,7 mm**
+- [x] CI-Validierung aller XML-Dateien bei jedem Push
+- [ ] Gewindedurchmesser von PCO 1881 nachmessen ([Issue #1](../../issues/1))
 
 **v2.0 — das Add-in**
 
@@ -397,6 +440,11 @@ willkommen.
 [^forum]: Das Verdreh-Problem beim Sweep wird hier ausführlich diskutiert:
     [forum.drucktipps3d.de](https://forum.drucktipps3d.de/forum/thread/45313-erhebung-entlang-pfad-verdreht-profil/)
 
-[^pitch]: Die mitgelieferte Datei nennt `2,508 mm`, während PCO 1881 üblicherweise mit
-    ~2,7 mm angegeben wird. Zur Prüfung vorgemerkt — siehe [Roadmap](#roadmap). Vor dem
-    Verlassen darauf bitte nachmessen.
+[^dia]: „28 mm" ist die Bezeichnung des *Flaschenhalses*, nicht der Gewindedurchmesser.
+    Quellen geben den Gewinde-Außendurchmesser mit ~27,4 mm an. Die Dateien rechnen bisher
+    mit 28 mm — offen als [Issue #1](../../issues/1). Die Steigung wurde in v1.0.0 von
+    2,508 mm auf die belegten **2,7 mm** korrigiert.
+
+[^tr8]: TR8×2 gibt es hier zweimal: normgerecht mit 30° (diese Datei) und druckfreundlich
+    mit 45° in Datei #8. Wenn du auf eine gekaufte Trapez-Gewindestange schraubst, nimm die
+    30°-Variante. Wenn du beide Teile selbst druckst, nimm 45°.

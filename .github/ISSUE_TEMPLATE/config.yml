@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Frage stellen / Ask a question
+    url: https://github.com/grapefruit89/Fusion360-CustomThread/discussions/categories/q-a
+    about: "Wie mache ich…? Welche Klasse nehme ich? — Fragen gehören in die Discussions, nicht in Issues."
+
+  - name: 🖨️ Zeig dein Druckergebnis / Show your print
+    url: https://github.com/grapefruit89/Fusion360-CustomThread/discussions/categories/show-and-tell
+    about: "Deckel, Kappen, Adapter — was hast du damit gebaut? Fotos willkommen."
+
+  - name: 📏 Toleranzwerte für deinen Drucker teilen / Share your printer's clearance
+    url: https://github.com/grapefruit89/Fusion360-CustomThread/discussions/categories/toleranzen
+    about: "Welche Klasse passt auf welchem Drucker mit welchem Material? Sammelthread."
+
+  - name: 🛡️ Gewinde nach Fusion-Update weg?
+    url: https://github.com/thomasa88/ThreadKeeper
+    about: "Das ist kein Bug, sondern Fusions Verhalten. ThreadKeeper löst es dauerhaft."

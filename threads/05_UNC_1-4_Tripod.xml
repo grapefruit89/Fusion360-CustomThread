@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ThreadType>
   <Name>UNC_1-4_Photo_Tripod_3DPrint</Name>
-  <CustomName>[3D-Print]  1/4" - Photo Tripod</CustomName>
+  <CustomName>[3D-Print] 1/4"-20 UNC - Photo Tripod</CustomName>
   <Unit>mm</Unit>
   <Angle>60</Angle>
-  <SortOrder>5</SortOrder>
+  <SortOrder>205</SortOrder>
   <ThreadSize>
     <Size>6.35</Size>
     <Designation>
@@ -13,33 +13,93 @@
       <TPI>20</TPI>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>6.65</MajorDia>
-        <PitchDia>5.83</PitchDia>
-        <MinorDia>5.28</MinorDia>
-        <TapDrill>5.28</TapDrill>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>6.45</MajorDia>
+        <PitchDia>5.63</PitchDia>
+        <MinorDia>5.08</MinorDia>
+        <TapDrill>5.08</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>6.20</MajorDia>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>6.25</MajorDia>
+        <PitchDia>5.43</PitchDia>
+        <MinorDia>4.88</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>6.5</MajorDia>
+        <PitchDia>5.68</PitchDia>
+        <MinorDia>5.13</MinorDia>
+        <TapDrill>5.13</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>6.2</MajorDia>
         <PitchDia>5.38</PitchDia>
         <MinorDia>4.83</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>6.75</MajorDia>
-        <PitchDia>5.93</PitchDia>
-        <MinorDia>5.38</MinorDia>
-        <TapDrill>5.38</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>6.55</MajorDia>
+        <PitchDia>5.73</PitchDia>
+        <MinorDia>5.18</MinorDia>
+        <TapDrill>5.18</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20mm (Safe)</Class>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
         <MajorDia>6.15</MajorDia>
         <PitchDia>5.33</PitchDia>
         <MinorDia>4.78</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>6.4</MajorDia>
+        <PitchDia>5.58</PitchDia>
+        <MinorDia>5.03</MinorDia>
+        <TapDrill>5.03</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>6.3</MajorDia>
+        <PitchDia>5.48</PitchDia>
+        <MinorDia>4.93</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>6.425</MajorDia>
+        <PitchDia>5.605</PitchDia>
+        <MinorDia>5.055</MinorDia>
+        <TapDrill>5.055</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>6.275</MajorDia>
+        <PitchDia>5.455</PitchDia>
+        <MinorDia>4.905</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>6.45</MajorDia>
+        <PitchDia>5.63</PitchDia>
+        <MinorDia>5.08</MinorDia>
+        <TapDrill>5.08</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>6.25</MajorDia>
+        <PitchDia>5.43</PitchDia>
+        <MinorDia>4.88</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

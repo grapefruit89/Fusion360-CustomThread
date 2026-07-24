@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ThreadType>
   <Name>DIN477_CO2_3DPrint</Name>
-  <CustomName>[3D-Print]  DIN 477 - CO2 Gasgewinde</CustomName>
+  <CustomName>[3D-Print] W 21,8x1/14 - CO2 (DIN 477)</CustomName>
   <Unit>mm</Unit>
   <Angle>55</Angle>
-  <SortOrder>2</SortOrder>
+  <SortOrder>202</SortOrder>
   <ThreadSize>
     <Size>21.8</Size>
     <Designation>
@@ -13,33 +13,93 @@
       <TPI>14.0</TPI>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>22.10</MajorDia>
-        <PitchDia>20.94</PitchDia>
-        <MinorDia>19.78</MinorDia>
-        <TapDrill>19.78</TapDrill>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>21.9</MajorDia>
+        <PitchDia>20.74</PitchDia>
+        <MinorDia>19.58</MinorDia>
+        <TapDrill>19.58</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15mm (Tight)</Class>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>21.7</MajorDia>
+        <PitchDia>20.54</PitchDia>
+        <MinorDia>19.38</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>21.95</MajorDia>
+        <PitchDia>20.79</PitchDia>
+        <MinorDia>19.63</MinorDia>
+        <TapDrill>19.63</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>21.65</MajorDia>
         <PitchDia>20.49</PitchDia>
         <MinorDia>19.33</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>22.20</MajorDia>
-        <PitchDia>21.04</PitchDia>
-        <MinorDia>19.88</MinorDia>
-        <TapDrill>19.88</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>22</MajorDia>
+        <PitchDia>20.84</PitchDia>
+        <MinorDia>19.68</MinorDia>
+        <TapDrill>19.68</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>21.60</MajorDia>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>21.6</MajorDia>
         <PitchDia>20.44</PitchDia>
         <MinorDia>19.28</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>21.85</MajorDia>
+        <PitchDia>20.69</PitchDia>
+        <MinorDia>19.53</MinorDia>
+        <TapDrill>19.53</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>21.75</MajorDia>
+        <PitchDia>20.59</PitchDia>
+        <MinorDia>19.43</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>21.875</MajorDia>
+        <PitchDia>20.715</PitchDia>
+        <MinorDia>19.555</MinorDia>
+        <TapDrill>19.555</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>21.725</MajorDia>
+        <PitchDia>20.565</PitchDia>
+        <MinorDia>19.405</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>21.9</MajorDia>
+        <PitchDia>20.74</PitchDia>
+        <MinorDia>19.58</MinorDia>
+        <TapDrill>19.58</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>21.7</MajorDia>
+        <PitchDia>20.54</PitchDia>
+        <MinorDia>19.38</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

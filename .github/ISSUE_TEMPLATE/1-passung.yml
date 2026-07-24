@@ -1,0 +1,110 @@
+name: "🔩 Gewinde passt nicht / Thread doesn't fit"
+description: "Ein Gewinde klemmt, wackelt oder greift gar nicht. / A thread binds, wobbles or won't engage."
+title: "[Passung] "
+labels: ["passung", "needs-measurement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fürs Melden! Damit das reproduzierbar ist, brauche ich vor allem
+        **Messwerte** — „passt nicht" allein hilft leider niemandem weiter.
+
+        Thanks for reporting. Measurements are what make this actionable —
+        "doesn't fit" alone unfortunately can't be acted on.
+
+  - type: dropdown
+    id: thread
+    attributes:
+      label: Welches Gewinde? / Which thread?
+      options:
+        - 01 TR21x4 SodaStream
+        - 02 DIN 477 CO2
+        - 03 PCO1881 PET
+        - 04 G3/4 Gardena
+        - 05 1/4"-20 UNC Tripod
+        - 06 3/8"-16 UNC Tripod
+        - 07 E27 Lamp Socket
+        - 08 Trapezoidal 45 deg FDM
+        - 09 Trapezoidal 30 deg ISO TR8x2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: klasse
+    attributes:
+      label: Welche Klasse? / Which class?
+      options:
+        - "0.10 mm - stramm (gegen echtes Teil)"
+        - "0.15 mm - Standard (gegen echtes Teil)"
+        - "0.20 mm - locker (gegen echtes Teil)"
+        - "0.10 mm - stramm (beide gedruckt)"
+        - "0.15 mm - Standard (beide gedruckt)"
+        - "0.20 mm - locker (beide gedruckt)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: Was passiert? / What happens?
+      options:
+        - "Klemmt komplett, geht gar nicht drauf / Binds completely"
+        - "Geht schwer, mit Werkzeug ginge es / Very tight, needs a tool"
+        - "Zu locker, wackelt / Too loose, wobbles"
+        - "Greift gar nicht, springt über / Doesn't engage at all, skips"
+        - "Nach ein paar Gängen klemmt es / Binds after a few turns"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        > „Greift gar nicht" oder „klemmt nach ein paar Gängen" deutet fast immer
+        > auf eine **falsche Steigung** hin, nicht auf falsches Spiel.
+
+  - type: textarea
+    id: messwerte
+    attributes:
+      label: Messwerte am gedruckten Teil / Measurements of the printed part
+      description: |
+        Mit dem Messschieber. Steigung bitte über **10 Gänge** messen und durch 10 teilen —
+        ein einzelner Gang hat zu viel Messfehler.
+      value: |
+        Außendurchmesser / outer diameter: ... mm
+        Kerndurchmesser / root diameter:   ... mm
+        Länge über 10 Gänge / length over 10 turns: ... mm
+        Gemessen am Original-Gegenstück / measured on the real counterpart: ... mm
+    validations:
+      required: true
+
+  - type: input
+    id: drucker
+    attributes:
+      label: Drucker, Düse, Material / Printer, nozzle, material
+      placeholder: "z.B. Bambu P1S, 0.4 mm, PETG"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: orientierung
+    attributes:
+      label: Druckorientierung / Print orientation
+      description: "Liegend gedruckte Gewinde brauchen spürbar mehr Spiel."
+      options:
+        - "Stehend, Gewindeachse = Z / Standing, axis = Z"
+        - "Liegend / Lying down"
+        - "Schräg / Angled"
+    validations:
+      required: true
+
+  - type: input
+    id: schicht
+    attributes:
+      label: Schichthöhe / Layer height
+      placeholder: "0.2 mm"
+
+  - type: textarea
+    id: sonstiges
+    attributes:
+      label: Sonstiges / Anything else
+      description: "Fotos sind sehr willkommen — einfach hier hineinziehen."

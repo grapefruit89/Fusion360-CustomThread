@@ -4,6 +4,8 @@
 
 **FDM-optimised thread profiles for Autodesk Fusion — no more sweeping, no more twisted profiles.**
 
+[![Validate](https://github.com/grapefruit89/Fusion360-CustomThread/actions/workflows/validate.yml/badge.svg)](https://github.com/grapefruit89/Fusion360-CustomThread/actions/workflows/validate.yml)
+[![Discussions](https://img.shields.io/github/discussions/grapefruit89/Fusion360-CustomThread)](https://github.com/grapefruit89/Fusion360-CustomThread/discussions)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/Thread%20data-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-informational)](#installation)
@@ -32,6 +34,7 @@
 - [The update problem](#the-update-problem)
 - [Rolling your own thread](#rolling-your-own-thread)
 - [How a thread XML actually works](#how-a-thread-xml-actually-works)
+- [Community](#-community)
 - [Roadmap](#roadmap)
 - [Safety](#-safety)
 - [Credits & licence](#credits--licence)
@@ -66,15 +69,15 @@ that file already account for how FDM behaves.
 
 | # | File | Thread | Ø | Pitch | Angle | Used for |
 |:-:|------|--------|--:|------:|------:|----------|
-| 1 | `01_TR21x4_Sodastream.xml` | TR21×4 | 21 mm | 4 mm | 30° | SodaStream cylinders |
-| 2 | `02_DIN477_CO2.xml` | W 21,8 × 1/14" | 21.8 mm | 14 TPI | 55° | CO₂ / gas bottles (DIN 477) |
-| 3 | `03_PCO1881_PET.xml` | PCO 1881 | 28 mm | 2.508 mm[^pitch] | 60° | PET drink bottles |
-| 4 | `04_G34_Gardena.xml` | G 3/4" | 26.441 mm | 14 TPI | 55° | Garden hose, taps, Gardena |
-| 5 | `05_UNC_1-4_Tripod.xml` | 1/4"-20 UNC | 6.35 mm | 20 TPI | 60° | Camera / photo tripod |
-| 6 | `06_UNC_3-8_Tripod.xml` | 3/8"-16 UNC | 9.525 mm | 16 TPI | 60° | Pro tripod |
-| 7 | `07_E27_LampSocket.xml` | E27 | 27 mm | 3.629 mm | 60° | Lamp sockets (decor only!) |
-| 8 | `08_Trapezoidal_FDM_TR8-TR150.xml` | **TR8×2 → TR150×16** | 8–150 mm | 2–16 mm | **45°** | 33 sizes. Lead screws, clamps, big lids |
-| 9 | `09_TR8x2_ISO30.xml` | TR8×2 | 8 mm | 2 mm | 30° | Standards-compliant trapezoidal |
+| 1 | [`01_TR21x4_Sodastream.xml`](threads/01_TR21x4_Sodastream.xml) | TR21×4 | 21 mm | 4 mm | 30° | SodaStream cylinders |
+| 2 | [`02_DIN477_CO2.xml`](threads/02_DIN477_CO2.xml) | W 21,8 × 1/14" | 21.8 mm | 14 TPI | 55° | CO₂ / gas bottles (DIN 477) |
+| 3 | [`03_PCO1881_PET.xml`](threads/03_PCO1881_PET.xml) | PCO 1881 | 28 mm[^dia] | 2.7 mm | 60° | PET drink bottles |
+| 4 | [`04_G34_Gardena.xml`](threads/04_G34_Gardena.xml) | G 3/4" | 26.441 mm | 14 TPI | 55° | Garden hose, taps, Gardena |
+| 5 | [`05_UNC_1-4_Tripod.xml`](threads/05_UNC_1-4_Tripod.xml) | 1/4"-20 UNC | 6.35 mm | 20 TPI | 60° | Camera / photo tripod |
+| 6 | [`06_UNC_3-8_Tripod.xml`](threads/06_UNC_3-8_Tripod.xml) | 3/8"-16 UNC | 9.525 mm | 16 TPI | 60° | Pro tripod |
+| 7 | [`07_E27_LampSocket.xml`](threads/07_E27_LampSocket.xml) | E27 | 27 mm | 3.629 mm | 60° | Lamp sockets (decor only!) |
+| 8 | [`08_Trapezoidal_FDM_TR8-TR150.xml`](threads/08_Trapezoidal_FDM_TR8-TR150.xml) | **TR8×2 → TR150×16** | 8–150 mm | 2–16 mm | **45°** | 33 sizes. Lead screws, clamps, big lids |
+| 9 | [`09_TR8x2_ISO30.xml`](threads/09_TR8x2_ISO30.xml) | TR8×2 | 8 mm | 2 mm | 30° | Standards-compliant trapezoidal[^tr8] |
 
 Plus:
 
@@ -156,13 +159,31 @@ It ships no threads of its own — that's what this repo is for.
 
 ## Tolerance classes
 
-Every file ships several fits. Pick them in Fusion under **Class** — no need to edit
-anything.
+Every file ships **six fits**. Pick them in Fusion under **Class** — no need to edit
+anything. Labels are in German; the table below translates them.
 
-| Class | Total clearance | Feels like | Pick it when |
-|-------|----------------:|------------|--------------|
-| `0.15mm (Tight)` | 0.15 mm | firm, needs hand force, no wobble | your printer is well calibrated |
-| `0.20mm (Safe)` | 0.20 mm | turns easily, slight play | older or faster printer, large diameters |
+The question that decides everything: **is the counterpart a real object, or are you
+printing both halves?**
+
+| Class | German label means | Offset int. / ext. | Result |
+|-------|--------------------|-------------------:|--------|
+| `0.10 mm - stramm (gegen echtes Teil)` | tight, vs. a real part | +0.10 / −0.10 | 0.10 mm against the real part |
+| `0.15 mm - Standard (gegen echtes Teil)` | standard, vs. a real part | +0.15 / −0.15 | 0.15 mm ← **default** |
+| `0.20 mm - locker (gegen echtes Teil)` | loose, vs. a real part | +0.20 / −0.20 | 0.20 mm against the real part |
+| `0.10 mm - stramm (beide gedruckt)` | tight, both printed | +0.05 / −0.05 | 0.10 mm between your two parts |
+| `0.15 mm - Standard (beide gedruckt)` | standard, both printed | +0.075 / −0.075 | 0.15 mm between your two parts |
+| `0.20 mm - locker (beide gedruckt)` | loose, both printed | +0.10 / −0.10 | 0.20 mm between your two parts |
+
+**Why two cases and not three:** when the counterpart is real you print either the cap *or*
+the bolt, and Fusion only ever uses the half of the class that matches your body — so
+"printed cap" and "printed bolt" need identical numbers. Only when **both** halves come off
+the printer do the deviations add up, and then each side gets half.
+
+> [!IMPORTANT]
+> **Behaviour change from v0.9.0.** The old classes added *twice* the stated value to the
+> internal thread (`0.15mm (Tight)` really meant +0.30 mm) and one times to the external —
+> 0.45 mm in total instead of 0.15 mm. The new classes mean what they say. If you used to
+> print "Tight", `0.15 Standard` will feel noticeably firmer. If it binds: **go up one step.**
 
 For scale: an ordinary **M20×2.5 in 6H/6g** — the bolt from the hardware store — has
 between 0.042 mm and roughly 0.42 mm of clearance at the pitch diameter, typically ~0.2 mm.
@@ -312,16 +333,35 @@ Hard rule: `MajorDia > PitchDia > MinorDia`. Violate it and the profile turns in
 
 ---
 
+## 💬 Community
+
+Questions, prints and real-world numbers belong in
+**[Discussions](../../discussions)** — nothing gets lost there and others can find it later.
+
+| Category | For |
+|----------|-----|
+| [📏 Toleranzen / Clearances](../../discussions/categories/toleranzen) | **The important one.** Which class works on your printer with your material? This can't be calculated, only collected. |
+| [❓ Q&A](../../discussions/categories/q-a) | "Which class do I take for …?", "How do I measure this?" |
+| [🖨️ Show and tell](../../discussions/categories/show-and-tell) | Show what you built. Photos welcome. |
+| [💡 Ideas](../../discussions/categories/ideas) | Suggestions for the project |
+
+Something **broken**, or a thread that **doesn't fit**? Please open an
+[issue](../../issues/new/choose) — the forms ask for exactly the values that make it
+reproducible. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to help most.
+
+---
+
 ## Roadmap
 
-**v1.0 — clean up the data**
+**v1.0 — clean up the data** ✅ *done*
 
-- [ ] Move `SortOrder` to 200+ (currently collides with Autodesk's 1–63)
-- [ ] Unify tolerance classes → `0.10 tight` / `0.15 standard` / `0.20 easy`
-- [ ] Split clearance properly by case A / B / C
-- [ ] Resolve the TR8×2 conflict (30° vs 45° both present)
-- [ ] Verify the PCO 1881 pitch[^pitch]
-- [ ] CI validation of all XML files
+- [x] `SortOrder` moved to 201–209 (used to collide with Autodesk's 1–63)
+- [x] Tolerance classes unified — six classes, two cases × three clearances
+- [x] Clearance split properly by case (real counterpart / both printed)
+- [x] TR8×2 conflict resolved — both stay, but are now named unambiguously[^tr8]
+- [x] PCO 1881 pitch corrected: 2.508 mm → **2.7 mm**
+- [x] CI validation of every XML file on each push
+- [ ] Measure the PCO 1881 thread diameter ([issue #1](../../issues/1))
 
 **v2.0 — the add-in**
 
@@ -385,5 +425,11 @@ welcome.
 [^forum]: The twisting-sweep problem is discussed at length here:
     [forum.drucktipps3d.de](https://forum.drucktipps3d.de/forum/thread/45313-erhebung-entlang-pfad-verdreht-profil/)
 
-[^pitch]: The shipped file states `2.508 mm`, while PCO 1881 is commonly cited at ~2.7 mm.
-    This is flagged for verification — see [Roadmap](#roadmap). Measure before you rely on it.
+[^dia]: "28 mm" designates the *bottle neck*, not the thread diameter. Sources give the
+    thread outer diameter as ~27.4 mm; these files still assume 28 mm — tracked as
+    [issue #1](../../issues/1). The pitch was corrected from 2.508 mm to the well-documented
+    **2.7 mm** in v1.0.0.
+
+[^tr8]: TR8×2 appears twice: standards-compliant at 30° (this file) and print-friendly at
+    45° in file #8. Screwing onto a bought trapezoidal lead screw? Take 30°. Printing both
+    halves yourself? Take 45°.

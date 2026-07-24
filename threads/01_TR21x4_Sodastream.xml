@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ThreadType>
   <Name>TR21x4_Sodastream_3DPrint</Name>
-  <CustomName>[3D-Print]  TR21x4 - Sodastream</CustomName>
+  <CustomName>[3D-Print] TR21x4 - SodaStream</CustomName>
   <Unit>mm</Unit>
   <Angle>30</Angle>
-  <SortOrder>1</SortOrder>
+  <SortOrder>201</SortOrder>
   <ThreadSize>
     <Size>21</Size>
     <Designation>
@@ -13,33 +13,93 @@
       <Pitch>4</Pitch>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>21.30</MajorDia>
-        <PitchDia>19.30</PitchDia>
-        <MinorDia>17.30</MinorDia>
-        <TapDrill>17.30</TapDrill>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>21.1</MajorDia>
+        <PitchDia>19.1</PitchDia>
+        <MinorDia>17.1</MinorDia>
+        <TapDrill>17.1</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15mm (Tight)</Class>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>20.9</MajorDia>
+        <PitchDia>18.9</PitchDia>
+        <MinorDia>16.9</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>21.15</MajorDia>
+        <PitchDia>19.15</PitchDia>
+        <MinorDia>17.15</MinorDia>
+        <TapDrill>17.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>20.85</MajorDia>
         <PitchDia>18.85</PitchDia>
         <MinorDia>16.85</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>21.40</MajorDia>
-        <PitchDia>19.40</PitchDia>
-        <MinorDia>17.40</MinorDia>
-        <TapDrill>17.40</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>21.2</MajorDia>
+        <PitchDia>19.2</PitchDia>
+        <MinorDia>17.2</MinorDia>
+        <TapDrill>17.2</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>20.80</MajorDia>
-        <PitchDia>18.80</PitchDia>
-        <MinorDia>16.80</MinorDia>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>20.8</MajorDia>
+        <PitchDia>18.8</PitchDia>
+        <MinorDia>16.8</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>21.05</MajorDia>
+        <PitchDia>19.05</PitchDia>
+        <MinorDia>17.05</MinorDia>
+        <TapDrill>17.05</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>20.95</MajorDia>
+        <PitchDia>18.95</PitchDia>
+        <MinorDia>16.95</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>21.075</MajorDia>
+        <PitchDia>19.075</PitchDia>
+        <MinorDia>17.075</MinorDia>
+        <TapDrill>17.075</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>20.925</MajorDia>
+        <PitchDia>18.925</PitchDia>
+        <MinorDia>16.925</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>21.1</MajorDia>
+        <PitchDia>19.1</PitchDia>
+        <MinorDia>17.1</MinorDia>
+        <TapDrill>17.1</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>20.9</MajorDia>
+        <PitchDia>18.9</PitchDia>
+        <MinorDia>16.9</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

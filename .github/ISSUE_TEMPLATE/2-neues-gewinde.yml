@@ -1,0 +1,81 @@
+name: "➕ Neues Gewinde vorschlagen / Propose a new thread"
+description: "Ein Gewinde fehlt in der Sammlung. / A thread is missing from the collection."
+title: "[Neu] "
+labels: ["neues-gewinde"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Neue Gewinde sind sehr willkommen. **Ohne Maße kann ich nichts bauen** —
+        wenn du keine Norm zur Hand hast, miss bitte am echten Teil nach.
+
+        New threads are very welcome. **Without dimensions nothing can be built** —
+        if you have no standard at hand, please measure the real part.
+
+  - type: input
+    id: name
+    attributes:
+      label: Wie heißt das Gewinde? / What is the thread called?
+      placeholder: "z.B. TR16x4, M42x1.5, Twist-Off TO-63, Presta-Ventil"
+    validations:
+      required: true
+
+  - type: textarea
+    id: wofuer
+    attributes:
+      label: Wofür brauchst du es? / What do you need it for?
+      description: "Hilft mir einzuschätzen, ob Innen-, Außen- oder beide Gewinde gebraucht werden."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: fall
+    attributes:
+      label: Was druckst du? / What are you printing?
+      options:
+        - "Nur ein Teil, Gegenstück ist echt / One part, counterpart is real"
+        - "Beide Teile / Both parts"
+        - "Weiß ich noch nicht / Not sure yet"
+    validations:
+      required: true
+
+  - type: textarea
+    id: masse
+    attributes:
+      label: Maße / Dimensions
+      description: |
+        Steigung bitte über **10 Gänge** messen und durch 10 teilen.
+        Flankenwinkel: sieht der Gang spitz aus (60°), dachförmig (55°) oder
+        wie ein Trapez mit breiten Flächen (30°/45°)?
+      value: |
+        Außendurchmesser / outer diameter: ... mm
+        Kerndurchmesser / root diameter:   ... mm
+        Länge über 10 Gänge / length over 10 turns: ... mm
+        Geschätzter Flankenwinkel / estimated flank angle: ...
+        Rechts- oder Linksgewinde / right or left hand: rechts
+        Ein- oder mehrgängig / single or multi-start: eingängig
+    validations:
+      required: true
+
+  - type: input
+    id: quelle
+    attributes:
+      label: Norm oder Datenblatt / Standard or datasheet
+      description: "Falls vorhanden — Link oder Normbezeichnung."
+      placeholder: "z.B. DIN 103, ISBT Threadspecs, Herstellerzeichnung"
+
+  - type: checkboxes
+    id: sicherheit
+    attributes:
+      label: Sicherheit / Safety
+      options:
+        - label: |
+            Mir ist klar, dass gedruckte Gewinde nicht für Druckbehälter, stromführende
+            Teile oder tragende Verschraubungen taugen.
+          required: true
+
+  - type: textarea
+    id: fotos
+    attributes:
+      label: Fotos
+      description: "Ein Foto des Gewindes von der Seite hilft beim Flankenwinkel."

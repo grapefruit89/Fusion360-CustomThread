@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ThreadType>
   <Name>UNC_3-8_Pro_Tripod_3DPrint</Name>
-  <CustomName>[3D-Print]  3/8" - Pro Tripod</CustomName>
+  <CustomName>[3D-Print] 3/8"-16 UNC - Pro Tripod</CustomName>
   <Unit>mm</Unit>
   <Angle>60</Angle>
-  <SortOrder>6</SortOrder>
+  <SortOrder>206</SortOrder>
   <ThreadSize>
     <Size>9.525</Size>
     <Designation>
@@ -13,33 +13,93 @@
       <TPI>16</TPI>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>9.83</MajorDia>
-        <PitchDia>8.79</PitchDia>
-        <MinorDia>8.11</MinorDia>
-        <TapDrill>8.11</TapDrill>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>9.625</MajorDia>
+        <PitchDia>8.585</PitchDia>
+        <MinorDia>7.905</MinorDia>
+        <TapDrill>7.905</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>9.38</MajorDia>
-        <PitchDia>8.34</PitchDia>
-        <MinorDia>7.66</MinorDia>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>9.425</MajorDia>
+        <PitchDia>8.385</PitchDia>
+        <MinorDia>7.705</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>9.93</MajorDia>
-        <PitchDia>8.89</PitchDia>
-        <MinorDia>8.21</MinorDia>
-        <TapDrill>8.21</TapDrill>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>9.675</MajorDia>
+        <PitchDia>8.635</PitchDia>
+        <MinorDia>7.955</MinorDia>
+        <TapDrill>7.955</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>9.33</MajorDia>
-        <PitchDia>8.29</PitchDia>
-        <MinorDia>7.61</MinorDia>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>9.375</MajorDia>
+        <PitchDia>8.335</PitchDia>
+        <MinorDia>7.655</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>9.725</MajorDia>
+        <PitchDia>8.685</PitchDia>
+        <MinorDia>8.005</MinorDia>
+        <TapDrill>8.005</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>9.325</MajorDia>
+        <PitchDia>8.285</PitchDia>
+        <MinorDia>7.605</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>9.575</MajorDia>
+        <PitchDia>8.535</PitchDia>
+        <MinorDia>7.855</MinorDia>
+        <TapDrill>7.855</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>9.475</MajorDia>
+        <PitchDia>8.435</PitchDia>
+        <MinorDia>7.755</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>9.6</MajorDia>
+        <PitchDia>8.56</PitchDia>
+        <MinorDia>7.88</MinorDia>
+        <TapDrill>7.88</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>9.45</MajorDia>
+        <PitchDia>8.41</PitchDia>
+        <MinorDia>7.73</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>9.625</MajorDia>
+        <PitchDia>8.585</PitchDia>
+        <MinorDia>7.905</MinorDia>
+        <TapDrill>7.905</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>9.425</MajorDia>
+        <PitchDia>8.385</PitchDia>
+        <MinorDia>7.705</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ThreadType>
   <Name>E27_Edison_Lamp_Socket_3DPrint</Name>
-  <CustomName>[3D-Print]  E27 - Edison Lamp Socket</CustomName>
+  <CustomName>[3D-Print] E27 - Edison Lamp Socket</CustomName>
   <Unit>mm</Unit>
   <Angle>60</Angle>
-  <SortOrder>7</SortOrder>
+  <SortOrder>207</SortOrder>
   <ThreadSize>
     <Size>27</Size>
     <Designation>
@@ -13,33 +13,93 @@
       <Pitch>3.629</Pitch>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15mm (Tight)</Class>
-        <MajorDia>27.30</MajorDia>
-        <PitchDia>24.94</PitchDia>
-        <MinorDia>23.37</MinorDia>
-        <TapDrill>23.37</TapDrill>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>27.1</MajorDia>
+        <PitchDia>24.74</PitchDia>
+        <MinorDia>23.17</MinorDia>
+        <TapDrill>23.17</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15mm (Tight)</Class>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>26.9</MajorDia>
+        <PitchDia>24.54</PitchDia>
+        <MinorDia>22.97</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>27.15</MajorDia>
+        <PitchDia>24.79</PitchDia>
+        <MinorDia>23.22</MinorDia>
+        <TapDrill>23.22</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>26.85</MajorDia>
         <PitchDia>24.49</PitchDia>
         <MinorDia>22.92</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>27.40</MajorDia>
-        <PitchDia>25.04</PitchDia>
-        <MinorDia>23.47</MinorDia>
-        <TapDrill>23.47</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>27.2</MajorDia>
+        <PitchDia>24.84</PitchDia>
+        <MinorDia>23.27</MinorDia>
+        <TapDrill>23.27</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20mm (Safe)</Class>
-        <MajorDia>26.80</MajorDia>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>26.8</MajorDia>
         <PitchDia>24.44</PitchDia>
         <MinorDia>22.87</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>27.05</MajorDia>
+        <PitchDia>24.69</PitchDia>
+        <MinorDia>23.12</MinorDia>
+        <TapDrill>23.12</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>26.95</MajorDia>
+        <PitchDia>24.59</PitchDia>
+        <MinorDia>23.02</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>27.075</MajorDia>
+        <PitchDia>24.715</PitchDia>
+        <MinorDia>23.145</MinorDia>
+        <TapDrill>23.145</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>26.925</MajorDia>
+        <PitchDia>24.565</PitchDia>
+        <MinorDia>22.995</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>27.1</MajorDia>
+        <PitchDia>24.74</PitchDia>
+        <MinorDia>23.17</MinorDia>
+        <TapDrill>23.17</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>26.9</MajorDia>
+        <PitchDia>24.54</PitchDia>
+        <MinorDia>22.97</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

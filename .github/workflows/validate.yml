@@ -1,0 +1,46 @@
+name: Validate thread definitions
+
+on:
+  push:
+    paths:
+      - 'threads/**'
+      - 'tools/validate_threads.py'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    paths:
+      - 'threads/**'
+      - 'tools/validate_threads.py'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Check XML thread files
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate
+        run: python tools/validate_threads.py threads
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Thread validation"
+            echo ""
+            echo "| File | Sizes | SortOrder | Angle |"
+            echo "|------|------:|----------:|------:|"
+            python - <<'PY'
+          import glob, os, xml.etree.ElementTree as ET
+          for p in sorted(glob.glob("threads/*.xml")):
+              r = ET.parse(p).getroot()
+              n = len(r.findall(".//Designation"))
+              print(f"| `{os.path.basename(p)}` | {n} | "
+                    f"{r.findtext('SortOrder')} | {r.findtext('Angle')}° |")
+          PY
+          } >> "$GITHUB_STEP_SUMMARY"

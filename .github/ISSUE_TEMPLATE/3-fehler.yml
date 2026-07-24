@@ -1,0 +1,63 @@
+name: "🐛 Fehler / Bug"
+description: "Etwas funktioniert nicht — Installation, Skript, Doku. / Something is broken."
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Für Passungsprobleme bitte die Vorlage **Gewinde passt nicht** benutzen —
+        die fragt die richtigen Werte ab.
+
+  - type: dropdown
+    id: bereich
+    attributes:
+      label: Wo? / Where?
+      options:
+        - "Installation / Gewinde tauchen in Fusion nicht auf"
+        - "find-threaddata.bat findet nichts"
+        - "Fusion zeigt gar keine Gewinde mehr an"
+        - "Dokumentation ist falsch oder unverständlich"
+        - "validate_threads.py"
+        - "Sonstiges"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        > [!WARNING]
+        > **„Fusion zeigt gar keine Gewinde mehr an"** heißt fast immer: eine XML im
+        > ThreadData-Ordner ist kaputt und reißt die ganze Liste mit. Entferne die zuletzt
+        > hinzugefügte Datei und starte Fusion neu.
+
+  - type: textarea
+    id: was
+    attributes:
+      label: Was ist passiert? / What happened?
+      description: "Was hast du gemacht, was hast du erwartet, was kam stattdessen?"
+    validations:
+      required: true
+
+  - type: input
+    id: fusion
+    attributes:
+      label: Fusion-Version
+      description: "Hilfe → Info, oder der Ordnername unter webdeploy\\production"
+      placeholder: "2.0.xxxxx"
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Betriebssystem / OS
+      options:
+        - Windows
+        - macOS
+        - Sonstiges
+
+  - type: textarea
+    id: meldung
+    attributes:
+      label: Fehlermeldung / Error message
+      description: "Falls es eine gibt — bitte als Text, nicht als Screenshot."
+      render: text

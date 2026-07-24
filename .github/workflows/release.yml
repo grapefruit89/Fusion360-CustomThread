@@ -1,0 +1,46 @@
+name: Package release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Build and attach ZIPs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Kein Release ohne gueltige Gewindedaten.
+      - name: Validate before packaging
+        run: python tools/validate_threads.py threads
+
+      - name: Build ZIPs
+        run: |
+          VERSION="${GITHUB_REF_NAME}"
+          mkdir -p dist
+
+          # Nur die Gewinde - das, was die meisten wollen.
+          (cd threads && zip -q -r "../dist/Fusion360-CustomThread-${VERSION}-threads.zip" .)
+
+          # Komplettpaket inkl. Werkzeug, Beispiel und Doku.
+          mkdir -p "pkg/Fusion360-CustomThread-${VERSION}"
+          cp -r threads tools examples docs README.md README.de.md LICENSE CHANGELOG.md \
+                "pkg/Fusion360-CustomThread-${VERSION}/"
+          (cd pkg && zip -q -r "../dist/Fusion360-CustomThread-${VERSION}-full.zip" .)
+
+          ls -lh dist
+
+      - name: Attach to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${GITHUB_REF_NAME}" dist/*.zip --clobber
