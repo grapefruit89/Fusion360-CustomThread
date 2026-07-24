@@ -4,6 +4,13 @@ on:
   push:
     tags:
       - 'v*'
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag, an den die ZIPs gehaengt werden (z.B. v1.0.0)'
+        required: true
 
 permissions:
   contents: write
@@ -14,7 +21,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Bei workflow_dispatch kommt der Tag aus der Eingabe, sonst aus der Ref.
+      - name: Resolve tag
+        id: tag
+        run: echo "value=${{ inputs.tag || github.ref_name }}" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.tag.outputs.value }}
 
       - uses: actions/setup-python@v5
         with:
@@ -26,7 +40,7 @@ jobs:
 
       - name: Build ZIPs
         run: |
-          VERSION="${GITHUB_REF_NAME}"
+          VERSION="${{ steps.tag.outputs.value }}"
           mkdir -p dist
 
           # Nur die Gewinde - das, was die meisten wollen.
@@ -43,4 +57,9 @@ jobs:
       - name: Attach to release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${GITHUB_REF_NAME}" dist/*.zip --clobber
+          TAG: ${{ steps.tag.outputs.value }}
+        run: |
+          # Bei reinem Tag-Push existiert das Release noch nicht - dann anlegen.
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || gh release create "$TAG" --title "$TAG" --generate-notes
+          gh release upload "$TAG" dist/*.zip --clobber
