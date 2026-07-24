@@ -1,0 +1,1757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>TR_FDM_45deg</Name>
+  <CustomName>[3D-Print] Trapezgewinde FDM only</CustomName>
+  <Unit>mm</Unit>
+  <Angle>45</Angle>
+  <SortOrder>8</SortOrder>
+  <ThreadSize>
+    <Size>8</Size>
+    <Designation>
+      <ThreadDesignation>TR8 x 2 FDM</ThreadDesignation>
+      <CTD>TR8x2_FDM</CTD>
+      <Pitch>2</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>8.00</MajorDia>
+        <PitchDia>7.00</PitchDia>
+        <MinorDia>6.00</MinorDia>
+        <TapDrill>6.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>8.00</MajorDia>
+        <PitchDia>7.00</PitchDia>
+        <MinorDia>6.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>8.15</MajorDia>
+        <PitchDia>7.15</PitchDia>
+        <MinorDia>6.15</MinorDia>
+        <TapDrill>6.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>7.85</MajorDia>
+        <PitchDia>6.85</PitchDia>
+        <MinorDia>5.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>8.20</MajorDia>
+        <PitchDia>7.20</PitchDia>
+        <MinorDia>6.20</MinorDia>
+        <TapDrill>6.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>7.80</MajorDia>
+        <PitchDia>6.80</PitchDia>
+        <MinorDia>5.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>10</Size>
+    <Designation>
+      <ThreadDesignation>TR10 x 2 FDM</ThreadDesignation>
+      <CTD>TR10x2_FDM</CTD>
+      <Pitch>2</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>10.00</MajorDia>
+        <PitchDia>9.00</PitchDia>
+        <MinorDia>8.00</MinorDia>
+        <TapDrill>8.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>10.00</MajorDia>
+        <PitchDia>9.00</PitchDia>
+        <MinorDia>8.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>10.15</MajorDia>
+        <PitchDia>9.15</PitchDia>
+        <MinorDia>8.15</MinorDia>
+        <TapDrill>8.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>9.85</MajorDia>
+        <PitchDia>8.85</PitchDia>
+        <MinorDia>7.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>10.20</MajorDia>
+        <PitchDia>9.20</PitchDia>
+        <MinorDia>8.20</MinorDia>
+        <TapDrill>8.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>9.80</MajorDia>
+        <PitchDia>8.80</PitchDia>
+        <MinorDia>7.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>12</Size>
+    <Designation>
+      <ThreadDesignation>TR12 x 3 FDM</ThreadDesignation>
+      <CTD>TR12x3_FDM</CTD>
+      <Pitch>3</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>12.00</MajorDia>
+        <PitchDia>10.50</PitchDia>
+        <MinorDia>9.00</MinorDia>
+        <TapDrill>9.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>12.00</MajorDia>
+        <PitchDia>10.50</PitchDia>
+        <MinorDia>9.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>12.15</MajorDia>
+        <PitchDia>10.65</PitchDia>
+        <MinorDia>9.15</MinorDia>
+        <TapDrill>9.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>11.85</MajorDia>
+        <PitchDia>10.35</PitchDia>
+        <MinorDia>8.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>12.20</MajorDia>
+        <PitchDia>10.70</PitchDia>
+        <MinorDia>9.20</MinorDia>
+        <TapDrill>9.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>11.80</MajorDia>
+        <PitchDia>10.30</PitchDia>
+        <MinorDia>8.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>14</Size>
+    <Designation>
+      <ThreadDesignation>TR14 x 3 FDM</ThreadDesignation>
+      <CTD>TR14x3_FDM</CTD>
+      <Pitch>3</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>14.00</MajorDia>
+        <PitchDia>12.50</PitchDia>
+        <MinorDia>11.00</MinorDia>
+        <TapDrill>11.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>14.00</MajorDia>
+        <PitchDia>12.50</PitchDia>
+        <MinorDia>11.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>14.15</MajorDia>
+        <PitchDia>12.65</PitchDia>
+        <MinorDia>11.15</MinorDia>
+        <TapDrill>11.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>13.85</MajorDia>
+        <PitchDia>12.35</PitchDia>
+        <MinorDia>10.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>14.20</MajorDia>
+        <PitchDia>12.70</PitchDia>
+        <MinorDia>11.20</MinorDia>
+        <TapDrill>11.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>13.80</MajorDia>
+        <PitchDia>12.30</PitchDia>
+        <MinorDia>10.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>16</Size>
+    <Designation>
+      <ThreadDesignation>TR16 x 4 FDM</ThreadDesignation>
+      <CTD>TR16x4_FDM</CTD>
+      <Pitch>4</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>16.00</MajorDia>
+        <PitchDia>14.00</PitchDia>
+        <MinorDia>12.00</MinorDia>
+        <TapDrill>12.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>16.00</MajorDia>
+        <PitchDia>14.00</PitchDia>
+        <MinorDia>12.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>16.15</MajorDia>
+        <PitchDia>14.15</PitchDia>
+        <MinorDia>12.15</MinorDia>
+        <TapDrill>12.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>15.85</MajorDia>
+        <PitchDia>13.85</PitchDia>
+        <MinorDia>11.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>16.20</MajorDia>
+        <PitchDia>14.20</PitchDia>
+        <MinorDia>12.20</MinorDia>
+        <TapDrill>12.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>15.80</MajorDia>
+        <PitchDia>13.80</PitchDia>
+        <MinorDia>11.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>18</Size>
+    <Designation>
+      <ThreadDesignation>TR18 x 4 FDM</ThreadDesignation>
+      <CTD>TR18x4_FDM</CTD>
+      <Pitch>4</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>18.00</MajorDia>
+        <PitchDia>16.00</PitchDia>
+        <MinorDia>14.00</MinorDia>
+        <TapDrill>14.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>18.00</MajorDia>
+        <PitchDia>16.00</PitchDia>
+        <MinorDia>14.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>18.15</MajorDia>
+        <PitchDia>16.15</PitchDia>
+        <MinorDia>14.15</MinorDia>
+        <TapDrill>14.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>17.85</MajorDia>
+        <PitchDia>15.85</PitchDia>
+        <MinorDia>13.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>18.20</MajorDia>
+        <PitchDia>16.20</PitchDia>
+        <MinorDia>14.20</MinorDia>
+        <TapDrill>14.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>17.80</MajorDia>
+        <PitchDia>15.80</PitchDia>
+        <MinorDia>13.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>20</Size>
+    <Designation>
+      <ThreadDesignation>TR20 x 4 FDM</ThreadDesignation>
+      <CTD>TR20x4_FDM</CTD>
+      <Pitch>4</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>20.00</MajorDia>
+        <PitchDia>18.00</PitchDia>
+        <MinorDia>16.00</MinorDia>
+        <TapDrill>16.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>20.00</MajorDia>
+        <PitchDia>18.00</PitchDia>
+        <MinorDia>16.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>20.15</MajorDia>
+        <PitchDia>18.15</PitchDia>
+        <MinorDia>16.15</MinorDia>
+        <TapDrill>16.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>19.85</MajorDia>
+        <PitchDia>17.85</PitchDia>
+        <MinorDia>15.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>20.20</MajorDia>
+        <PitchDia>18.20</PitchDia>
+        <MinorDia>16.20</MinorDia>
+        <TapDrill>16.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>19.80</MajorDia>
+        <PitchDia>17.80</PitchDia>
+        <MinorDia>15.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>22</Size>
+    <Designation>
+      <ThreadDesignation>TR22 x 5 FDM</ThreadDesignation>
+      <CTD>TR22x5_FDM</CTD>
+      <Pitch>5</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>22.00</MajorDia>
+        <PitchDia>19.50</PitchDia>
+        <MinorDia>17.00</MinorDia>
+        <TapDrill>17.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>22.00</MajorDia>
+        <PitchDia>19.50</PitchDia>
+        <MinorDia>17.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>22.15</MajorDia>
+        <PitchDia>19.65</PitchDia>
+        <MinorDia>17.15</MinorDia>
+        <TapDrill>17.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>21.85</MajorDia>
+        <PitchDia>19.35</PitchDia>
+        <MinorDia>16.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>22.20</MajorDia>
+        <PitchDia>19.70</PitchDia>
+        <MinorDia>17.20</MinorDia>
+        <TapDrill>17.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>21.80</MajorDia>
+        <PitchDia>19.30</PitchDia>
+        <MinorDia>16.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>24</Size>
+    <Designation>
+      <ThreadDesignation>TR24 x 5 FDM</ThreadDesignation>
+      <CTD>TR24x5_FDM</CTD>
+      <Pitch>5</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>24.00</MajorDia>
+        <PitchDia>21.50</PitchDia>
+        <MinorDia>19.00</MinorDia>
+        <TapDrill>19.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>24.00</MajorDia>
+        <PitchDia>21.50</PitchDia>
+        <MinorDia>19.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>24.15</MajorDia>
+        <PitchDia>21.65</PitchDia>
+        <MinorDia>19.15</MinorDia>
+        <TapDrill>19.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>23.85</MajorDia>
+        <PitchDia>21.35</PitchDia>
+        <MinorDia>18.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>24.20</MajorDia>
+        <PitchDia>21.70</PitchDia>
+        <MinorDia>19.20</MinorDia>
+        <TapDrill>19.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>23.80</MajorDia>
+        <PitchDia>21.30</PitchDia>
+        <MinorDia>18.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>26</Size>
+    <Designation>
+      <ThreadDesignation>TR26 x 5 FDM</ThreadDesignation>
+      <CTD>TR26x5_FDM</CTD>
+      <Pitch>5</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>26.00</MajorDia>
+        <PitchDia>23.50</PitchDia>
+        <MinorDia>21.00</MinorDia>
+        <TapDrill>21.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>26.00</MajorDia>
+        <PitchDia>23.50</PitchDia>
+        <MinorDia>21.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>26.15</MajorDia>
+        <PitchDia>23.65</PitchDia>
+        <MinorDia>21.15</MinorDia>
+        <TapDrill>21.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>25.85</MajorDia>
+        <PitchDia>23.35</PitchDia>
+        <MinorDia>20.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>26.20</MajorDia>
+        <PitchDia>23.70</PitchDia>
+        <MinorDia>21.20</MinorDia>
+        <TapDrill>21.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>25.80</MajorDia>
+        <PitchDia>23.30</PitchDia>
+        <MinorDia>20.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>28</Size>
+    <Designation>
+      <ThreadDesignation>TR28 x 5 FDM</ThreadDesignation>
+      <CTD>TR28x5_FDM</CTD>
+      <Pitch>5</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>28.00</MajorDia>
+        <PitchDia>25.50</PitchDia>
+        <MinorDia>23.00</MinorDia>
+        <TapDrill>23.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>28.00</MajorDia>
+        <PitchDia>25.50</PitchDia>
+        <MinorDia>23.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>28.15</MajorDia>
+        <PitchDia>25.65</PitchDia>
+        <MinorDia>23.15</MinorDia>
+        <TapDrill>23.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>27.85</MajorDia>
+        <PitchDia>25.35</PitchDia>
+        <MinorDia>22.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>28.20</MajorDia>
+        <PitchDia>25.70</PitchDia>
+        <MinorDia>23.20</MinorDia>
+        <TapDrill>23.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>27.80</MajorDia>
+        <PitchDia>25.30</PitchDia>
+        <MinorDia>22.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>30</Size>
+    <Designation>
+      <ThreadDesignation>TR30 x 6 FDM</ThreadDesignation>
+      <CTD>TR30x6_FDM</CTD>
+      <Pitch>6</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>30.00</MajorDia>
+        <PitchDia>27.00</PitchDia>
+        <MinorDia>24.00</MinorDia>
+        <TapDrill>24.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>30.00</MajorDia>
+        <PitchDia>27.00</PitchDia>
+        <MinorDia>24.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>30.15</MajorDia>
+        <PitchDia>27.15</PitchDia>
+        <MinorDia>24.15</MinorDia>
+        <TapDrill>24.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>29.85</MajorDia>
+        <PitchDia>26.85</PitchDia>
+        <MinorDia>23.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>30.20</MajorDia>
+        <PitchDia>27.20</PitchDia>
+        <MinorDia>24.20</MinorDia>
+        <TapDrill>24.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>29.80</MajorDia>
+        <PitchDia>26.80</PitchDia>
+        <MinorDia>23.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>32</Size>
+    <Designation>
+      <ThreadDesignation>TR32 x 6 FDM</ThreadDesignation>
+      <CTD>TR32x6_FDM</CTD>
+      <Pitch>6</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>32.00</MajorDia>
+        <PitchDia>29.00</PitchDia>
+        <MinorDia>26.00</MinorDia>
+        <TapDrill>26.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>32.00</MajorDia>
+        <PitchDia>29.00</PitchDia>
+        <MinorDia>26.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>32.15</MajorDia>
+        <PitchDia>29.15</PitchDia>
+        <MinorDia>26.15</MinorDia>
+        <TapDrill>26.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>31.85</MajorDia>
+        <PitchDia>28.85</PitchDia>
+        <MinorDia>25.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>32.20</MajorDia>
+        <PitchDia>29.20</PitchDia>
+        <MinorDia>26.20</MinorDia>
+        <TapDrill>26.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>31.80</MajorDia>
+        <PitchDia>28.80</PitchDia>
+        <MinorDia>25.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>36</Size>
+    <Designation>
+      <ThreadDesignation>TR36 x 6 FDM</ThreadDesignation>
+      <CTD>TR36x6_FDM</CTD>
+      <Pitch>6</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>36.00</MajorDia>
+        <PitchDia>33.00</PitchDia>
+        <MinorDia>30.00</MinorDia>
+        <TapDrill>30.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>36.00</MajorDia>
+        <PitchDia>33.00</PitchDia>
+        <MinorDia>30.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>36.15</MajorDia>
+        <PitchDia>33.15</PitchDia>
+        <MinorDia>30.15</MinorDia>
+        <TapDrill>30.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>35.85</MajorDia>
+        <PitchDia>32.85</PitchDia>
+        <MinorDia>29.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>36.20</MajorDia>
+        <PitchDia>33.20</PitchDia>
+        <MinorDia>30.20</MinorDia>
+        <TapDrill>30.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>35.80</MajorDia>
+        <PitchDia>32.80</PitchDia>
+        <MinorDia>29.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>40</Size>
+    <Designation>
+      <ThreadDesignation>TR40 x 7 FDM</ThreadDesignation>
+      <CTD>TR40x7_FDM</CTD>
+      <Pitch>7</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>40.00</MajorDia>
+        <PitchDia>36.50</PitchDia>
+        <MinorDia>33.00</MinorDia>
+        <TapDrill>33.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>40.00</MajorDia>
+        <PitchDia>36.50</PitchDia>
+        <MinorDia>33.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>40.15</MajorDia>
+        <PitchDia>36.65</PitchDia>
+        <MinorDia>33.15</MinorDia>
+        <TapDrill>33.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>39.85</MajorDia>
+        <PitchDia>36.35</PitchDia>
+        <MinorDia>32.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>40.20</MajorDia>
+        <PitchDia>36.70</PitchDia>
+        <MinorDia>33.20</MinorDia>
+        <TapDrill>33.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>39.80</MajorDia>
+        <PitchDia>36.30</PitchDia>
+        <MinorDia>32.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>44</Size>
+    <Designation>
+      <ThreadDesignation>TR44 x 7 FDM</ThreadDesignation>
+      <CTD>TR44x7_FDM</CTD>
+      <Pitch>7</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>44.00</MajorDia>
+        <PitchDia>40.50</PitchDia>
+        <MinorDia>37.00</MinorDia>
+        <TapDrill>37.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>44.00</MajorDia>
+        <PitchDia>40.50</PitchDia>
+        <MinorDia>37.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>44.15</MajorDia>
+        <PitchDia>40.65</PitchDia>
+        <MinorDia>37.15</MinorDia>
+        <TapDrill>37.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>43.85</MajorDia>
+        <PitchDia>40.35</PitchDia>
+        <MinorDia>36.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>44.20</MajorDia>
+        <PitchDia>40.70</PitchDia>
+        <MinorDia>37.20</MinorDia>
+        <TapDrill>37.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>43.80</MajorDia>
+        <PitchDia>40.30</PitchDia>
+        <MinorDia>36.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>48</Size>
+    <Designation>
+      <ThreadDesignation>TR48 x 8 FDM</ThreadDesignation>
+      <CTD>TR48x8_FDM</CTD>
+      <Pitch>8</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>48.00</MajorDia>
+        <PitchDia>44.00</PitchDia>
+        <MinorDia>40.00</MinorDia>
+        <TapDrill>40.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>48.00</MajorDia>
+        <PitchDia>44.00</PitchDia>
+        <MinorDia>40.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>48.15</MajorDia>
+        <PitchDia>44.15</PitchDia>
+        <MinorDia>40.15</MinorDia>
+        <TapDrill>40.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>47.85</MajorDia>
+        <PitchDia>43.85</PitchDia>
+        <MinorDia>39.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>48.20</MajorDia>
+        <PitchDia>44.20</PitchDia>
+        <MinorDia>40.20</MinorDia>
+        <TapDrill>40.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>47.80</MajorDia>
+        <PitchDia>43.80</PitchDia>
+        <MinorDia>39.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>50</Size>
+    <Designation>
+      <ThreadDesignation>TR50 x 8 FDM</ThreadDesignation>
+      <CTD>TR50x8_FDM</CTD>
+      <Pitch>8</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>50.00</MajorDia>
+        <PitchDia>46.00</PitchDia>
+        <MinorDia>42.00</MinorDia>
+        <TapDrill>42.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>50.00</MajorDia>
+        <PitchDia>46.00</PitchDia>
+        <MinorDia>42.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>50.15</MajorDia>
+        <PitchDia>46.15</PitchDia>
+        <MinorDia>42.15</MinorDia>
+        <TapDrill>42.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>49.85</MajorDia>
+        <PitchDia>45.85</PitchDia>
+        <MinorDia>41.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>50.20</MajorDia>
+        <PitchDia>46.20</PitchDia>
+        <MinorDia>42.20</MinorDia>
+        <TapDrill>42.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>49.80</MajorDia>
+        <PitchDia>45.80</PitchDia>
+        <MinorDia>41.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>55</Size>
+    <Designation>
+      <ThreadDesignation>TR55 x 9 FDM</ThreadDesignation>
+      <CTD>TR55x9_FDM</CTD>
+      <Pitch>9</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>55.00</MajorDia>
+        <PitchDia>50.50</PitchDia>
+        <MinorDia>46.00</MinorDia>
+        <TapDrill>46.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>55.00</MajorDia>
+        <PitchDia>50.50</PitchDia>
+        <MinorDia>46.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>55.15</MajorDia>
+        <PitchDia>50.65</PitchDia>
+        <MinorDia>46.15</MinorDia>
+        <TapDrill>46.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>54.85</MajorDia>
+        <PitchDia>50.35</PitchDia>
+        <MinorDia>45.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>55.20</MajorDia>
+        <PitchDia>50.70</PitchDia>
+        <MinorDia>46.20</MinorDia>
+        <TapDrill>46.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>54.80</MajorDia>
+        <PitchDia>50.30</PitchDia>
+        <MinorDia>45.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>60</Size>
+    <Designation>
+      <ThreadDesignation>TR60 x 9 FDM</ThreadDesignation>
+      <CTD>TR60x9_FDM</CTD>
+      <Pitch>9</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>60.00</MajorDia>
+        <PitchDia>55.50</PitchDia>
+        <MinorDia>51.00</MinorDia>
+        <TapDrill>51.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>60.00</MajorDia>
+        <PitchDia>55.50</PitchDia>
+        <MinorDia>51.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>60.15</MajorDia>
+        <PitchDia>55.65</PitchDia>
+        <MinorDia>51.15</MinorDia>
+        <TapDrill>51.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>59.85</MajorDia>
+        <PitchDia>55.35</PitchDia>
+        <MinorDia>50.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>60.20</MajorDia>
+        <PitchDia>55.70</PitchDia>
+        <MinorDia>51.20</MinorDia>
+        <TapDrill>51.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>59.80</MajorDia>
+        <PitchDia>55.30</PitchDia>
+        <MinorDia>50.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>65</Size>
+    <Designation>
+      <ThreadDesignation>TR65 x 10 FDM</ThreadDesignation>
+      <CTD>TR65x10_FDM</CTD>
+      <Pitch>10</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>65.00</MajorDia>
+        <PitchDia>60.00</PitchDia>
+        <MinorDia>55.00</MinorDia>
+        <TapDrill>55.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>65.00</MajorDia>
+        <PitchDia>60.00</PitchDia>
+        <MinorDia>55.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>65.15</MajorDia>
+        <PitchDia>60.15</PitchDia>
+        <MinorDia>55.15</MinorDia>
+        <TapDrill>55.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>64.85</MajorDia>
+        <PitchDia>59.85</PitchDia>
+        <MinorDia>54.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>65.20</MajorDia>
+        <PitchDia>60.20</PitchDia>
+        <MinorDia>55.20</MinorDia>
+        <TapDrill>55.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>64.80</MajorDia>
+        <PitchDia>59.80</PitchDia>
+        <MinorDia>54.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>70</Size>
+    <Designation>
+      <ThreadDesignation>TR70 x 10 FDM</ThreadDesignation>
+      <CTD>TR70x10_FDM</CTD>
+      <Pitch>10</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>70.00</MajorDia>
+        <PitchDia>65.00</PitchDia>
+        <MinorDia>60.00</MinorDia>
+        <TapDrill>60.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>70.00</MajorDia>
+        <PitchDia>65.00</PitchDia>
+        <MinorDia>60.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>70.15</MajorDia>
+        <PitchDia>65.15</PitchDia>
+        <MinorDia>60.15</MinorDia>
+        <TapDrill>60.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>69.85</MajorDia>
+        <PitchDia>64.85</PitchDia>
+        <MinorDia>59.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>70.20</MajorDia>
+        <PitchDia>65.20</PitchDia>
+        <MinorDia>60.20</MinorDia>
+        <TapDrill>60.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>69.80</MajorDia>
+        <PitchDia>64.80</PitchDia>
+        <MinorDia>59.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>75</Size>
+    <Designation>
+      <ThreadDesignation>TR75 x 10 FDM</ThreadDesignation>
+      <CTD>TR75x10_FDM</CTD>
+      <Pitch>10</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>75.00</MajorDia>
+        <PitchDia>70.00</PitchDia>
+        <MinorDia>65.00</MinorDia>
+        <TapDrill>65.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>75.00</MajorDia>
+        <PitchDia>70.00</PitchDia>
+        <MinorDia>65.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>75.15</MajorDia>
+        <PitchDia>70.15</PitchDia>
+        <MinorDia>65.15</MinorDia>
+        <TapDrill>65.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>74.85</MajorDia>
+        <PitchDia>69.85</PitchDia>
+        <MinorDia>64.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>75.20</MajorDia>
+        <PitchDia>70.20</PitchDia>
+        <MinorDia>65.20</MinorDia>
+        <TapDrill>65.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>74.80</MajorDia>
+        <PitchDia>69.80</PitchDia>
+        <MinorDia>64.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>80</Size>
+    <Designation>
+      <ThreadDesignation>TR80 x 10 FDM</ThreadDesignation>
+      <CTD>TR80x10_FDM</CTD>
+      <Pitch>10</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>80.00</MajorDia>
+        <PitchDia>75.00</PitchDia>
+        <MinorDia>70.00</MinorDia>
+        <TapDrill>70.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>80.00</MajorDia>
+        <PitchDia>75.00</PitchDia>
+        <MinorDia>70.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>80.15</MajorDia>
+        <PitchDia>75.15</PitchDia>
+        <MinorDia>70.15</MinorDia>
+        <TapDrill>70.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>79.85</MajorDia>
+        <PitchDia>74.85</PitchDia>
+        <MinorDia>69.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>80.20</MajorDia>
+        <PitchDia>75.20</PitchDia>
+        <MinorDia>70.20</MinorDia>
+        <TapDrill>70.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>79.80</MajorDia>
+        <PitchDia>74.80</PitchDia>
+        <MinorDia>69.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>85</Size>
+    <Designation>
+      <ThreadDesignation>TR85 x 12 FDM</ThreadDesignation>
+      <CTD>TR85x12_FDM</CTD>
+      <Pitch>12</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>85.00</MajorDia>
+        <PitchDia>79.00</PitchDia>
+        <MinorDia>73.00</MinorDia>
+        <TapDrill>73.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>85.00</MajorDia>
+        <PitchDia>79.00</PitchDia>
+        <MinorDia>73.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>85.15</MajorDia>
+        <PitchDia>79.15</PitchDia>
+        <MinorDia>73.15</MinorDia>
+        <TapDrill>73.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>84.85</MajorDia>
+        <PitchDia>78.85</PitchDia>
+        <MinorDia>72.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>85.20</MajorDia>
+        <PitchDia>79.20</PitchDia>
+        <MinorDia>73.20</MinorDia>
+        <TapDrill>73.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>84.80</MajorDia>
+        <PitchDia>78.80</PitchDia>
+        <MinorDia>72.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>90</Size>
+    <Designation>
+      <ThreadDesignation>TR90 x 12 FDM</ThreadDesignation>
+      <CTD>TR90x12_FDM</CTD>
+      <Pitch>12</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>90.00</MajorDia>
+        <PitchDia>84.00</PitchDia>
+        <MinorDia>78.00</MinorDia>
+        <TapDrill>78.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>90.00</MajorDia>
+        <PitchDia>84.00</PitchDia>
+        <MinorDia>78.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>90.15</MajorDia>
+        <PitchDia>84.15</PitchDia>
+        <MinorDia>78.15</MinorDia>
+        <TapDrill>78.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>89.85</MajorDia>
+        <PitchDia>83.85</PitchDia>
+        <MinorDia>77.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>90.20</MajorDia>
+        <PitchDia>84.20</PitchDia>
+        <MinorDia>78.20</MinorDia>
+        <TapDrill>78.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>89.80</MajorDia>
+        <PitchDia>83.80</PitchDia>
+        <MinorDia>77.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>95</Size>
+    <Designation>
+      <ThreadDesignation>TR95 x 12 FDM</ThreadDesignation>
+      <CTD>TR95x12_FDM</CTD>
+      <Pitch>12</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>95.00</MajorDia>
+        <PitchDia>89.00</PitchDia>
+        <MinorDia>83.00</MinorDia>
+        <TapDrill>83.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>95.00</MajorDia>
+        <PitchDia>89.00</PitchDia>
+        <MinorDia>83.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>95.15</MajorDia>
+        <PitchDia>89.15</PitchDia>
+        <MinorDia>83.15</MinorDia>
+        <TapDrill>83.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>94.85</MajorDia>
+        <PitchDia>88.85</PitchDia>
+        <MinorDia>82.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>95.20</MajorDia>
+        <PitchDia>89.20</PitchDia>
+        <MinorDia>83.20</MinorDia>
+        <TapDrill>83.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>94.80</MajorDia>
+        <PitchDia>88.80</PitchDia>
+        <MinorDia>82.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>100</Size>
+    <Designation>
+      <ThreadDesignation>TR100 x 12 FDM</ThreadDesignation>
+      <CTD>TR100x12_FDM</CTD>
+      <Pitch>12</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>100.00</MajorDia>
+        <PitchDia>94.00</PitchDia>
+        <MinorDia>88.00</MinorDia>
+        <TapDrill>88.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>100.00</MajorDia>
+        <PitchDia>94.00</PitchDia>
+        <MinorDia>88.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>100.15</MajorDia>
+        <PitchDia>94.15</PitchDia>
+        <MinorDia>88.15</MinorDia>
+        <TapDrill>88.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>99.85</MajorDia>
+        <PitchDia>93.85</PitchDia>
+        <MinorDia>87.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>100.20</MajorDia>
+        <PitchDia>94.20</PitchDia>
+        <MinorDia>88.20</MinorDia>
+        <TapDrill>88.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>99.80</MajorDia>
+        <PitchDia>93.80</PitchDia>
+        <MinorDia>87.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>110</Size>
+    <Designation>
+      <ThreadDesignation>TR110 x 12 FDM</ThreadDesignation>
+      <CTD>TR110x12_FDM</CTD>
+      <Pitch>12</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>110.00</MajorDia>
+        <PitchDia>104.00</PitchDia>
+        <MinorDia>98.00</MinorDia>
+        <TapDrill>98.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>110.00</MajorDia>
+        <PitchDia>104.00</PitchDia>
+        <MinorDia>98.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>110.15</MajorDia>
+        <PitchDia>104.15</PitchDia>
+        <MinorDia>98.15</MinorDia>
+        <TapDrill>98.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>109.85</MajorDia>
+        <PitchDia>103.85</PitchDia>
+        <MinorDia>97.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>110.20</MajorDia>
+        <PitchDia>104.20</PitchDia>
+        <MinorDia>98.20</MinorDia>
+        <TapDrill>98.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>109.80</MajorDia>
+        <PitchDia>103.80</PitchDia>
+        <MinorDia>97.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>120</Size>
+    <Designation>
+      <ThreadDesignation>TR120 x 14 FDM</ThreadDesignation>
+      <CTD>TR120x14_FDM</CTD>
+      <Pitch>14</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>120.00</MajorDia>
+        <PitchDia>113.00</PitchDia>
+        <MinorDia>106.00</MinorDia>
+        <TapDrill>106.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>120.00</MajorDia>
+        <PitchDia>113.00</PitchDia>
+        <MinorDia>106.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>120.15</MajorDia>
+        <PitchDia>113.15</PitchDia>
+        <MinorDia>106.15</MinorDia>
+        <TapDrill>106.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>119.85</MajorDia>
+        <PitchDia>112.85</PitchDia>
+        <MinorDia>105.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>120.20</MajorDia>
+        <PitchDia>113.20</PitchDia>
+        <MinorDia>106.20</MinorDia>
+        <TapDrill>106.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>119.80</MajorDia>
+        <PitchDia>112.80</PitchDia>
+        <MinorDia>105.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>130</Size>
+    <Designation>
+      <ThreadDesignation>TR130 x 14 FDM</ThreadDesignation>
+      <CTD>TR130x14_FDM</CTD>
+      <Pitch>14</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>130.00</MajorDia>
+        <PitchDia>123.00</PitchDia>
+        <MinorDia>116.00</MinorDia>
+        <TapDrill>116.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>130.00</MajorDia>
+        <PitchDia>123.00</PitchDia>
+        <MinorDia>116.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>130.15</MajorDia>
+        <PitchDia>123.15</PitchDia>
+        <MinorDia>116.15</MinorDia>
+        <TapDrill>116.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>129.85</MajorDia>
+        <PitchDia>122.85</PitchDia>
+        <MinorDia>115.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>130.20</MajorDia>
+        <PitchDia>123.20</PitchDia>
+        <MinorDia>116.20</MinorDia>
+        <TapDrill>116.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>129.80</MajorDia>
+        <PitchDia>122.80</PitchDia>
+        <MinorDia>115.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>140</Size>
+    <Designation>
+      <ThreadDesignation>TR140 x 14 FDM</ThreadDesignation>
+      <CTD>TR140x14_FDM</CTD>
+      <Pitch>14</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>140.00</MajorDia>
+        <PitchDia>133.00</PitchDia>
+        <MinorDia>126.00</MinorDia>
+        <TapDrill>126.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>140.00</MajorDia>
+        <PitchDia>133.00</PitchDia>
+        <MinorDia>126.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>140.15</MajorDia>
+        <PitchDia>133.15</PitchDia>
+        <MinorDia>126.15</MinorDia>
+        <TapDrill>126.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>139.85</MajorDia>
+        <PitchDia>132.85</PitchDia>
+        <MinorDia>125.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>140.20</MajorDia>
+        <PitchDia>133.20</PitchDia>
+        <MinorDia>126.20</MinorDia>
+        <TapDrill>126.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>139.80</MajorDia>
+        <PitchDia>132.80</PitchDia>
+        <MinorDia>125.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+  <ThreadSize>
+    <Size>150</Size>
+    <Designation>
+      <ThreadDesignation>TR150 x 16 FDM</ThreadDesignation>
+      <CTD>TR150x16_FDM</CTD>
+      <Pitch>16</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>150.00</MajorDia>
+        <PitchDia>142.00</PitchDia>
+        <MinorDia>134.00</MinorDia>
+        <TapDrill>134.00</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.00mm (Exact)</Class>
+        <MajorDia>150.00</MajorDia>
+        <PitchDia>142.00</PitchDia>
+        <MinorDia>134.00</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>150.15</MajorDia>
+        <PitchDia>142.15</PitchDia>
+        <MinorDia>134.15</MinorDia>
+        <TapDrill>134.15</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>149.85</MajorDia>
+        <PitchDia>141.85</PitchDia>
+        <MinorDia>133.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>150.20</MajorDia>
+        <PitchDia>142.20</PitchDia>
+        <MinorDia>134.20</MinorDia>
+        <TapDrill>134.20</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>149.80</MajorDia>
+        <PitchDia>141.80</PitchDia>
+        <MinorDia>133.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

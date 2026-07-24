@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>TR21x4_Sodastream_3DPrint</Name>
+  <CustomName>[3D-Print]  TR21x4 - Sodastream</CustomName>
+  <Unit>mm</Unit>
+  <Angle>30</Angle>
+  <SortOrder>1</SortOrder>
+  <ThreadSize>
+    <Size>21</Size>
+    <Designation>
+      <ThreadDesignation>TR21 x 4</ThreadDesignation>
+      <CTD>TR21x4</CTD>
+      <Pitch>4</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>21.30</MajorDia>
+        <PitchDia>19.30</PitchDia>
+        <MinorDia>17.30</MinorDia>
+        <TapDrill>17.30</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>20.85</MajorDia>
+        <PitchDia>18.85</PitchDia>
+        <MinorDia>16.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>21.40</MajorDia>
+        <PitchDia>19.40</PitchDia>
+        <MinorDia>17.40</MinorDia>
+        <TapDrill>17.40</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>20.80</MajorDia>
+        <PitchDia>18.80</PitchDia>
+        <MinorDia>16.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

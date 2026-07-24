@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>TR8x2_3DPrint</Name>
+  <CustomName>[3D-Print]  TR8x2 </CustomName>
+  <Unit>mm</Unit>
+  <Angle>30</Angle>
+  <SortOrder>9</SortOrder>
+  <ThreadSize>
+    <Size>8</Size>
+    <Designation>
+      <ThreadDesignation>TR8 x 2</ThreadDesignation>
+      <CTD>TR8x2</CTD>
+      <Pitch>2</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>8.30</MajorDia>
+        <PitchDia>7.30</PitchDia>
+        <MinorDia>6.30</MinorDia>
+        <TapDrill>6.30</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>7.85</MajorDia>
+        <PitchDia>6.85</PitchDia>
+        <MinorDia>5.85</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>8.40</MajorDia>
+        <PitchDia>7.40</PitchDia>
+        <MinorDia>6.40</MinorDia>
+        <TapDrill>6.40</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>7.80</MajorDia>
+        <PitchDia>6.80</PitchDia>
+        <MinorDia>5.80</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

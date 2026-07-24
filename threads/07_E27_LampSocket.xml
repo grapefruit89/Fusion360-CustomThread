@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>E27_Edison_Lamp_Socket_3DPrint</Name>
+  <CustomName>[3D-Print]  E27 - Edison Lamp Socket</CustomName>
+  <Unit>mm</Unit>
+  <Angle>60</Angle>
+  <SortOrder>7</SortOrder>
+  <ThreadSize>
+    <Size>27</Size>
+    <Designation>
+      <ThreadDesignation>E27</ThreadDesignation>
+      <CTD>E27</CTD>
+      <Pitch>3.629</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>27.30</MajorDia>
+        <PitchDia>24.94</PitchDia>
+        <MinorDia>23.37</MinorDia>
+        <TapDrill>23.37</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>26.85</MajorDia>
+        <PitchDia>24.49</PitchDia>
+        <MinorDia>22.92</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>27.40</MajorDia>
+        <PitchDia>25.04</PitchDia>
+        <MinorDia>23.47</MinorDia>
+        <TapDrill>23.47</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>26.80</MajorDia>
+        <PitchDia>24.44</PitchDia>
+        <MinorDia>22.87</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

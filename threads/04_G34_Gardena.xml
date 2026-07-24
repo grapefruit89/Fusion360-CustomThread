@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>G3-4_Water_Gardena_3DPrint</Name>
+  <CustomName>[3D-Print]  G3/4" - Water / Gardena</CustomName>
+  <Unit>mm</Unit>
+  <Angle>55</Angle>
+  <SortOrder>4</SortOrder>
+  <ThreadSize>
+    <Size>26.441</Size>
+    <Designation>
+      <ThreadDesignation>G 3/4"</ThreadDesignation>
+      <CTD>G 3/4"</CTD>
+      <TPI>14</TPI>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>26.74</MajorDia>
+        <PitchDia>25.58</PitchDia>
+        <MinorDia>24.42</MinorDia>
+        <TapDrill>24.42</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>26.29</MajorDia>
+        <PitchDia>25.13</PitchDia>
+        <MinorDia>23.97</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>26.84</MajorDia>
+        <PitchDia>25.68</PitchDia>
+        <MinorDia>24.52</MinorDia>
+        <TapDrill>24.52</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>26.24</MajorDia>
+        <PitchDia>25.08</PitchDia>
+        <MinorDia>23.92</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

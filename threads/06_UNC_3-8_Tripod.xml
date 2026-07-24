@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>UNC_3-8_Pro_Tripod_3DPrint</Name>
+  <CustomName>[3D-Print]  3/8" - Pro Tripod</CustomName>
+  <Unit>mm</Unit>
+  <Angle>60</Angle>
+  <SortOrder>6</SortOrder>
+  <ThreadSize>
+    <Size>9.525</Size>
+    <Designation>
+      <ThreadDesignation>3/8"-16 UNC</ThreadDesignation>
+      <CTD>3/8-16UNC</CTD>
+      <TPI>16</TPI>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>9.83</MajorDia>
+        <PitchDia>8.79</PitchDia>
+        <MinorDia>8.11</MinorDia>
+        <TapDrill>8.11</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>9.38</MajorDia>
+        <PitchDia>8.34</PitchDia>
+        <MinorDia>7.66</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>9.93</MajorDia>
+        <PitchDia>8.89</PitchDia>
+        <MinorDia>8.21</MinorDia>
+        <TapDrill>8.21</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>9.33</MajorDia>
+        <PitchDia>8.29</PitchDia>
+        <MinorDia>7.61</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>UNC_1-4_Photo_Tripod_3DPrint</Name>
+  <CustomName>[3D-Print]  1/4" - Photo Tripod</CustomName>
+  <Unit>mm</Unit>
+  <Angle>60</Angle>
+  <SortOrder>5</SortOrder>
+  <ThreadSize>
+    <Size>6.35</Size>
+    <Designation>
+      <ThreadDesignation>1/4"-20 UNC</ThreadDesignation>
+      <CTD>1/4-20UNC</CTD>
+      <TPI>20</TPI>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>6.65</MajorDia>
+        <PitchDia>5.83</PitchDia>
+        <MinorDia>5.28</MinorDia>
+        <TapDrill>5.28</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>6.20</MajorDia>
+        <PitchDia>5.38</PitchDia>
+        <MinorDia>4.83</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>6.75</MajorDia>
+        <PitchDia>5.93</PitchDia>
+        <MinorDia>5.38</MinorDia>
+        <TapDrill>5.38</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>6.15</MajorDia>
+        <PitchDia>5.33</PitchDia>
+        <MinorDia>4.78</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

@@ -1,0 +1,40 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.url
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Obsidian (this folder may live inside a vault)
+.obsidian/
+
+# Fusion / CAD backups
+*.f3d.bak
+*.f3z.bak
+Backup/
+
+# Python (future add-in)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets — never commit
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+.env

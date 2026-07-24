@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>DIN477_CO2_3DPrint</Name>
+  <CustomName>[3D-Print]  DIN 477 - CO2 Gasgewinde</CustomName>
+  <Unit>mm</Unit>
+  <Angle>55</Angle>
+  <SortOrder>2</SortOrder>
+  <ThreadSize>
+    <Size>21.8</Size>
+    <Designation>
+      <ThreadDesignation>W 21,8 x 1/14</ThreadDesignation>
+      <CTD>W 21,8 x 1/14</CTD>
+      <TPI>14.0</TPI>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>22.10</MajorDia>
+        <PitchDia>20.94</PitchDia>
+        <MinorDia>19.78</MinorDia>
+        <TapDrill>19.78</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15mm (Tight)</Class>
+        <MajorDia>21.65</MajorDia>
+        <PitchDia>20.49</PitchDia>
+        <MinorDia>19.33</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>22.20</MajorDia>
+        <PitchDia>21.04</PitchDia>
+        <MinorDia>19.88</MinorDia>
+        <TapDrill>19.88</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20mm (Safe)</Class>
+        <MajorDia>21.60</MajorDia>
+        <PitchDia>20.44</PitchDia>
+        <MinorDia>19.28</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>
