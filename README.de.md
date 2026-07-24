@@ -83,6 +83,7 @@ Dazu:
 - 📐 [`examples/CO2-Gewindeschutzkappe.f3d`](examples/) — eine fertige Schutzkappe zum Anschauen
 - 🔍 [`tools/find-threaddata.bat`](tools/) — findet den ThreadData-Ordner der *laufenden* Fusion-Instanz
 - 🤖 [`docs/ai-assistant-prompt.de.md`](docs/) — Prompt, der jeden Chatbot zum Gewinde-Generator macht
+- 📚 [`legacy/`](legacy/) — die ursprüngliche Forum-Fassung samt Umbenennungs-Tabelle
 
 > [!TIP]
 > Datei **#8** ist die interessanteste. 33 Trapezgrößen mit **45° Flankenwinkel** — flachere

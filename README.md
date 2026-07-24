@@ -81,6 +81,7 @@ Plus:
 - 📐 [`examples/CO2-Gewindeschutzkappe.f3d`](examples/) — a finished protective cap to look at
 - 🔍 [`tools/find-threaddata.bat`](tools/) — finds the ThreadData folder of your *running* Fusion
 - 🤖 [`docs/ai-assistant-prompt.de.md`](docs/) — a system prompt that turns any chatbot into a thread generator
+- 📚 [`legacy/`](legacy/) — the original forum release plus a rename mapping table
 
 > [!TIP]
 > File **#8** is the one to look at first. 33 trapezoidal sizes at a **45° flank angle** —

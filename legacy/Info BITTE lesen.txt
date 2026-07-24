@@ -1,0 +1,49 @@
+﻿PROJEKT: [3D-Print] Custom Threads für Fusion 360
+===================================================
+
+WAS IST DAS?
+Diese XML-Dateien erweitern Fusion 360 um Gewindeprofile, die speziell für den FDM-3D-Druck optimiert wurden. Standard-Gewinde in Fusion sind für die Metallfertigung ausgelegt und oft zu stramm, da Kunststoff beim Drucken leicht expandiert. 
+
+Die Lösung für das "Verdreh-Problem":
+Im Forum (https://forum.drucktipps3d.de/forum/thread/45313-erhebung-entlang-pfad-verdreht-profil/) wird oft diskutiert, wie schwierig es ist, Gewinde manuell per "Sweep" zu erstellen, ohne dass sich das Profil verdreht. Diese XML-Dateien umgehen das Problem komplett: Das Gewinde wird mathematisch korrekt direkt über das "Gewinde"-Werkzeug generiert – kein manuelles Zeichnen oder Sweepen mehr nötig.
+
+HERLEITUNG & ENTSTEHUNG
+Dieses Projekt wurde unter intensiver Zuhilfenahme von KI erstellt, um die Brücke zwischen klassischer Mechanik und 3D-Druck zu schlagen. 
+Der Weg zum fertigen Paket:
+1. Analyse: Welche Gewinde fehlen in Fusion 360 für den Alltag (Sodastream, PET, Stativ)?
+2. Datenbank-Check: Wir haben die originalen "ThreadData"-Ordner von Autodesk analysiert und als Basis für unsere Modifikationen genutzt.
+3. Optimierung: Die Profile wurden so umgerechnet, dass die materialbedingte Ausdehnung beim FDM-Druck (0,15 mm / 0,20 mm) direkt im Gewindegang berücksichtigt wird.
+
+INHALT DES PAKETS:
+- [3D-Print] TR21x4 - Sodastream.xml
+- [3D-Print] W 21,8 x 1_14 - CO2 Gasgewinde.xml
+- [3D-Print] G3-4 - Water-Gardena.xml
+- [3D-Print] PCO1881 - PET Bottle.xml
+- [3D-Print] 1-4 - Photo Tripod.xml
+- [3D-Print] 3-8 - Pro Tripod.xml
+- [3D-Print] E27 - Edison Lamp Socket.xml (Rundprofil für Lampenfassungen)
+- [3D-Print] ISO Trapezoidal - Generic.xml
+- ThreadData-Finder.bat (Intelligentes Finder-Tool)
+- CO2 Gewindeschutzkappe.f3d (Beispieldatei zur Veranschaulichung)
+
+VERWENDUNG:
+1. Öffne Fusion 360 (Wichtig, damit das Tool den Pfad findet!).
+2. Führe die Datei "ThreadData-Finder.bat" aus.
+3. Das Tool findet die AKTIVE Installation, navigiert dorthin und öffnet den Ordner im Explorer.
+4. Kopiere die .xml Dateien aus diesem ZIP-Ordner in das geöffnete Fenster.
+5. Starte Fusion 360 neu.
+
+⚠️ WICHTIGE SICHERHEITSHINWEISE (BITTE LESEN!):
+Die Verwendung dieser Dateien erfolgt ausdrücklich auf EIGENE GEFAHR. Bitte schalte deinen gesunden Menschenverstand ein:
+
+1. KEINE TECHNISCHEN VERSCHRAUBUNGEN: Diese Gewinde sind ausschließlich für Schutzkappen, Staubschutz oder rein mechanische, unbelastete Spielereien gedacht.
+2. GEFAHR DURCH DRUCK: Gewinde für PET-Flaschen, Sodastream oder Gasflaschen (CO2) stehen im Original unter erheblichem Druck. Ein 3D-gedrucktes Teil aus Kunststoff kann diesen Belastungen NICHT standhalten. Es besteht erhebliche VERLETZUNGSGEFAHR durch berstende Teile. Nutze sie NIEMALS für druckführende Bauteile!
+3. ELEKTRISCHE SPANNUNG: Das E27-Gewinde darf niemals für echte stromführende Fassungen verwendet werden. Es besteht LEBENSGEFAHR durch Stromschlag oder Brand.
+4. HAFTUNG: Ich habe diese Dateien nach bestem Wissen erstellt, bin jedoch nicht allmächtig. Ich übernehme keinerlei Haftung für Schäden an Hardware, Material oder Personen.
+
+Wer sich unsicher ist: Nutze die Dateien bitte NICHT für sicherheitsrelevante Anwendungen!
+
+Sicherheit geht vor! Bitte prüfe die Dateien zur Sicherheit selbst bei:
+https://www.virustotal.com/gui/home/upload
+
+Viel Erfolg beim sicheren Konstruieren!
