@@ -87,6 +87,7 @@ Dazu:
 - 🔍 [`tools/find-threaddata.bat`](tools/) — findet den ThreadData-Ordner der *laufenden* Fusion-Instanz
 - 🤖 [`docs/ai-assistant-prompt.de.md`](docs/) — Prompt, der jeden Chatbot zum Gewinde-Generator macht
 - 📚 [`legacy/`](legacy/) — die ursprüngliche Forum-Fassung samt Umbenennungs-Tabelle
+- 📐 [`docs/profilgeometrie.de.md`](docs/profilgeometrie.de.md) — wie Fusion aus fünf Zahlen ein Profil macht, mit Gegenprobe an den Normwerten
 
 > [!TIP]
 > Datei **#8** ist die interessanteste. 33 Trapezgrößen mit **45° Flankenwinkel** — flachere
@@ -343,6 +344,13 @@ $$H = \frac{P}{2 \cdot \tan(A/2)}$$
 | `<ExternalOnly>` | blendet Innengewinde aus | für Gewinde, die es nur als Bolzen gibt |
 
 Harte Regel: `MajorDia > PitchDia > MinorDia`. Wer das verletzt, stülpt das Profil nach innen.
+
+**Ein Trapezgewinde ist nichts anderes als ein Spitzgewinde ohne Spitzen.** Die
+„verschiedenen Gewindearten" in Fusion sind kein Formenkatalog, sondern verschiedene Zahlen
+in derselben Formel. Nachgerechnet an unseren eigenen Dateien: die Kopf- und Fußfasen landen
+exakt auf 0,366·P (ISO-Trapez), P/8 und P/4 (ISO metrisch) bzw. P/6 (Whitworth) — siehe
+[`docs/profilgeometrie.de.md`](docs/profilgeometrie.de.md). Prüfen kannst du das selbst mit
+`python tools/show_profile.py threads/01_TR21x4_Sodastream.xml`.
 
 </details>
 
