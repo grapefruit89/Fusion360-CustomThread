@@ -31,7 +31,7 @@ KNOWN_ANGLES = {29.0, 30.0, 45.0, 55.0, 60.0}
 RANGES = {
     # Flankenwinkel in Grad. Unter 10 Grad ist das Profil eine Nadel,
     # ueber 120 Grad praktisch flach.
-    "angle":      (10.0, 25.0, 60.0, 120.0),
+    "angle":      (10.0, 25.0, 90.0, 120.0),
     # Nenndurchmesser in mm.
     "size_mm":    (0.5, 3.0, 200.0, 500.0),
     # Steigung in mm. Unter 0.2 mm kann kein Drucker, ueber 20 mm gibt es nicht.
@@ -155,8 +155,11 @@ def check_file(path: str, f: Findings, seen_names: dict, seen_orders: dict) -> N
     else:
         bounded(f, fn, "<Angle>", angle, "angle", " Grad")
         if angle not in KNOWN_ANGLES:
+            # Kein Fehler: Fusions Generator akzeptiert auch andere Winkel.
+            # dans98/Fusion-360-FDM-threads liefert 70, 80 und 90 Grad.
             f.warn(fn, f"<Angle>{angle:g}</Angle> ist kein Winkel aus Fusions "
-                       f"Standarddateien {sorted(KNOWN_ANGLES)}")
+                       f"Standarddateien {sorted(KNOWN_ANGLES)} - funktioniert, "
+                       f"aber bitte begruenden")
 
     order = num(root.find("SortOrder"))
     if order is None:

@@ -14,5 +14,6 @@ soll die Antwort hier finden statt sie zu erraten.
 | [0006](0006-experimental-ordner.md) | Unsichere Maße in `experimental/` | ✅ angenommen |
 | [0007](0007-ki-recherchiert-rechner-rechnet.md) | KI recherchiert, Rechner rechnet | ✅ angenommen |
 | [0008](0008-web-rechner.md) | Web-Rechner als Hauptweg für Endnutzer | 📌 vorgeschlagen |
+| [0009](0009-dateioperationen.md) | Regeln für Dateioperationen, aus ThreadKeepers Fehlern | ✅ angenommen |
 
 **Status:** 📌 vorgeschlagen · ✅ angenommen · ⛔ verworfen · 🔄 ersetzt durch …

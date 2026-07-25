@@ -147,10 +147,16 @@ kostenloses Fusion-Add-in (MIT), das Gewindedefinitionen **nach jedem Fusion-Upd
 automatisch wiederherstellt**. Es bringt selbst keine Gewinde mit — dafür gibt es dieses
 Projekt.
 
-1. ThreadKeeper installieren (Autodesk App Store oder GitHub Releases).
+1. ThreadKeeper installieren — **bevorzugt von [GitHub Releases](https://github.com/thomasa88/ThreadKeeper/releases)**, nicht aus dem Autodesk App Store.
 2. *UTILITIES → THREADKEEPER → Open ThreadKeeper directory*
 3. Inhalt von `threads/` dort ablegen.
 4. Fertig. Bei jedem Fusion-Start werden sie neu eingespielt.
+
+> [!TIP]
+> **Warum GitHub statt App Store:** Autodesks Freigabe dauert Wochen. Anfang 2025 war die
+> App-Store-Fassung über einen Monat lang defekt (Fehlerdialog beim Start), während auf
+> GitHub längst der Fix lag. Wenn ThreadKeeper bei dir einen Python-Fehler wirft, hol dir
+> zuerst die aktuelle GitHub-Version — die App-Store-Version muss dafür deinstalliert werden.
 
 </details>
 

@@ -135,7 +135,9 @@ Ein Gewinde kommt in `threads/`, wenn **alle** Punkte erfüllt sind:
 - [ ] Es gibt ein **reales Gegenstück**, das Privatleute besitzen — oder eine belegte,
       häufige FDM-Nachfrage
 - [ ] Maße stammen aus Norm, Datenblatt oder Messung (§ 1)
-- [ ] Der Flankenwinkel ist einer der fünf, die Fusion kennt: 29°, 30°, 45°, 55°, 60°
+- [ ] Der Flankenwinkel ist einer der fünf aus Fusions Standarddateien (29°, 30°, 45°,
+      55°, 60°) — oder ein anderer **mit Begründung**. Fusions Generator akzeptiert auch
+      70°, 80° und 90°, wie `dans98/Fusion-360-FDM-threads` zeigt.
 - [ ] Es ist kein weiteres generisches Metric-Gewinde (§ 9)
 - [ ] Der Hauptzweck ist nicht druck-, strom- oder lastführend (§ 2)
 - [ ] Validator grün
@@ -152,7 +154,7 @@ Aus dem [Review vom Juli 2026](03-review-2026-07.md) übernommen:
 | 2 | M42 × 1 (T2), M48 × 0,75 | 60° | Norm vorhanden, Astro/Foto stark nachgefragt |
 | 3 | PCO 1810 | 60° | Steigung 3,18 mm belegt, Durchmesser unsicher → messen |
 | 4 | E14 | 60° | Ergänzung zu E27 |
-| 5 | PG7 – PG16 (Kabelverschraubung) | 80°(!) | **Prüfen**: PG hat 80° Flankenwinkel — Fusion kennt den nicht. Ggf. nicht umsetzbar. |
+| 5 | PG7 – PG16 (Kabelverschraubung) | 80° | Winkel ist machbar (dans98 nutzt 70/80/90°). Es fehlen belegte Maße. |
 | — | 28-400 / 38-400 / 45-400 | 60° | Herstellerabhängig, keine öffentliche Norm → `experimental/` |
 | — | Weitere Filtergewinde (M52–M82) | 60° | Nach Bedarf, auf Zuruf |
 

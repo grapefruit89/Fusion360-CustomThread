@@ -72,6 +72,15 @@ Konkret:
 - Unser Alleinstellungsmerkmal — geprüfte Daten und geprüfter Import — bleibt bei uns
 
 **Schlecht:**
+- **Das Risiko ist größer, als es zunächst aussah.** ThreadKeeper hat sechs offene Issues,
+  darunter Installationsprobleme unter macOS (#14), Abstürze (#10, #13) und die Robustheit
+  des Kopierbefehls (#9). Die Ursachen sind in [ADR-0009](0009-dateioperationen.md)
+  aufgearbeitet — sie liegen an Fusion, nicht an mangelnder Sorgfalt, träfen uns also
+  genauso. Unser Fallback muss deshalb von Anfang an belastbar sein, nicht nur eine Notlösung.
+- **Die App-Store-Fassung hinkt hinterher.** Autodesks Freigabe dauert Wochen; im Februar 2025
+  war die App-Store-Version über einen Monat lang kaputt, während GitHub bereits den Fix
+  hatte. Unsere README muss darauf hinweisen, dass bei Problemen zuerst die GitHub-Release zu
+  probieren ist.
 - Abhängigkeit von einem Projekt mit geringer Aktivität. Fällt ThreadKeeper dauerhaft aus,
   muss der Fallback-Pfad wachsen. Das ist beherrschbar, weil er ohnehin existiert.
 - Die Erkennung von ThreadKeeper ist eine Kopplung an dessen Ordnerstruktur und kann brechen.

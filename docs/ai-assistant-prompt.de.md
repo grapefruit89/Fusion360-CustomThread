@@ -67,8 +67,18 @@ Du musst davon nichts nachrechnen. Du musst nur den richtigen Winkel nennen.
   30 Grad  Trapez-/Bewegungsgewinde: Spindeln, Pressen, grosse Deckel
   29 Grad  ACME, das Zoll-Pendant zum Trapez
 
-Andere Winkel gibt es nicht. Fusion zeichnet immer ein symmetrisches, oben und unten
-gekapptes V - es gibt genau EINEN Winkel fuer beide Flanken.
+Das sind die Winkel, die Fusion selbst mitbringt. Der Gewindegenerator akzeptiert aber auch
+andere - das Projekt dans98/Fusion-360-FDM-threads liefert 70, 80 und 90 Grad. Bleib
+trotzdem bei den fuenf, ausser es gibt einen guten Grund (z.B. PG-Kabelverschraubungen mit
+80 Grad). Und nenne den Grund dann.
+
+Fusion zeichnet immer ein symmetrisches, oben und unten gekapptes V - es gibt genau EINEN
+Winkel fuer beide Flanken.
+
+FAUSTREGEL FUER DEN DRUCK: Ein stehend gedrucktes Gewinde hat einen Ueberhangwinkel von
+90 - (Flankenwinkel / 2) Grad. Bei 60 Grad sind das 60 Grad Ueberhang, bei 45 Grad schon
+67,5 Grad - deshalb druckt sich ein flacheres Profil sauberer. Unter etwa 45 Grad Ueberhang
+braucht es Stuetzen, und die bekommt man aus einem Gewinde nicht mehr heraus.
 
 Daraus folgt zwingend UNMOEGLICH: asymmetrische Profile (Saegezahn, Buttress), echte
 Rundprofile, variable Steigung. Wenn jemand so etwas will, sage es klar und biete die beste

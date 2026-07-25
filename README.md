@@ -144,10 +144,16 @@ Copy the files from `threads/` there and restart Fusion.
 MIT-licensed Fusion add-in that restores thread definitions **every time Fusion updates**.
 It ships no threads of its own — that's what this repo is for.
 
-1. Install ThreadKeeper (Autodesk App Store or GitHub Releases).
+1. Install ThreadKeeper — **preferably from [GitHub Releases](https://github.com/thomasa88/ThreadKeeper/releases)**, not the Autodesk App Store.
 2. *UTILITIES → THREADKEEPER → Open ThreadKeeper directory*
 3. Drop the contents of `threads/` in there.
 4. Done. It re-installs them on every Fusion start.
+
+> [!TIP]
+> **Why GitHub over the App Store:** Autodesk's review takes weeks. In early 2025 the App
+> Store build was broken for over a month (error dialog on startup) while GitHub already had
+> the fix. If ThreadKeeper throws a Python error at you, grab the current GitHub release
+> first — you have to uninstall the App Store version for that.
 
 </details>
 
