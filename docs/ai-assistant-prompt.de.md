@@ -49,14 +49,25 @@ der Rechner das uebernimmt und warum das zuverlaessiger ist.
 
 # WAS DER RECHNER AUS DEINEM REZEPT MACHT
 
-Er erzeugt sechs Toleranzklassen mit je Innen- und Aussengewinde und allen Durchmessern.
-Die Profilform leitet er aus dem Flankenwinkel ab:
+Er erzeugt die Toleranzklassen mit je Innen- und Aussengewinde und allen Durchmessern.
+Du musst nichts davon nachrechnen.
 
-  60 Grad -> ISO-Innengewindegeometrie
-  55 Grad -> Whitworth
-  30 / 45 / 29 Grad -> Trapez
+Die Profilform beschreibt er ueber die KOPF- UND FUSSFASE - also die flachen Stuecke oben
+und unten am Gewindegang, als Vielfaches der Steigung P. Das ist die Sprache, in der die
+Normen selbst formuliert sind:
 
-Du musst davon nichts nachrechnen. Du musst nur den richtigen Winkel nennen.
+  iso-metric        Kopf P/8, Fuss P/4       -> metrisch, UNC/UNF, die meisten 60-Grad-Gewinde
+  whitworth         Kopf P/6, Fuss P/6       -> G-Gewinde, Rohr, CO2 (55 Grad)
+  iso-trapezoidal   Kopf 0.366*P, Fuss dito  -> Trapezgewinde TR (30 Grad)
+  acme              wie Trapez               -> ACME (29 Grad)
+  fdm-45            Kopf 0.293*P, Fuss dito  -> unsere druckfreundliche Variante (45 Grad)
+  dans98            Kopf P/4, Fuss P/4       -> tieferes Trapez, auch fuer 70-90 Grad
+
+Ohne Angabe waehlt der Rechner die Familie passend zum Winkel. Du musst 'profile' also nur
+setzen, wenn du bewusst davon abweichst.
+
+Ein Trapezgewinde ist uebrigens nichts anderes als ein Spitzgewinde mit grossen Fasen -
+es ist immer dieselbe Grundform.
 
 # DIE 5 FLANKENWINKEL, DIE FUSION KENNT
 
@@ -153,8 +164,12 @@ Ohne Punkt 4 leitet der Rechner die Tiefe aus Winkel und Steigung ab. Das reicht
 Die eine Frage, die fast immer noetig ist:
   "Druckst du nur ein Teil und schraubst es auf etwas Echtes - oder beide Teile selbst?"
 
-Sie aendert das Rezept NICHT. Aber sie entscheidet, welche der sechs Klassen der Nutzer
-spaeter in Fusion waehlt, und das sagst du ihm am Ende.
+Wenn die Antwort eindeutig ist, setze 'cases' im Rezept entsprechend - dann bekommt der
+Nutzer nur die drei Klassen, die er wirklich braucht, statt sechs. Ist er unsicher, lass
+'cases' weg; dann sind alle sechs dabei.
+
+Eigene Spielwerte sind erlaubt: Wer 0.12 will, bekommt 0.12. Sag dazu, dass die drei
+Standardwerte erprobt sind und alles darunter oder darueber auf eigenes Risiko geht.
 
 # AUSGABEFORMAT
 
@@ -174,12 +189,40 @@ Rezeptfelder:
   unit         "mm"
   angle        einer der fuenf Winkel
   sort_order   201-299. Nimm 250, wenn du nichts Besseres weisst.
+
+  profile      OPTIONAL. Eine der Familien oben. Ohne Angabe passend zum Winkel.
+  clearances   OPTIONAL. Liste der Spielwerte in mm, z.B. [0.10, 0.15, 0.20]
+               Ohne Angabe nimmt der Rechner genau diese drei.
+  cases        OPTIONAL. ["real"] = nur ein Teil gedruckt, Gegenstueck ist echt
+               ["both"] = beide Teile gedruckt
+               ["real", "both"] = beides (Standard, ergibt 6 Klassen)
+
   [[size]]     ein Block je Groesse
     designation  Klartextbezeichnung
     ctd          Kurzform ohne Leerzeichen
     nominal      Nenn-Aussendurchmesser in mm
     pitch ODER tpi   Steigung in mm oder Gaenge pro Zoll - NIE beides
-    minor        optional, Kerndurchmesser, wenn gemessen
+
+# WIE GENAU DU DAS PROFIL BESCHREIBST - DREI STUFEN
+
+Nimm immer die genaueste Stufe, fuer die du BELEGTE Werte hast. Rate nie eine Stufe hoch.
+
+  Stufe 1 - nur nominal + pitch + angle
+    Der Rechner nimmt die Profilfamilie zum Winkel. Reicht fuer alles Genormte.
+    Das ist der Normalfall.
+
+  Stufe 2 - zusaetzlich 'profile' oder 'crest_flat' / 'root_flat'
+    Wenn du weisst, dass das Gewinde einer anderen Familie folgt, oder wenn eine Quelle
+    die Fasen direkt angibt. crest_flat und root_flat sind Vielfache der Steigung,
+    also z.B. crest_flat = 0.125 fuer P/8. Beide muessen zusammen angegeben werden.
+
+  Stufe 3 - 'minor' (und optional 'pitch_dia') in Millimetern
+    Die genaueste Stufe: absolute Masse aus Norm, Datenblatt oder Messung.
+    Der Rechner uebernimmt sie unveraendert und rechnet nur noch die Toleranzen.
+    Nimm das immer, wenn du belastbare Zahlen fuer Kern- und Flankendurchmesser hast.
+
+Merke: nominal, minor und pitch_dia sind ABSOLUTE Masse in Millimetern.
+crest_flat und root_flat sind VIELFACHE der Steigung.
 
 # SICHERHEIT - NICHT VERHANDELBAR
 

@@ -86,6 +86,7 @@ Plus:
 - 🤖 [`docs/ai-assistant-prompt.de.md`](docs/) — a system prompt that turns any chatbot into a thread generator
 - 📚 [`legacy/`](legacy/) — the original forum release plus a rename mapping table
 - 📐 [`docs/profilgeometrie.de.md`](docs/profilgeometrie.de.md) — how Fusion turns five numbers into a profile, verified against the standards (German)
+- 🔗 [`docs/quellen/`](docs/quellen/) — sources, related projects and recurring failure patterns (German)
 
 > [!TIP]
 > File **#8** is the one to look at first. 33 trapezoidal sizes at a **45° flank angle** —

@@ -71,6 +71,20 @@ def load_recipe(text: str) -> dict:
                     f"Nimm einen Literal-String mit einfachen Anfuehrungszeichen: "
                     f"{key} = '{inner}'")
             current[key] = inner
+        elif value.startswith("[") and value.endswith("]"):
+            items = [v.strip() for v in value[1:-1].split(",") if v.strip()]
+            out = []
+            for it in items:
+                if it[:1] in ('"', "'") and it[-1:] == it[:1]:
+                    out.append(it[1:-1])
+                else:
+                    try:
+                        out.append(float(it))
+                    except ValueError as exc:
+                        raise TomlError(
+                            f"Zeile {lineno}: {it!r} in {key} ist weder Zahl "
+                            f"noch Text in Anfuehrungszeichen") from exc
+            current[key] = out
         elif value in ("true", "false"):
             current[key] = value == "true"
         else:
@@ -84,31 +98,92 @@ def load_recipe(text: str) -> dict:
 # Die sechs Toleranzklassen. delta = Versatz je Seite in mm.
 # Siehe docs/spec/adr/0002-sechs-toleranzklassen.md
 # --------------------------------------------------------------------------
-CLASSES = [
-    ("0.10 mm - stramm (gegen echtes Teil)",   D("0.10")),
-    ("0.15 mm - Standard (gegen echtes Teil)", D("0.15")),
-    ("0.20 mm - locker (gegen echtes Teil)",   D("0.20")),
-    ("0.10 mm - stramm (beide gedruckt)",      D("0.05")),
-    ("0.15 mm - Standard (beide gedruckt)",    D("0.075")),
-    ("0.20 mm - locker (beide gedruckt)",      D("0.10")),
-]
+DEFAULT_CLEARANCES = [D("0.10"), D("0.15"), D("0.20")]
+DEFAULT_CASES = ["real", "both"]
+
+# Gelaeufige Werte bekommen ein Adjektiv, damit der Nutzer nach Gefuehl waehlen
+# kann statt nach Zahl. Alles andere laeuft ohne Adjektiv.
+ADJECTIVE = {D("0.10"): "stramm", D("0.15"): "Standard", D("0.20"): "locker"}
+
+CASE_LABEL = {"real": "gegen echtes Teil", "both": "beide gedruckt"}
+
+# Sinnvoller Bereich fuer FDM. Ausserhalb wird gewarnt, aber nicht verweigert -
+# wer 0.5 mm will, bekommt 0.5 mm.
+CLEARANCE_SANE = (D("0.05"), D("0.40"))
+
+
+def build_classes(clearances: list[D], cases: list[str],
+                  explain: list[str]) -> list[tuple[str, D]]:
+    """Erzeugt (Beschriftung, Versatz-je-Seite) fuer jede Kombination.
+
+    'real'  = nur ein Teil wird gedruckt, das Gegenstueck ist echt.
+              Die gedruckte Seite traegt das volle Spiel -> delta = Spiel.
+    'both'  = beide Teile gedruckt, jede Seite die Haelfte -> delta = Spiel/2.
+    """
+    out: list[tuple[str, D]] = []
+    for case in cases:
+        if case not in CASE_LABEL:
+            raise RecipeError(
+                f"Unbekannter Fall {case!r} - erlaubt sind "
+                f"{' und '.join(repr(c) for c in CASE_LABEL)}")
+        for c in clearances:
+            adj = ADJECTIVE.get(c)
+            name = f"{c:.2f} mm" + (f" - {adj}" if adj else "")
+            label = f"{name} ({CASE_LABEL[case]})"
+            delta = c if case == "real" else r(c / 2)
+            out.append((label, delta))
+            if not (CLEARANCE_SANE[0] <= c <= CLEARANCE_SANE[1]):
+                explain.append(
+                    f"  ACHTUNG Spiel {c} mm liegt ausserhalb des ueblichen "
+                    f"Bereichs {CLEARANCE_SANE[0]}-{CLEARANCE_SANE[1]} mm - "
+                    f"wird erzeugt, aber auf eigene Gefahr")
+    if not out:
+        raise RecipeError("Keine Toleranzklassen - clearances oder cases ist leer")
+    return out
 
 # --------------------------------------------------------------------------
-# Profilform je Flankenwinkel, als Vielfaches der Steigung P.
-#   a = MajorDia - PitchDia   (Durchmesserdifferenz, nicht radial)
-#   b = PitchDia - MinorDia
+# Profilfamilien, definiert ueber Kopf- und Fussfase als Vielfaches der
+# Steigung P. Das ist die Sprache, in der die Normen selbst formuliert sind -
+# und daraus folgt alles andere:
 #
-# 60 Grad: ISO-Innengewindegeometrie. D2 = D - 0.64952*P, D1 = D - 1.0825*P
-# 55 Grad: Whitworth, Profiltiefe 0.640327*P, Flankenlinie mittig
-# 30/45/29 Grad: Trapez-Konvention, Gesamttiefe = P, Flankenlinie mittig
+#     a = MajorDia - PitchDia = (P/2 - c) / tan(A/2)
+#     b = PitchDia - MinorDia = (P/2 - f) / tan(A/2)
+#
+# Nachgerechnet: ISO metrisch mit c=P/8, f=P/4 bei 60 Grad ergibt exakt
+# a = 0.64952*P und b = 0.43301*P, also die bekannten ISO-Konstanten.
+# Siehe docs/profilgeometrie.de.md
 # --------------------------------------------------------------------------
-PROFILE = {
-    D("60"): (D("0.64952"), D("0.43301")),
-    D("55"): (D("0.640327"), D("0.640327")),
-    D("30"): (D("0.5"), D("0.5")),
-    D("45"): (D("0.5"), D("0.5")),
-    D("29"): (D("0.5"), D("0.5")),
+PROFILES = {
+    #  Name              Kopffase c/P   Fussfase f/P   Beleg
+    "iso-metric":       (D("0.125"),   D("0.25")),    # P/8 und P/4
+    "whitworth":        (D("0.166667"), D("0.166667")),  # P/6 oben und unten
+    "iso-trapezoidal":  (D("0.366"),   D("0.366")),   # DIN 103
+    "acme":             (D("0.366"),   D("0.366")),   # wie Trapez, 29 Grad
+    "fdm-45":           (D("0.29289"), D("0.29289")), # entspricht Tiefe = P/2
+    "dans98":           (D("0.25"),    D("0.25")),    # P/4, tiefer als Norm
 }
+
+# Welche Familie ohne Angabe zum Winkel gehoert.
+ANGLE_DEFAULT_PROFILE = {
+    D("60"): "iso-metric",
+    D("55"): "whitworth",
+    D("30"): "iso-trapezoidal",
+    D("29"): "acme",
+    D("45"): "fdm-45",
+}
+
+
+def flats_to_ab(crest: D, root: D, pitch: D, angle: D) -> tuple[D, D]:
+    """Kopf- und Fussfase -> a und b, ueber a = (P/2 - c) / tan(A/2)."""
+    t = D(str(math.tan(math.radians(float(angle) / 2))))
+    c, f = crest * pitch, root * pitch
+    a = (pitch / 2 - c) / t
+    b = (pitch / 2 - f) / t
+    if a <= 0 or b <= 0:
+        raise RecipeError(
+            f"Kopffase {c:.3f} mm bzw. Fussfase {f:.3f} mm ist groesser als die halbe "
+            f"Steigung {pitch / 2:.3f} mm - daraus laesst sich kein Profil bauen.")
+    return r(a), r(b)
 
 Q = D("0.001")
 
@@ -130,7 +205,8 @@ class RecipeError(Exception):
     pass
 
 
-def resolve_size(size: dict, angle: D, explain: list[str]) -> dict:
+def resolve_size(size: dict, angle: D, profile_name: str | None,
+                 explain: list[str]) -> dict:
     """Ergaenzt fehlende Masse aus Winkel und Steigung."""
     name = size.get("designation", "?")
 
@@ -158,18 +234,37 @@ def resolve_size(size: dict, angle: D, explain: list[str]) -> dict:
                            f"({nominal} + {minor0}) / 2 = {pitch0}")
         explain.append(f"  Profil aus gemessenen Werten uebernommen")
     else:
-        if angle not in PROFILE:
-            raise RecipeError(
-                f"{name}: fuer Winkel {angle} gibt es keine hinterlegte Profilform. "
-                f"Bekannt: {', '.join(fmt(a) for a in PROFILE)}. "
-                f"Bitte 'minor' (und optional 'pitch_dia') explizit angeben.")
-        fa, fb = PROFILE[angle]
-        a, b = r(fa * pitch), r(fb * pitch)
+        # Fasen: explizit im Rezept, ueber eine benannte Familie, oder ueber den Winkel.
+        if "crest_flat" in size or "root_flat" in size:
+            if not ("crest_flat" in size and "root_flat" in size):
+                raise RecipeError(
+                    f"{name}: crest_flat und root_flat muessen beide angegeben werden.")
+            crest, root = D(str(size["crest_flat"])), D(str(size["root_flat"]))
+            src = "aus dem Rezept"
+        else:
+            fam = size.get("profile") or profile_name
+            if not fam:
+                fam = ANGLE_DEFAULT_PROFILE.get(angle)
+            if not fam:
+                raise RecipeError(
+                    f"{name}: fuer Winkel {fmt(angle)} Grad ist keine Profilfamilie "
+                    f"hinterlegt. Gib entweder 'profile' an ({', '.join(PROFILES)}), "
+                    f"oder 'crest_flat'/'root_flat', oder 'minor' direkt.")
+            if fam not in PROFILES:
+                raise RecipeError(
+                    f"{name}: unbekannte Profilfamilie {fam!r}. "
+                    f"Bekannt: {', '.join(PROFILES)}")
+            crest, root = PROFILES[fam]
+            src = f"Familie {fam!r}"
+
+        a, b = flats_to_ab(crest, root, pitch, angle)
         pitch0 = r(nominal - a)
         minor0 = r(pitch0 - b)
         H = pitch / (2 * D(str(math.tan(math.radians(float(angle) / 2)))))
         explain.append(f"  Theoretische Profilhoehe H = P / (2*tan(A/2)) = {r(H)} mm")
-        explain.append(f"  Profil fuer {fmt(angle)} Grad: a = {fa}*P = {a}, b = {fb}*P = {b}")
+        explain.append(f"  Fasen {src}: Kopf {crest}*P = {r(crest * pitch)} mm, "
+                       f"Fuss {root}*P = {r(root * pitch)} mm")
+        explain.append(f"  -> a = (P/2 - c)/tan(A/2) = {a}, b = {b}")
         explain.append(f"  -> Major {nominal} / Pitch {pitch0} / Minor {minor0} (Nennmass)")
 
     if not (nominal > pitch0 > minor0):
@@ -207,6 +302,14 @@ def build(recipe: dict, explain: list[str]) -> str:
     if not sizes:
         raise RecipeError("Kein [[size]]-Block im Rezept")
 
+    raw_cl = recipe.get("clearances")
+    clearances = [D(str(c)) for c in raw_cl] if raw_cl else list(DEFAULT_CLEARANCES)
+    cases = recipe.get("cases") or list(DEFAULT_CASES)
+    classes = build_classes(clearances, cases, explain)
+    explain.append(f"Toleranzklassen: {len(classes)} "
+                   f"({', '.join(str(c) for c in clearances)} mm x "
+                   f"{', '.join(cases)})")
+
     out = ['<?xml version="1.0" encoding="UTF-8"?>', "<ThreadType>",
            f"  <Name>{esc(recipe['name'])}</Name>",
            f"  <CustomName>{esc(recipe['custom_name'])}</CustomName>",
@@ -217,7 +320,7 @@ def build(recipe: dict, explain: list[str]) -> str:
 
     for raw in sizes:
         explain.append(f"\n{raw.get('designation', '?')}:")
-        s = resolve_size(raw, angle, explain)
+        s = resolve_size(raw, angle, recipe.get("profile"), explain)
         out.append("  <ThreadSize>")
         out.append(f"    <Size>{fmt(s['nominal'])}</Size>")
         out.append("    <Designation>")
@@ -226,7 +329,7 @@ def build(recipe: dict, explain: list[str]) -> str:
         tag, val = s["pitch_tag"]
         out.append(f"      <{tag}>{val}</{tag}>")
 
-        for label, delta in CLASSES:
+        for label, delta in classes:
             for gender, sign in (("internal", 1), ("external", -1)):
                 if recipe.get("external_only") and gender == "internal":
                     continue

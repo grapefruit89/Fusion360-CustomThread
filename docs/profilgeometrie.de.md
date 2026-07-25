@@ -108,6 +108,47 @@ $$\text{Überhang} = 90^\circ - \frac{A}{2}$$
 
 — bei 60° sind das 60°, bei 45° schon 67,5°.
 
+## Die Fasen sind das Primitive
+
+Der Rechner arbeitet deshalb **mit den Fasen**, nicht mit abgeleiteten Konstanten:
+
+$$a = \frac{P/2 - c}{\tan(A/2)} \qquad b = \frac{P/2 - f}{\tan(A/2)}$$
+
+Setzt man die Normfasen ein, fallen exakt die bekannten Konstanten heraus:
+
+| Familie | c/P | f/P | Winkel | ergibt a/P | bekannt als |
+|---|---:|---:|---:|---:|---|
+| `iso-metric` | 1/8 | 1/4 | 60° | **0,64952** | ISO-Formel `d₂ = d − 0,64952·P` |
+| `whitworth` | 1/6 | 1/6 | 55° | **0,640327** | Whitworth-Profiltiefe |
+| `iso-trapezoidal` | 0,366 | 0,366 | 30° | **0,5** | Tiefe = P/2 |
+| `fdm-45` | 0,293 | 0,293 | 45° | **0,5** | Tiefe = P/2 |
+| `dans98` | 1/4 | 1/4 | 50–90° | je nach Winkel | Fasen = P/4 |
+
+Das ist mehr als Kosmetik: Die Fasen sind die Sprache, in der die Normen formuliert sind,
+und sie gelten für **jeden** Winkel. Die Konstante 0,64952 dagegen gilt nur für 60°. Wer ein
+80°-Profil braucht, kann `dans98` nehmen oder die Fasen direkt angeben — es muss nichts neu
+hergeleitet werden.
+
+Im Rezept:
+
+```toml
+angle   = 80
+profile = "dans98"          # oder direkt:
+# crest_flat = 0.25
+# root_flat  = 0.25
+```
+
+## Drei Stufen der Genauigkeit
+
+| Stufe | Was im Rezept steht | Wann |
+|:-:|---|---|
+| 1 | `nominal`, `pitch`, `angle` | Normalfall. Familie folgt aus dem Winkel. |
+| 2 | zusätzlich `profile` oder `crest_flat`/`root_flat` | Andere Familie, oder Quelle nennt die Fasen |
+| 3 | `minor` (und optional `pitch_dia`) in mm | **Genaueste Stufe.** Absolute Maße aus Norm oder Messung — der Rechner übernimmt sie unverändert und rechnet nur noch die Toleranzen. |
+
+Stufe 3 ist der Grund, warum nichts fest verdrahtet sein muss: Wer belastbare Zahlen hat,
+gibt sie an, und keine Annahme des Rechners kommt mehr zum Tragen.
+
 ## Nachrechnen
 
 Die Tabelle oben stammt nicht aus einer Quelle, sondern aus den Dateien selbst:

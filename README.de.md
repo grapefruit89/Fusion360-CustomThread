@@ -88,6 +88,7 @@ Dazu:
 - 🤖 [`docs/ai-assistant-prompt.de.md`](docs/) — Prompt, der jeden Chatbot zum Gewinde-Generator macht
 - 📚 [`legacy/`](legacy/) — die ursprüngliche Forum-Fassung samt Umbenennungs-Tabelle
 - 📐 [`docs/profilgeometrie.de.md`](docs/profilgeometrie.de.md) — wie Fusion aus fünf Zahlen ein Profil macht, mit Gegenprobe an den Normwerten
+- 🔗 [`docs/quellen/`](docs/quellen/) — alle Quellen, Projekte im Umfeld und wiederkehrende Fehlermuster
 
 > [!TIP]
 > Datei **#8** ist die interessanteste. 33 Trapezgrößen mit **45° Flankenwinkel** — flachere

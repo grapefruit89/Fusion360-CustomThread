@@ -75,3 +75,29 @@ solange die Streuung des Druckers größer ist als der Abstand zwischen den Stuf
   passt — genau der Check, der den ursprünglichen Fehler sofort gefunden hätte.
 - Bei Durchmessern über ~40 mm kann eine vierte Stufe `0.30 locker` sinnvoll sein, weil der
   Schwund beim Abkühlen dazukommt.
+
+---
+
+## Nachtrag 25.07.2026 — Klassen sind konfigurierbar
+
+Sechs Klassen sind der **Standard**, nicht mehr die einzige Möglichkeit. Der Rechner nimmt
+sie aus dem Rezept:
+
+```toml
+clearances = [0.10, 0.15, 0.20]   # frei waehlbar
+cases      = ["real", "both"]     # oder nur eines davon
+```
+
+Ohne Angabe bleibt es bei drei Spielwerten × zwei Fällen = sechs Klassen.
+
+**Warum das sinnvoll ist:** Wer sicher weiß, dass er nur einen Deckel auf eine echte Flasche
+schraubt, braucht die Klassen für „beide gedruckt" nie. Drei Einträge statt sechs machen das
+Dropdown halb so lang und die Wahl eindeutig.
+
+**Eigene Werte sind erlaubt.** Wer 0,12 mm will, bekommt 0,12 mm. Werte außerhalb von
+0,05–0,40 mm werden im Rechenweg angemerkt, aber erzeugt — die drei Standardwerte sind eine
+Empfehlung, keine Schranke. Bekannte Werte behalten ihr Adjektiv (`0.15 mm - Standard`),
+unbekannte laufen ohne (`0.12 mm`).
+
+Der Validator prüft weiterhin, ob die Zahl in der Beschriftung zum tatsächlichen Spiel passt —
+das gilt für eigene Werte genauso.
