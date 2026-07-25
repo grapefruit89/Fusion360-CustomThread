@@ -61,7 +61,16 @@ def load_recipe(text: str) -> dict:
         key, _, value = line.partition("=")
         key, value = key.strip(), value.strip()
         if value[:1] in ('"', "'") and value[-1:] == value[:1] and len(value) >= 2:
-            current[key] = value[1:-1]
+            inner = value[1:-1]
+            # Ein " im Inneren eines "..."-Strings ist kein gueltiges TOML.
+            # tomllib wuerde hier abbrechen - der Mini-Parser meldet dasselbe,
+            # damit beide Wege sich gleich verhalten.
+            if value[0] == '"' and '"' in inner:
+                raise TomlError(
+                    f"Zeile {lineno}: {key} enthaelt ein Anfuehrungszeichen. "
+                    f"Nimm einen Literal-String mit einfachen Anfuehrungszeichen: "
+                    f"{key} = '{inner}'")
+            current[key] = inner
         elif value in ("true", "false"):
             current[key] = value == "true"
         else:
