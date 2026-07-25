@@ -2,6 +2,8 @@
 
 **Status:** 📌 vorgeschlagen · **Datum:** 2026-07-25
 
+> Bauplan: [04 — Architektur Web-Rechner](../04-architektur-webrechner.md)
+
 ## Kontext
 
 > Marcus Wakefields nicht-quelloffenes Werkzeug ist der Beleg für diese Lücke →
@@ -62,9 +64,10 @@ CI und Beitragende, in JavaScript für Endnutzer. Zwei Implementierungen driften
 erfahrungsgemäß auseinander.
 
 **Gegenmaßnahme:** Die Regeln wandern in eine gemeinsame Datendatei `tools/rules.json`
-(sechs Klassen mit ihren δ, Profilfaktoren je Winkel, Plausibilitätsgrenzen). Beide Seiten
-lesen sie, statt sie zu enthalten. Für die Offline-HTML wird die JSON beim Bauen eingebettet;
-ein CI-Schritt prüft, dass die eingebettete Fassung mit der Quelle übereinstimmt.
+(Profilfamilien über ihre Fasen, Standardklassen, Plausibilitätsgrenzen). Beide Seiten lesen
+sie, statt sie zu enthalten. In der HTML liegt der Inhalt wörtlich in einem
+`<script type="application/json">`-Block — kein Build-Schritt, weil `fetch()` unter `file://`
+scheitert. Ein CI-Schritt prüft, dass beide Fassungen übereinstimmen.
 
 Damit bleibt genau eine Stelle, an der eine Toleranzklasse geändert wird.
 
@@ -91,9 +94,9 @@ Ausdrücklich **nicht**:
 
 **Schlecht:**
 - Zwei Implementierungen der Rechenregeln, abgesichert durch `rules.json` und CI
-- JavaScript hat keine `Decimal`-Klasse; die Rundung muss bewusst nachgebaut werden, damit
-  beide Wege bitgleiche Ergebnisse liefern. Ein CI-Test vergleicht die Ausgabe beider
-  Rechner für alle Rezepte im Repo.
+- JavaScript hat keine `Decimal`-Klasse. Lösung: **alle Arithmetik in ganzzahligen
+  Mikrometern**, plus eigenes `ROUND_HALF_UP` — dann sind beide Wege bitgleich. Ein CI-Test
+  schickt alle Rezepte durch beide Rechner und vergleicht die XML byteweise.
 
 ## Umsetzungsreihenfolge
 

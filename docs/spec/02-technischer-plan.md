@@ -175,3 +175,4 @@ synchronisieren.
 | FA-4 Prüfung | `tools/validate_threads.py` + CI | ✅ (FA-4.3 ergänzt) |
 | FA-5 Update-Festigkeit | ThreadKeeper-Empfehlung | ⚠️ fremd, eigenes Add-in offen |
 | FA-6 Import | Add-in v2 | ❌ offen |
+| Web-Rechner | [04 — Architektur](04-architektur-webrechner.md) | 📝 Bauplan steht, nichts gebaut |

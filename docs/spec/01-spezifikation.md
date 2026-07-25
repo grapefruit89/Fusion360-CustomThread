@@ -1,7 +1,8 @@
 # Spezifikation
 
 > **Was** das Projekt leisten muss und **warum** — bewusst ohne Technologie.
-> Die Umsetzung steht im [technischen Plan](02-technischer-plan.md).
+> Die Umsetzung steht im [technischen Plan](02-technischer-plan.md), der Web-Rechner in
+> [04 — Architektur](04-architektur-webrechner.md).
 > Übergeordnet gilt die [Verfassung](00-verfassung.md).
 
 **Version 1.0 · Stand 25.07.2026**
