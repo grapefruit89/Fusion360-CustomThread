@@ -16,6 +16,8 @@ denselben Code schreiben.
 
 ## Die drei Befunde
 
+> Vollständig belegt in [QUELLEN.md → F3, F4, F1](../../QUELLEN.md#teil-e--fehlermuster).
+
 ### 1. Ein fest verdrahteter Ordnername bricht
 
 `ThreadKeeper.py` enthielt auf macOS den Pfad `Autodesk Fusion 360.app`. Autodesk hat den

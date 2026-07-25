@@ -44,6 +44,15 @@ Muss ohne Fehler durchlaufen — die CI prüft dasselbe. Der Validator kennt:
 Die sechs Klassen und ihre Versätze stehen in der
 [README](README.de.md#toleranzklassen).
 
+## Wenn du einen Rechenfehler meldest
+
+Dann ist die Frage **ist die Rechnung richtig?** — nicht *gehoert der Anwendungsfall zu uns?*
+Der Zuschnitt des Projekts entscheidet ueber **Aufnahme**, nicht ueber **Korrektheit**.
+
+Warum das ausdruecklich dasteht: In einem verwandten Projekt wurde ein Bericht ueber
+geometrisch unmoegliche Werte zunaechst mit *passt nicht zu unserem Zweck* zurueckgewiesen.
+Der Fehler war real → [F7](docs/QUELLEN.md#f7).
+
 ## Was nicht ins Projekt kommt
 
 - **Gewinde für sicherheitsrelevante Anwendungen.** Druckbehälter, stromführende Teile,

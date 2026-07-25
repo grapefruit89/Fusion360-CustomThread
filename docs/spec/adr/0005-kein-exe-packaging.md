@@ -16,6 +16,8 @@ Python.
 
 ## Begründung
 
+> Werkzeugumfeld: [QUELLEN.md Teil B](../../QUELLEN.md#teil-b--werkzeuge)
+
 | Problem | Auswirkung |
 |---------|-----------|
 | Größe | 30–80 MB für ein 200-Zeilen-Skript — der ganze Interpreter wandert mit |

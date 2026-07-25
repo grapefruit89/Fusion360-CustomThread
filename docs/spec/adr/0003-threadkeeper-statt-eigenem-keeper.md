@@ -8,7 +8,7 @@ Nach jedem Fusion-Update sind die Gewinde weg, weil Fusion sich in einen neuen O
 neuem Hash installiert und `ThreadData` nicht mitnimmt. Das ist der größte verbliebene
 Schmerzpunkt des Projekts.
 
-[ThreadKeeper](https://github.com/thomasa88/ThreadKeeper) von Thomas Axelsson löst das seit
+[ThreadKeeper](https://github.com/thomasa88/ThreadKeeper) von Thomas Axelsson ([P3](../../QUELLEN.md#p3)) löst das seit
 2020: MIT-Lizenz, 90 Sterne, Windows und macOS, im Autodesk App Store. Es bringt **keine
 eigenen Gewinde** mit — es stellt nur wieder her, was in seinem `Threads`-Ordner liegt.
 

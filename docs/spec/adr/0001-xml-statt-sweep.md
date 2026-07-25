@@ -10,7 +10,7 @@ Gewinde-Werkzeug mit einer eigenen Definitionsdatei füttern.
 
 Der Handweg ist der, den fast alle Anleitungen empfehlen — und der, an dem fast alle
 scheitern: Das Profil verdreht sich entlang des Pfades und das Ergebnis ist unbrauchbar. Im
-[drucktipps3d-Forum](https://forum.drucktipps3d.de/forum/thread/45313-erhebung-entlang-pfad-verdreht-profil/)
+[drucktipps3d-Forum](https://forum.drucktipps3d.de/forum/thread/45313-erhebung-entlang-pfad-verdreht-profil/) ([Q1](../../QUELLEN.md#q1))
 zieht sich diese Diskussion über Seiten.
 
 ## Entscheidung

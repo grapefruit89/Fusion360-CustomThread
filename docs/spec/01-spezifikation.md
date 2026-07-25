@@ -78,6 +78,7 @@ Fusions Standardbestand richtig.
 | FA-4.4 | Fehlermeldungen sagen, **was zu tun ist**, nicht nur was falsch ist. |
 | FA-4.5 | Die Prüfung läuft automatisch bei jeder Änderung (CI). |
 | FA-4.6 | Sie erkennt `.txt`-Dateien im Gewindeordner — der Fehler, der 33 Größen unsichtbar gemacht hat. |
+| FA-4.7 | Sie fängt die Fehlermuster [F1](../QUELLEN.md#f1) und [F2](../QUELLEN.md#f2) ab, bevor eine Datei in Fusion landet. |
 
 ### FA-5 — Update-Festigkeit
 

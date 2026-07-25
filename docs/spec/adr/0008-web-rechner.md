@@ -4,6 +4,9 @@
 
 ## Kontext
 
+> Marcus Wakefields nicht-quelloffenes Werkzeug ist der Beleg für diese Lücke →
+> [QUELLEN.md W2](../../QUELLEN.md#w2)
+
 Der Rechner `tools/build_thread.py` löst das Rechenproblem ([ADR-0007](0007-ki-recherchiert-rechner-rechnet.md)),
 aber er ist ein Python-Skript auf der Kommandozeile. Verfassung § 4 sagt: Der Nutzer kann kein
 CAD und will es nicht lernen — Kommandozeile ist für ihn keine Option, und Python hat er

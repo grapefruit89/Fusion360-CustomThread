@@ -16,6 +16,8 @@ ausgeschlossen — was den Nutzern nicht hilft.
 
 ## Entscheidung
 
+> Zur Datenlage: [QUELLEN.md N5, N6](../../QUELLEN.md#teil-c--normen-und-referenzen)
+
 Zwei Ordner mit unterschiedlichem Versprechen:
 
 | | `threads/` | `experimental/` |

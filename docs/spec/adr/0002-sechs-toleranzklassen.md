@@ -4,6 +4,9 @@
 
 ## Kontext
 
+> Derselbe Fehler ist unabhängig in einem Projekt mit 395 Sternen entstanden und dort
+> bis heute offen → [QUELLEN.md F2](../../QUELLEN.md#f2).
+
 Bis v0.9.0 hatte jede Datei zwei bis drei Klassen: `0.00mm (Exact)`, `0.15mm (Tight)`,
 `0.20mm (Safe)`. Beim Nachrechnen stellte sich heraus:
 

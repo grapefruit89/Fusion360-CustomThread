@@ -21,6 +21,8 @@ Sie ist **absichtlich einschränkend**.
 
 ---
 
+> Belege und Fehlermuster, auf die sich diese Verfassung stützt: [QUELLEN.md](../QUELLEN.md)
+
 ## § 1 — Messwerte schlagen Plausibilität
 
 **Keine Zahl kommt in eine ausgelieferte Gewindedatei, die nicht aus einer Norm, einem

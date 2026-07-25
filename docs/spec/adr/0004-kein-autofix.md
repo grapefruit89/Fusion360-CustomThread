@@ -17,7 +17,7 @@ erlaubt und erwünscht. Der Nutzer überträgt sie selbst.
 
 ## Begründung
 
-Der Schadensfall ist asymmetrisch. Eine fehlerhafte XML im ThreadData-Ordner lässt nicht nur
+Der Schadensfall ist asymmetrisch ([F1](../../QUELLEN.md#f1)). Eine fehlerhafte XML im ThreadData-Ordner lässt nicht nur
 das eigene Gewinde verschwinden — sie kann **Fusions komplette Gewindeliste** unbrauchbar
 machen, Standardgewinde eingeschlossen. Genau das steht hinter mehreren offenen Issues bei
 ThreadKeeper.

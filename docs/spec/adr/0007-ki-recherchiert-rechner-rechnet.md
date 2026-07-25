@@ -20,6 +20,9 @@ abgeleitete Werte einzeln angefasst werden.
 
 ## Entscheidung
 
+> Dass abgeleitete Werte beim Handanfassen veralten, ist auch anderswo belegt →
+> [QUELLEN.md F2](../../QUELLEN.md#f2)
+
 Die Arbeit wird an der Stelle geschnitten, an der die Fähigkeiten wechseln:
 
 | | Aufgabe | Wer kann das gut |

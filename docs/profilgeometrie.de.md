@@ -106,7 +106,7 @@ der Überhangwinkel eines stehend gedruckten Gewindes ist
 
 $$\text{Überhang} = 90^\circ - \frac{A}{2}$$
 
-— bei 60° sind das 60°, bei 45° schon 67,5°.
+— bei 60° sind das 60°, bei 45° schon 67,5°. Regel aus [Q9](QUELLEN.md#q9).
 
 ## Die Fasen sind das Primitive
 
@@ -122,7 +122,7 @@ Setzt man die Normfasen ein, fallen exakt die bekannten Konstanten heraus:
 | `whitworth` | 1/6 | 1/6 | 55° | **0,640327** | Whitworth-Profiltiefe |
 | `iso-trapezoidal` | 0,366 | 0,366 | 30° | **0,5** | Tiefe = P/2 |
 | `fdm-45` | 0,293 | 0,293 | 45° | **0,5** | Tiefe = P/2 |
-| `dans98` | 1/4 | 1/4 | 50–90° | je nach Winkel | Fasen = P/4 |
+| `dans98` | 1/4 | 1/4 | 50–90° | je nach Winkel | Fasen = P/4 ([Q8](QUELLEN.md#q8)) |
 
 Das ist mehr als Kosmetik: Die Fasen sind die Sprache, in der die Normen formuliert sind,
 und sie gelten für **jeden** Winkel. Die Konstante 0,64952 dagegen gilt nur für 60°. Wer ein
