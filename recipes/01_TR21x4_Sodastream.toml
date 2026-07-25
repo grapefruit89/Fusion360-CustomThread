@@ -1,0 +1,12 @@
+name        = "TR21x4_Sodastream_3DPrint"
+custom_name = "[3D-Print] TR21x4 - SodaStream"
+filename    = "01_TR21x4_Sodastream.xml"
+unit        = "mm"
+angle       = 30
+sort_order  = 201
+
+[[size]]
+designation = "TR21 x 4"
+ctd         = "TR21x4"
+nominal     = 21
+pitch       = 4

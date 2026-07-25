@@ -1,0 +1,12 @@
+name        = "G34_Water_Gardena_3DPrint"
+custom_name = "[3D-Print] G3/4" - Water / Gardena"
+filename    = "04_G34_Gardena.xml"
+unit        = "mm"
+angle       = 55
+sort_order  = 204
+
+[[size]]
+designation = "G 3/4""
+ctd         = "G 3/4""
+nominal     = 26.441
+tpi         = 14

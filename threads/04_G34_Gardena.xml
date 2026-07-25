@@ -15,91 +15,91 @@
         <Gender>internal</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
         <MajorDia>26.541</MajorDia>
-        <PitchDia>25.381</PitchDia>
-        <MinorDia>24.221</MinorDia>
-        <TapDrill>24.221</TapDrill>
+        <PitchDia>25.379</PitchDia>
+        <MinorDia>24.217</MinorDia>
+        <TapDrill>24.217</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
         <MajorDia>26.341</MajorDia>
-        <PitchDia>25.181</PitchDia>
-        <MinorDia>24.021</MinorDia>
+        <PitchDia>25.179</PitchDia>
+        <MinorDia>24.017</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>26.591</MajorDia>
-        <PitchDia>25.431</PitchDia>
-        <MinorDia>24.271</MinorDia>
-        <TapDrill>24.271</TapDrill>
+        <PitchDia>25.429</PitchDia>
+        <MinorDia>24.267</MinorDia>
+        <TapDrill>24.267</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>26.291</MajorDia>
-        <PitchDia>25.131</PitchDia>
-        <MinorDia>23.971</MinorDia>
+        <PitchDia>25.129</PitchDia>
+        <MinorDia>23.967</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.20 mm - locker (gegen echtes Teil)</Class>
         <MajorDia>26.641</MajorDia>
-        <PitchDia>25.481</PitchDia>
-        <MinorDia>24.321</MinorDia>
-        <TapDrill>24.321</TapDrill>
+        <PitchDia>25.479</PitchDia>
+        <MinorDia>24.317</MinorDia>
+        <TapDrill>24.317</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.20 mm - locker (gegen echtes Teil)</Class>
         <MajorDia>26.241</MajorDia>
-        <PitchDia>25.081</PitchDia>
-        <MinorDia>23.921</MinorDia>
+        <PitchDia>25.079</PitchDia>
+        <MinorDia>23.917</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.10 mm - stramm (beide gedruckt)</Class>
         <MajorDia>26.491</MajorDia>
-        <PitchDia>25.331</PitchDia>
-        <MinorDia>24.171</MinorDia>
-        <TapDrill>24.171</TapDrill>
+        <PitchDia>25.329</PitchDia>
+        <MinorDia>24.167</MinorDia>
+        <TapDrill>24.167</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (beide gedruckt)</Class>
         <MajorDia>26.391</MajorDia>
-        <PitchDia>25.231</PitchDia>
-        <MinorDia>24.071</MinorDia>
+        <PitchDia>25.229</PitchDia>
+        <MinorDia>24.067</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.15 mm - Standard (beide gedruckt)</Class>
         <MajorDia>26.516</MajorDia>
-        <PitchDia>25.356</PitchDia>
-        <MinorDia>24.196</MinorDia>
-        <TapDrill>24.196</TapDrill>
+        <PitchDia>25.354</PitchDia>
+        <MinorDia>24.192</MinorDia>
+        <TapDrill>24.192</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.15 mm - Standard (beide gedruckt)</Class>
         <MajorDia>26.366</MajorDia>
-        <PitchDia>25.206</PitchDia>
-        <MinorDia>24.046</MinorDia>
+        <PitchDia>25.204</PitchDia>
+        <MinorDia>24.042</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.20 mm - locker (beide gedruckt)</Class>
         <MajorDia>26.541</MajorDia>
-        <PitchDia>25.381</PitchDia>
-        <MinorDia>24.221</MinorDia>
-        <TapDrill>24.221</TapDrill>
+        <PitchDia>25.379</PitchDia>
+        <MinorDia>24.217</MinorDia>
+        <TapDrill>24.217</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.20 mm - locker (beide gedruckt)</Class>
         <MajorDia>26.341</MajorDia>
-        <PitchDia>25.181</PitchDia>
-        <MinorDia>24.021</MinorDia>
+        <PitchDia>25.179</PitchDia>
+        <MinorDia>24.017</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

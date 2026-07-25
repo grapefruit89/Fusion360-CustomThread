@@ -12,6 +12,7 @@ Exit 0 = alles gut, Exit 1 = Fehler gefunden.
 from __future__ import annotations
 
 import glob
+import re
 import os
 import sys
 import xml.etree.ElementTree as ET
@@ -58,6 +59,42 @@ def bounded(f: "Findings", where: str, label: str, value: float, key: str,
 
 REQUIRED_ROOT = ("Name", "CustomName", "Unit", "Angle", "SortOrder")
 DIA_TAGS = ("MajorDia", "PitchDia", "MinorDia")
+
+# Erlaubte Abweichung zwischen Beschriftung und tatsaechlichem Spiel.
+LABEL_TOLERANCE_MM = 0.011
+
+
+def check_label_matches_clearance(f: "Findings", where: str, cls: str,
+                                  clearance: float) -> None:
+    """Prueft, ob die Zahl in der Klassenbeschriftung zum echten Spiel passt.
+
+    Genau dieser Check haette den Fehler in v0.9.0 sofort gefunden: Die Klasse
+    hiess '0.15mm (Tight)' und lieferte real 0.45 mm. Eine Beschriftung, die
+    luegt, ist kein Schoenheitsfehler - sie ist der Grund, warum jemand drei
+    Stunden umsonst druckt. Deshalb Fehler, nicht Warnung.
+    """
+    m = re.search(r"(\d+[.,]\d+)\s*mm", cls)
+    if not m:
+        return  # Klasse ohne Zahl - nicht unsere Konvention, nichts zu pruefen
+
+    claimed = float(m.group(1).replace(",", "."))
+
+    # "beide gedruckt": beide Seiten bekommen das halbe Spiel, in Summe der
+    # genannte Wert. "gegen echtes Teil": die gedruckte Seite allein traegt es,
+    # also entspricht der Versatz je Seite dem genannten Wert - und die
+    # Differenz internal/external ist doppelt so gross.
+    both_printed = "beide gedruckt" in cls.lower()
+    expected = claimed if both_printed else claimed * 2
+
+    if abs(clearance - expected) > LABEL_TOLERANCE_MM:
+        hint = ("bei 'beide gedruckt' bekommt jede Seite das halbe Spiel"
+                if both_printed else
+                "bei 'gegen echtes Teil' traegt die gedruckte Seite den vollen Wert, "
+                "die Differenz innen/aussen ist daher doppelt so gross")
+        f.error(f"{where} [{cls}]",
+                f"Beschriftung verspricht {claimed:g} mm, die Datei liefert aber "
+                f"{clearance:.3g} mm Differenz innen/aussen (erwartet {expected:g} mm). "
+                f"Merke: {hint}. Entweder die Durchmesser oder die Beschriftung korrigieren.")
 
 
 class Findings:
@@ -252,6 +289,7 @@ def check_file(path: str, f: Findings, seen_names: dict, seen_orders: dict) -> N
                     else:
                         bounded(f, f"{where} [{cls}]", "Spiel innen/aussen",
                                 clearance, "clearance", " mm")
+                        check_label_matches_clearance(f, where, cls, clearance)
 
             # Alle Klassen einer Groesse sollten dasselbe Profil verschieben,
             # nicht die Form aendern.

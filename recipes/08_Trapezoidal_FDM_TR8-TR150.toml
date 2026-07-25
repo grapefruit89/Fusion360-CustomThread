@@ -1,0 +1,204 @@
+name        = "TR_FDM_45deg_3DPrint"
+custom_name = "[3D-Print] Trapezoidal 45 deg (FDM) - TR8 to TR150"
+filename    = "08_Trapezoidal_FDM_TR8-TR150.xml"
+unit        = "mm"
+angle       = 45
+sort_order  = 208
+
+[[size]]
+designation = "TR8 x 2 FDM"
+ctd         = "TR8x2_FDM"
+nominal     = 8
+pitch       = 2
+
+[[size]]
+designation = "TR10 x 2 FDM"
+ctd         = "TR10x2_FDM"
+nominal     = 10
+pitch       = 2
+
+[[size]]
+designation = "TR12 x 3 FDM"
+ctd         = "TR12x3_FDM"
+nominal     = 12
+pitch       = 3
+
+[[size]]
+designation = "TR14 x 3 FDM"
+ctd         = "TR14x3_FDM"
+nominal     = 14
+pitch       = 3
+
+[[size]]
+designation = "TR16 x 4 FDM"
+ctd         = "TR16x4_FDM"
+nominal     = 16
+pitch       = 4
+
+[[size]]
+designation = "TR18 x 4 FDM"
+ctd         = "TR18x4_FDM"
+nominal     = 18
+pitch       = 4
+
+[[size]]
+designation = "TR20 x 4 FDM"
+ctd         = "TR20x4_FDM"
+nominal     = 20
+pitch       = 4
+
+[[size]]
+designation = "TR22 x 5 FDM"
+ctd         = "TR22x5_FDM"
+nominal     = 22
+pitch       = 5
+
+[[size]]
+designation = "TR24 x 5 FDM"
+ctd         = "TR24x5_FDM"
+nominal     = 24
+pitch       = 5
+
+[[size]]
+designation = "TR26 x 5 FDM"
+ctd         = "TR26x5_FDM"
+nominal     = 26
+pitch       = 5
+
+[[size]]
+designation = "TR28 x 5 FDM"
+ctd         = "TR28x5_FDM"
+nominal     = 28
+pitch       = 5
+
+[[size]]
+designation = "TR30 x 6 FDM"
+ctd         = "TR30x6_FDM"
+nominal     = 30
+pitch       = 6
+
+[[size]]
+designation = "TR32 x 6 FDM"
+ctd         = "TR32x6_FDM"
+nominal     = 32
+pitch       = 6
+
+[[size]]
+designation = "TR36 x 6 FDM"
+ctd         = "TR36x6_FDM"
+nominal     = 36
+pitch       = 6
+
+[[size]]
+designation = "TR40 x 7 FDM"
+ctd         = "TR40x7_FDM"
+nominal     = 40
+pitch       = 7
+
+[[size]]
+designation = "TR44 x 7 FDM"
+ctd         = "TR44x7_FDM"
+nominal     = 44
+pitch       = 7
+
+[[size]]
+designation = "TR48 x 8 FDM"
+ctd         = "TR48x8_FDM"
+nominal     = 48
+pitch       = 8
+
+[[size]]
+designation = "TR50 x 8 FDM"
+ctd         = "TR50x8_FDM"
+nominal     = 50
+pitch       = 8
+
+[[size]]
+designation = "TR55 x 9 FDM"
+ctd         = "TR55x9_FDM"
+nominal     = 55
+pitch       = 9
+
+[[size]]
+designation = "TR60 x 9 FDM"
+ctd         = "TR60x9_FDM"
+nominal     = 60
+pitch       = 9
+
+[[size]]
+designation = "TR65 x 10 FDM"
+ctd         = "TR65x10_FDM"
+nominal     = 65
+pitch       = 10
+
+[[size]]
+designation = "TR70 x 10 FDM"
+ctd         = "TR70x10_FDM"
+nominal     = 70
+pitch       = 10
+
+[[size]]
+designation = "TR75 x 10 FDM"
+ctd         = "TR75x10_FDM"
+nominal     = 75
+pitch       = 10
+
+[[size]]
+designation = "TR80 x 10 FDM"
+ctd         = "TR80x10_FDM"
+nominal     = 80
+pitch       = 10
+
+[[size]]
+designation = "TR85 x 12 FDM"
+ctd         = "TR85x12_FDM"
+nominal     = 85
+pitch       = 12
+
+[[size]]
+designation = "TR90 x 12 FDM"
+ctd         = "TR90x12_FDM"
+nominal     = 90
+pitch       = 12
+
+[[size]]
+designation = "TR95 x 12 FDM"
+ctd         = "TR95x12_FDM"
+nominal     = 95
+pitch       = 12
+
+[[size]]
+designation = "TR100 x 12 FDM"
+ctd         = "TR100x12_FDM"
+nominal     = 100
+pitch       = 12
+
+[[size]]
+designation = "TR110 x 12 FDM"
+ctd         = "TR110x12_FDM"
+nominal     = 110
+pitch       = 12
+
+[[size]]
+designation = "TR120 x 14 FDM"
+ctd         = "TR120x14_FDM"
+nominal     = 120
+pitch       = 14
+
+[[size]]
+designation = "TR130 x 14 FDM"
+ctd         = "TR130x14_FDM"
+nominal     = 130
+pitch       = 14
+
+[[size]]
+designation = "TR140 x 14 FDM"
+ctd         = "TR140x14_FDM"
+nominal     = 140
+pitch       = 14
+
+[[size]]
+designation = "TR150 x 16 FDM"
+ctd         = "TR150x16_FDM"
+nominal     = 150
+pitch       = 16

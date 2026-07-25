@@ -1,0 +1,12 @@
+name        = "E27_Edison_Lamp_Socket_3DPrint"
+custom_name = "[3D-Print] E27 - Edison Lamp Socket"
+filename    = "07_E27_LampSocket.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 207
+
+[[size]]
+designation = "E27"
+ctd         = "E27"
+nominal     = 27
+pitch       = 3.629

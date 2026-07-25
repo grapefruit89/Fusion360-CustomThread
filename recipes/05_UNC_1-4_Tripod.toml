@@ -1,0 +1,12 @@
+name        = "UNC_1-4_Photo_Tripod_3DPrint"
+custom_name = "[3D-Print] 1/4"-20 UNC - Photo Tripod"
+filename    = "05_UNC_1-4_Tripod.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 205
+
+[[size]]
+designation = "1/4"-20 UNC"
+ctd         = "1/4-20UNC"
+nominal     = 6.35
+tpi         = 20

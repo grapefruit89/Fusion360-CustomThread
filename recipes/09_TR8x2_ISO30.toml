@@ -1,0 +1,12 @@
+name        = "TR8x2_ISO30_3DPrint"
+custom_name = "[3D-Print] Trapezoidal 30 deg (ISO) - TR8x2"
+filename    = "09_TR8x2_ISO30.xml"
+unit        = "mm"
+angle       = 30
+sort_order  = 209
+
+[[size]]
+designation = "TR8 x 2"
+ctd         = "TR8x2"
+nominal     = 8
+pitch       = 2

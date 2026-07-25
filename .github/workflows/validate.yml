@@ -27,6 +27,22 @@ jobs:
       - name: Validate
         run: python tools/validate_threads.py threads
 
+      # threads/*.xml wird aus recipes/*.toml erzeugt. Weicht es ab, hat jemand
+      # die XML von Hand angefasst - genau so entstehen Werte, die nicht mehr
+      # zueinander passen (siehe PCO 1881 in v1.0.0).
+      - name: Threads match their recipes
+        run: |
+          mkdir -p /tmp/regen
+          for f in recipes/*.toml; do
+            python tools/build_thread.py "$f" -o /tmp/regen/
+          done
+          if ! diff -r --brief threads /tmp/regen; then
+            echo "::error::threads/ weicht von recipes/ ab."
+            echo "Bitte 'python tools/build_thread.py recipes/<datei>.toml -o threads/' laufen lassen,"
+            echo "statt die XML von Hand zu bearbeiten."
+            exit 1
+          fi
+
       - name: Summary
         if: always()
         run: |

@@ -1,0 +1,12 @@
+name        = "UNC_3-8_Pro_Tripod_3DPrint"
+custom_name = "[3D-Print] 3/8"-16 UNC - Pro Tripod"
+filename    = "06_UNC_3-8_Tripod.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 206
+
+[[size]]
+designation = "3/8"-16 UNC"
+ctd         = "3/8-16UNC"
+nominal     = 9.525
+tpi         = 16

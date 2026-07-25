@@ -15,91 +15,91 @@
         <Gender>internal</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
         <MajorDia>6.45</MajorDia>
-        <PitchDia>5.63</PitchDia>
-        <MinorDia>5.08</MinorDia>
-        <TapDrill>5.08</TapDrill>
+        <PitchDia>5.625</PitchDia>
+        <MinorDia>5.075</MinorDia>
+        <TapDrill>5.075</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
         <MajorDia>6.25</MajorDia>
-        <PitchDia>5.43</PitchDia>
-        <MinorDia>4.88</MinorDia>
+        <PitchDia>5.425</PitchDia>
+        <MinorDia>4.875</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>6.5</MajorDia>
-        <PitchDia>5.68</PitchDia>
-        <MinorDia>5.13</MinorDia>
-        <TapDrill>5.13</TapDrill>
+        <PitchDia>5.675</PitchDia>
+        <MinorDia>5.125</MinorDia>
+        <TapDrill>5.125</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>6.2</MajorDia>
-        <PitchDia>5.38</PitchDia>
-        <MinorDia>4.83</MinorDia>
+        <PitchDia>5.375</PitchDia>
+        <MinorDia>4.825</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.20 mm - locker (gegen echtes Teil)</Class>
         <MajorDia>6.55</MajorDia>
-        <PitchDia>5.73</PitchDia>
-        <MinorDia>5.18</MinorDia>
-        <TapDrill>5.18</TapDrill>
+        <PitchDia>5.725</PitchDia>
+        <MinorDia>5.175</MinorDia>
+        <TapDrill>5.175</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.20 mm - locker (gegen echtes Teil)</Class>
         <MajorDia>6.15</MajorDia>
-        <PitchDia>5.33</PitchDia>
-        <MinorDia>4.78</MinorDia>
+        <PitchDia>5.325</PitchDia>
+        <MinorDia>4.775</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.10 mm - stramm (beide gedruckt)</Class>
         <MajorDia>6.4</MajorDia>
-        <PitchDia>5.58</PitchDia>
-        <MinorDia>5.03</MinorDia>
-        <TapDrill>5.03</TapDrill>
+        <PitchDia>5.575</PitchDia>
+        <MinorDia>5.025</MinorDia>
+        <TapDrill>5.025</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (beide gedruckt)</Class>
         <MajorDia>6.3</MajorDia>
-        <PitchDia>5.48</PitchDia>
-        <MinorDia>4.93</MinorDia>
+        <PitchDia>5.475</PitchDia>
+        <MinorDia>4.925</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.15 mm - Standard (beide gedruckt)</Class>
         <MajorDia>6.425</MajorDia>
-        <PitchDia>5.605</PitchDia>
-        <MinorDia>5.055</MinorDia>
-        <TapDrill>5.055</TapDrill>
+        <PitchDia>5.6</PitchDia>
+        <MinorDia>5.05</MinorDia>
+        <TapDrill>5.05</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.15 mm - Standard (beide gedruckt)</Class>
         <MajorDia>6.275</MajorDia>
-        <PitchDia>5.455</PitchDia>
-        <MinorDia>4.905</MinorDia>
+        <PitchDia>5.45</PitchDia>
+        <MinorDia>4.9</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.20 mm - locker (beide gedruckt)</Class>
         <MajorDia>6.45</MajorDia>
-        <PitchDia>5.63</PitchDia>
-        <MinorDia>5.08</MinorDia>
-        <TapDrill>5.08</TapDrill>
+        <PitchDia>5.625</PitchDia>
+        <MinorDia>5.075</MinorDia>
+        <TapDrill>5.075</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.20 mm - locker (beide gedruckt)</Class>
         <MajorDia>6.25</MajorDia>
-        <PitchDia>5.43</PitchDia>
-        <MinorDia>4.88</MinorDia>
+        <PitchDia>5.425</PitchDia>
+        <MinorDia>4.875</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

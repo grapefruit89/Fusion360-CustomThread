@@ -1,0 +1,12 @@
+name        = "PCO1881_PET_3DPrint"
+custom_name = "[3D-Print] PCO1881 - PET Bottle"
+filename    = "03_PCO1881_PET.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 203
+
+[[size]]
+designation = "PCO 1881"
+ctd         = "PCO1881"
+nominal     = 28
+pitch       = 2.7
