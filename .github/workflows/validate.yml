@@ -4,12 +4,16 @@ on:
   push:
     paths:
       - 'threads/**'
-      - 'tools/validate_threads.py'
+      - 'experimental/**'
+      - 'recipes/**'
+      - 'tools/**'
       - '.github/workflows/validate.yml'
   pull_request:
     paths:
       - 'threads/**'
-      - 'tools/validate_threads.py'
+      - 'experimental/**'
+      - 'recipes/**'
+      - 'tools/**'
   workflow_dispatch:
 
 jobs:
