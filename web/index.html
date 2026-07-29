@@ -506,132 +506,19 @@
 
         // --- SVG RENDERER ---
         function renderSVG(geom) {
-            const container = document.getElementById('svg-container');
-            // Lösche altes SVG, behalte Legend
-            const legend = container.querySelector('.legend');
-            container.innerHTML = '';
-            container.appendChild(legend);
-
             if(!geom) return;
-
-            // Wir zeichnen 2 Perioden (0 bis 2*Pitch).
             const P = geom.pitch;
-            const w = 2.5 * P;
+            const A = geom.angle;
             
-            // Y-Bereich (Radius) bestimmen.
-            // Der Nominal-Radius ist geom.nominal / 2.
-            // Minor-Radius ist geom.minor0 / 2.
-            const R_maj = geom.nominal / 2;
-            const R_min = geom.minor0 / 2;
-            const R_pitch = geom.pitch0 / 2;
+            document.getElementById('lbl-P').textContent = P.toFixed(3);
+            document.getElementById('lbl-Angle').textContent = A + "°";
+            document.getElementById('lbl-D-text').textContent = geom.nominal.toFixed(3);
+            document.getElementById('lbl-D1-text').textContent = geom.minor0.toFixed(3);
+            document.getElementById('lbl-D2-text').textContent = geom.pitch0.toFixed(3);
             
-            // Höhe des Profils
-            const H_prof = R_maj - R_min;
-            
-            // ViewBox aufbauen, wir wollen etwas Margin haben.
-            const marginY = H_prof * 1.5; 
-            const minY = R_min - marginY;
-            const maxY = R_maj + marginY;
-            const h = maxY - minY;
-
-            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svg.setAttribute("viewBox", `0 ${minY} ${w} ${h}`);
-            svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-
-            // Y-Achse ist normal nach unten, aber wir wollen Radius nach oben (klassische Darstellung).
-            // Dazu skalieren wir Y mit -1 und verschieben (Transform).
-            const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-            // viewBox Y ist von minY bis maxY. Damit +Y nach oben geht, spiegeln wir alles.
-            g.setAttribute("transform", `translate(0, ${minY + maxY}) scale(1, -1)`);
-            svg.appendChild(g);
-
-            // Hilfsfunktion zum Generieren der Pfad-Strings für ein Gewinde-Profil.
-            // Ein Gewinde ist ein zick-zack aus Linien.
-            // Wir erzeugen Punkte für N Perioden.
-            function createProfilePoints(r_maj, r_min, r_pitch, angle) {
-                let pts = [];
-                const tanA2 = Math.tan(toRadians(angle / 2));
-                
-                // Wir berechnen die X-Abstände für Flat am Root und Flat am Crest 
-                // basierend auf den Radien.
-                const a_rad = r_maj - r_pitch;
-                const b_rad = r_pitch - r_min;
-                const w_crest = P / 2 - 2 * a_rad * tanA2;
-                const w_root = P / 2 - 2 * b_rad * tanA2;
-
-                // Start at X=0 (Mitte des Roots)
-                let x = 0;
-                for(let i=0; i<3; i++) {
-                    // Start Root Flat (half)
-                    pts.push(`${x},${r_min}`);
-                    x += w_root / 2;
-                    pts.push(`${x},${r_min}`);
-                    
-                    // Flanke rauf
-                    const flankDx = (r_maj - r_min) * tanA2;
-                    x += flankDx;
-                    pts.push(`${x},${r_maj}`);
-                    
-                    // Crest Flat
-                    x += w_crest;
-                    pts.push(`${x},${r_maj}`);
-                    
-                    // Flanke runter
-                    x += flankDx;
-                    pts.push(`${x},${r_min}`);
-                    
-                    // End Root Flat (half)
-                    x += w_root / 2;
-                }
-                return pts;
-            }
-
-            // Externe (Bolzen) Profil
-            const dExt = geom.delta / 2; // Delta ist der Diameter-Versatz, Radius-Versatz ist Delta/2
-            const extMaj = R_maj - geom.delta/2;
-            const extMin = R_min - geom.delta/2;
-            const extPitch = R_pitch - geom.delta/2;
-            
-            const ptsExt = createProfilePoints(extMaj, extMin, extPitch, geom.angle);
-            // Für Polygon schließen wir unten ab (Zentrum bei Y=0, hier reicht minY)
-            const polyExt = [...ptsExt, `${w},${minY}`, `0,${minY}`].join(" ");
-            
-            const p1 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-            p1.setAttribute("points", polyExt);
-            p1.setAttribute("fill", "#2980b9"); // Blau
-            p1.setAttribute("opacity", "0.9");
-            g.appendChild(p1);
-
-            if(!geom.extOnly) {
-                // Interne (Mutter) Profil
-                const intMaj = R_maj + geom.delta/2;
-                const intMin = R_min + geom.delta/2;
-                const intPitch = R_pitch + geom.delta/2;
-
-                const ptsInt = createProfilePoints(intMaj, intMin, intPitch, geom.angle);
-                // Für Polygon schließen wir oben ab (Y = maxY)
-                const polyInt = [...ptsInt, `${w},${maxY}`, `0,${maxY}`].join(" ");
-                
-                const p2 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-                p2.setAttribute("points", polyInt);
-                p2.setAttribute("fill", "#d35400"); // Orange
-                p2.setAttribute("opacity", "0.7");
-                g.appendChild(p2);
-
-                // Den Spalt farbig hervorheben
-                // Das ist genau der Bereich zwischen ext Profil und int Profil.
-                const ptsGap = [...ptsExt];
-                const ptsIntRev = [...ptsInt].reverse(); // Rückwärts für geschlossenes Polygon
-                const polyGap = [...ptsGap, ...ptsIntRev].join(" ");
-                
-                const p3 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-                p3.setAttribute("points", polyGap);
-                p3.setAttribute("fill", "var(--gap-color)");
-                p3.setAttribute("opacity", "0.8");
-                g.appendChild(p3);
-            }
-
-            container.appendChild(svg);
+            // Height of fundamental triangle
+            const H = P / (2 * Math.tan(A / 2 * Math.PI / 180));
+            document.getElementById('lbl-H').textContent = "H = " + H.toFixed(3);
         }
 
         // --- EVENT HANDLERS ---
