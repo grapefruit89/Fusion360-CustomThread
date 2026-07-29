@@ -348,7 +348,7 @@
             const a = (pitch / 2 - c) / t;
             const b = (pitch / 2 - f) / t;
             if (a <= 0 || b <= 0) {
-                throw new Error(\`Kopffase oder Fussfase ist zu groß für die halbe Steigung. Kann Profil nicht berechnen.\`);
+                throw new Error(`Kopffase oder Fussfase ist zu groß für die halbe Steigung. Kann Profil nicht berechnen.`);
             }
             return { a: r(a), b: r(b) };
         }
@@ -377,43 +377,43 @@
 
             xmlOutput.push('<?xml version="1.0" encoding="UTF-8"?>');
             xmlOutput.push('<ThreadType>');
-            xmlOutput.push(\`  <Name>\${esc(data.name)}</Name>\`);
-            xmlOutput.push(\`  <CustomName>\${esc(customName)}</CustomName>\`);
-            xmlOutput.push(\`  <Unit>\${esc(data.unit || 'mm')}</Unit>\`);
-            xmlOutput.push(\`  <Angle>\${fmt(data.angle)}</Angle>\`);
-            xmlOutput.push(\`  <SortOrder>\${sortOrder}</SortOrder>\`);
+            xmlOutput.push(`  <Name>\${esc(data.name)}</Name>`);
+            xmlOutput.push(`  <CustomName>\${esc(customName)}</CustomName>`);
+            xmlOutput.push(`  <Unit>\${esc(data.unit || 'mm')}</Unit>`);
+            xmlOutput.push(`  <Angle>\${fmt(data.angle)}</Angle>`);
+            xmlOutput.push(`  <SortOrder>\${sortOrder}</SortOrder>`);
             
             const extOnly = data.externalOnly || data.external_only;
             if(extOnly) xmlOutput.push('  <ExternalOnly>yes</ExternalOnly>');
 
             const delta = caseVal === "real" ? clearanceVal : r(clearanceVal / 2);
-            let classLabel = \`\${clearanceVal.toFixed(2)} mm\`;
+            let classLabel = `\${clearanceVal.toFixed(2)} mm`;
             if(clearanceVal === 0.10) classLabel += " - stramm";
             else if(clearanceVal === 0.15) classLabel += " - Standard";
             else if(clearanceVal === 0.20) classLabel += " - locker";
-            classLabel += \` (\${caseVal === "real" ? "gegen echtes Teil" : "beide gedruckt"})\`;
+            classLabel += ` (\${caseVal === "real" ? "gegen echtes Teil" : "beide gedruckt"})`;
 
             for(let i=0; i<data.sizes.length; i++) {
                 const sz = data.sizes[i];
                 const desig = sz.designation || "?";
-                if(!sz.nominal) throw new Error(\`Size \${desig}: nominal fehlt.\`);
+                if(!sz.nominal) throw new Error(`Size \${desig}: nominal fehlt.`);
                 
                 let pitch;
                 let pitchTag = "";
                 let pitchTagVal = "";
-                if(sz.pitch && sz.tpi) throw new Error(\`Size \${desig}: pitch und tpi dürfen nicht beide gesetzt sein.\`);
+                if(sz.pitch && sz.tpi) throw new Error(`Size \${desig}: pitch und tpi dürfen nicht beide gesetzt sein.`);
                 if(sz.pitch) {
                     pitch = sz.pitch;
                     pitchTag = "Pitch"; pitchTagVal = sz.pitch;
                 } else if(sz.tpi) {
                     pitch = r(25.4 / sz.tpi);
                     pitchTag = "TPI"; pitchTagVal = sz.tpi;
-                    explain.push(\`\${desig}: Steigung aus \${sz.tpi} TPI berechnet = \${pitch} mm.\`);
+                    explain.push(`\${desig}: Steigung aus \${sz.tpi} TPI berechnet = \${pitch} mm.`);
                 } else {
-                    throw new Error(\`Size \${desig}: Weder pitch noch tpi gesetzt.\`);
+                    throw new Error(`Size \${desig}: Weder pitch noch tpi gesetzt.`);
                 }
 
-                if(pitch >= sz.nominal) throw new Error(\`Size \${desig}: Pitch >= Nominal ist geometrisch unmöglich.\`);
+                if(pitch >= sz.nominal) throw new Error(`Size \${desig}: Pitch >= Nominal ist geometrisch unmöglich.`);
 
                 let pitch0, minor0;
                 let a, b;
@@ -424,7 +424,7 @@
                         pitch0 = sz.pitchDia || sz.pitch_dia;
                     } else {
                         pitch0 = r((sz.nominal + minor0) / 2);
-                        explain.push(\`\${desig}: PitchDia nicht angegeben, interpoliert = \${pitch0}\`);
+                        explain.push(`\${desig}: PitchDia nicht angegeben, interpoliert = \${pitch0}`);
                     }
                 } else {
                     let crest, root;
@@ -435,8 +435,8 @@
                         crest = cf; root = rf;
                     } else {
                         let fam = sz.profile || data.profile || ANGLE_DEFAULT_PROFILE[data.angle];
-                        if(!fam) throw new Error(\`\${desig}: Für Winkel \${data.angle} ist kein Standardprofil bekannt. Bitte 'profile' oder Flats angeben.\`);
-                        if(!PROFILES[fam]) throw new Error(\`\${desig}: Unbekanntes Profil '\${fam}'.\`);
+                        if(!fam) throw new Error(`\${desig}: Für Winkel \${data.angle} ist kein Standardprofil bekannt. Bitte 'profile' oder Flats angeben.`);
+                        if(!PROFILES[fam]) throw new Error(`\${desig}: Unbekanntes Profil '\${fam}'.`);
                         crest = PROFILES[fam].crest;
                         root = PROFILES[fam].root;
                     }
@@ -448,7 +448,7 @@
                 }
 
                 if(!(sz.nominal > pitch0 && pitch0 > minor0)) {
-                    throw new Error(\`\${desig}: Bedingung Nominal (\${sz.nominal}) > Pitch (\${pitch0}) > Minor (\${minor0}) verletzt.\`);
+                    throw new Error(`\${desig}: Bedingung Nominal (\${sz.nominal}) > Pitch (\${pitch0}) > Minor (\${minor0}) verletzt.`);
                 }
 
                 if(i === 0) {
@@ -464,11 +464,11 @@
                 }
 
                 xmlOutput.push('  <ThreadSize>');
-                xmlOutput.push(\`    <Size>\${fmt(sz.nominal)}</Size>\`);
+                xmlOutput.push(`    <Size>\${fmt(sz.nominal)}</Size>`);
                 xmlOutput.push('    <Designation>');
-                xmlOutput.push(\`      <ThreadDesignation>\${esc(desig)}</ThreadDesignation>\`);
-                xmlOutput.push(\`      <CTD>\${esc(sz.ctd || desig)}</CTD>\`);
-                xmlOutput.push(\`      <\${pitchTag}>\${pitchTagVal}</\${pitchTag}>\`);
+                xmlOutput.push(`      <ThreadDesignation>\${esc(desig)}</ThreadDesignation>`);
+                xmlOutput.push(`      <CTD>\${esc(sz.ctd || desig)}</CTD>`);
+                xmlOutput.push(`      <\${pitchTag}>\${pitchTagVal}</\${pitchTag}>`);
 
                 for(let pass=0; pass<2; pass++) {
                     const gender = pass === 0 ? "internal" : "external";
@@ -480,13 +480,13 @@
                     const mi = r(minor0 + sign * delta);
 
                     xmlOutput.push('      <Thread>');
-                    xmlOutput.push(\`        <Gender>\${gender}</Gender>\`);
-                    xmlOutput.push(\`        <Class>\${esc(classLabel)}</Class>\`);
-                    xmlOutput.push(\`        <MajorDia>\${fmt(ma)}</MajorDia>\`);
-                    xmlOutput.push(\`        <PitchDia>\${fmt(pi)}</PitchDia>\`);
-                    xmlOutput.push(\`        <MinorDia>\${fmt(mi)}</MinorDia>\`);
+                    xmlOutput.push(`        <Gender>\${gender}</Gender>`);
+                    xmlOutput.push(`        <Class>\${esc(classLabel)}</Class>`);
+                    xmlOutput.push(`        <MajorDia>\${fmt(ma)}</MajorDia>`);
+                    xmlOutput.push(`        <PitchDia>\${fmt(pi)}</PitchDia>`);
+                    xmlOutput.push(`        <MinorDia>\${fmt(mi)}</MinorDia>`);
                     if(gender === "internal") {
-                        xmlOutput.push(\`        <TapDrill>\${fmt(mi)}</TapDrill>\`);
+                        xmlOutput.push(`        <TapDrill>\${fmt(mi)}</TapDrill>`);
                     }
                     xmlOutput.push('      </Thread>');
                 }
@@ -535,14 +535,14 @@
             const h = maxY - minY;
 
             const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svg.setAttribute("viewBox", \`0 \${minY} \${w} \${h}\`);
+            svg.setAttribute("viewBox", `0 \${minY} \${w} \${h}`);
             svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
             // Y-Achse ist normal nach unten, aber wir wollen Radius nach oben (klassische Darstellung).
             // Dazu skalieren wir Y mit -1 und verschieben (Transform).
             const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
             // viewBox Y ist von minY bis maxY. Damit +Y nach oben geht, spiegeln wir alles.
-            g.setAttribute("transform", \`translate(0, \${minY + maxY}) scale(1, -1)\`);
+            g.setAttribute("transform", `translate(0, \${minY + maxY}) scale(1, -1)`);
             svg.appendChild(g);
 
             // Hilfsfunktion zum Generieren der Pfad-Strings für ein Gewinde-Profil.
@@ -563,22 +563,22 @@
                 let x = 0;
                 for(let i=0; i<3; i++) {
                     // Start Root Flat (half)
-                    pts.push(\`\${x},\${r_min}\`);
+                    pts.push(`\${x},\${r_min}`);
                     x += w_root / 2;
-                    pts.push(\`\${x},\${r_min}\`);
+                    pts.push(`\${x},\${r_min}`);
                     
                     // Flanke rauf
                     const flankDx = (r_maj - r_min) * tanA2;
                     x += flankDx;
-                    pts.push(\`\${x},\${r_maj}\`);
+                    pts.push(`\${x},\${r_maj}`);
                     
                     // Crest Flat
                     x += w_crest;
-                    pts.push(\`\${x},\${r_maj}\`);
+                    pts.push(`\${x},\${r_maj}`);
                     
                     // Flanke runter
                     x += flankDx;
-                    pts.push(\`\${x},\${r_min}\`);
+                    pts.push(`\${x},\${r_min}`);
                     
                     // End Root Flat (half)
                     x += w_root / 2;
@@ -594,7 +594,7 @@
             
             const ptsExt = createProfilePoints(extMaj, extMin, extPitch, geom.angle);
             // Für Polygon schließen wir unten ab (Zentrum bei Y=0, hier reicht minY)
-            const polyExt = [...ptsExt, \`\${w},\${minY}\`, \`0,\${minY}\`].join(" ");
+            const polyExt = [...ptsExt, `\${w},\${minY}`, `0,\${minY}`].join(" ");
             
             const p1 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
             p1.setAttribute("points", polyExt);
@@ -610,7 +610,7 @@
 
                 const ptsInt = createProfilePoints(intMaj, intMin, intPitch, geom.angle);
                 // Für Polygon schließen wir oben ab (Y = maxY)
-                const polyInt = [...ptsInt, \`\${w},\${maxY}\`, \`0,\${maxY}\`].join(" ");
+                const polyInt = [...ptsInt, `\${w},\${maxY}`, `0,\${maxY}`].join(" ");
                 
                 const p2 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
                 p2.setAttribute("points", polyInt);
