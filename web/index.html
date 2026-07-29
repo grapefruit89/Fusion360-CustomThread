@@ -498,8 +498,8 @@
             xmlOutput.push('</ThreadType>');
             
             return {
-                xml: xmlOutput.join('\\n'),
-                explain: explain.join('\\n'),
+                xml: xmlOutput.join('\n'),
+                explain: explain.join('\n'),
                 firstSizeGeom: firstSizeGeom
             };
         }
@@ -667,8 +667,8 @@
             try {
                 const res = parseAndCompute(jsonStr, clearanceVal, caseSelect.value);
                 statusBox.className = "status-box status-success";
-                let msg = "Erfolgreich geparst und berechnet!\\n";
-                if(res.explain) msg += "\\nHinweise:\\n" + res.explain;
+                let msg = "Erfolgreich geparst und berechnet!\n";
+                if(res.explain) msg += "\nHinweise:\n" + res.explain;
                 statusBox.textContent = msg;
 
                 currentXml = res.xml;
