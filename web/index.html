@@ -359,7 +359,7 @@
             return { a: r(a), b: r(b) };
         }
 
-        // --- PARSING & VALIDATION ---
+        // --- PARSING, VALIDATION & THREAD DOCTOR ---
         function parseAndCompute(jsonStr, clearanceVal, caseVal) {
             let data;
             try {
@@ -379,7 +379,7 @@
 
             let explain = [];
             let xmlOutput = [];
-            let firstSizeGeom = null; // Für die SVG-Vorschau merken wir uns die erste berechnete Size
+            let firstSizeGeom = null;
 
             xmlOutput.push('<?xml version="1.0" encoding="UTF-8"?>');
             xmlOutput.push('<ThreadType>');
@@ -392,7 +392,6 @@
             const extOnly = data.externalOnly || data.external_only;
             if(extOnly) xmlOutput.push('  <ExternalOnly>yes</ExternalOnly>');
 
-            const delta = caseVal === "real" ? clearanceVal : r(clearanceVal / 2);
             let classLabel = `${clearanceVal.toFixed(2)} mm`;
             if(clearanceVal === 0.10) classLabel += " - stramm";
             else if(clearanceVal === 0.15) classLabel += " - Standard";
@@ -420,19 +419,32 @@
                 }
 
                 if(pitch >= sz.nominal) throw new Error(`Size ${desig}: Pitch >= Nominal ist geometrisch unmöglich.`);
+                if(pitch < 1.0) explain.push(`${desig}: Warnung: Sehr kleine Steigung (${pitch} mm) ist schwer mit FDM zu drucken.`);
 
                 let pitch0, minor0;
                 let a, b;
                 
+                // Thread Doctor: Smart suggestions for 60° threads
+                const is60 = Math.abs(data.angle - 60) < 0.1;
+                const theoPitchDia = is60 ? r(sz.nominal - 0.6495 * pitch) : null;
+                const theoMinorDia = is60 ? r(sz.nominal - 1.0825 * pitch) : null;
+
                 if(sz.minor) {
                     minor0 = sz.minor;
                     if(sz.pitchDia || sz.pitch_dia) {
                         pitch0 = sz.pitchDia || sz.pitch_dia;
                     } else {
-                        pitch0 = r((sz.nominal + minor0) / 2);
-                        explain.push(`${desig}: PitchDia nicht angegeben, interpoliert = ${pitch0}`);
+                        // Calculate or interpolate
+                        if(is60) {
+                            pitch0 = theoPitchDia;
+                            explain.push(`${desig}: PitchDia nicht angegeben, theoretischer ISO-Wert verwendet = ${pitch0}`);
+                        } else {
+                            pitch0 = r((sz.nominal + minor0) / 2);
+                            explain.push(`${desig}: PitchDia nicht angegeben, interpoliert = ${pitch0}`);
+                        }
                     }
                 } else {
+                    // Try to generate minor from crest/root flats
                     let crest, root;
                     let cf = sz.crestFlat !== undefined ? sz.crestFlat : sz.crest_flat;
                     let rf = sz.rootFlat !== undefined ? sz.rootFlat : sz.root_flat;
@@ -450,20 +462,45 @@
                     const ab = flatsToAb(crest, root, pitch, data.angle);
                     a = ab.a; b = ab.b;
                     pitch0 = r(sz.nominal - a);
-                    minor0 = r(pitch0 - b);
+                    minor0 = r(sz.nominal - (a + b));
+                    explain.push(`${desig}: Minor/PitchDia aus Profil '${sz.profile || data.profile || "Standard"}' berechnet: PitchDia=${pitch0}, Minor=${minor0}`);
                 }
 
-                if(!(sz.nominal > pitch0 && pitch0 > minor0)) {
-                    throw new Error(`${desig}: Bedingung Nominal (${sz.nominal}) > Pitch (${pitch0}) > Minor (${minor0}) verletzt.`);
+                // Geometric validation
+                if(sz.nominal <= pitch0) {
+                    let err = `Size ${desig}: Nominal (${sz.nominal}) muss größer als PitchDia (${pitch0}) sein.`;
+                    if(is60) err += `\nVorschlag für 60°: PitchDia sollte ca. ${theoPitchDia} sein.`;
+                    throw new Error(err);
+                }
+                if(pitch0 <= minor0) {
+                    let err = `Size ${desig}: PitchDia (${pitch0}) muss größer als Minor (${minor0}) sein.`;
+                    if(is60) err += `\nVorschlag für 60°: Minor sollte ca. ${theoMinorDia} sein.`;
+                    throw new Error(err);
                 }
 
-                if(i === 0) {
+                // Re-calculate effective 'a' and 'b' if not already done via profile
+                if(a === undefined) {
+                    a = sz.nominal - pitch0;
+                    b = pitch0 - minor0;
+                }
+
+                const extFactor = (caseVal === "real") ? 1.0 : 0.5;
+                const intFactor = (caseVal === "real") ? 0.0 : 0.5;
+                
+                const delta = clearanceVal;
+                
+                // Außengewinde (Bolzen) - wird immer generiert
+                const extMaj = r(sz.nominal - delta * extFactor);
+                const extPitch = r(pitch0 - delta * extFactor);
+                const extMin = r(minor0 - delta * extFactor);
+
+                if(!firstSizeGeom) {
                     firstSizeGeom = {
-                        pitch: pitch,
-                        angle: data.angle,
                         nominal: sz.nominal,
+                        pitch: pitch,
                         pitch0: pitch0,
                         minor0: minor0,
+                        angle: data.angle,
                         delta: delta,
                         extOnly: extOnly
                     };
@@ -475,41 +512,44 @@
                 xmlOutput.push(`      <ThreadDesignation>${esc(desig)}</ThreadDesignation>`);
                 xmlOutput.push(`      <CTD>${esc(sz.ctd || desig)}</CTD>`);
                 xmlOutput.push(`      <${pitchTag}>${pitchTagVal}</${pitchTag}>`);
+                
+                // Außengewinde XML
+                xmlOutput.push('      <Thread>');
+                xmlOutput.push('        <Gender>external</Gender>');
+                xmlOutput.push(`        <Class>${esc(classLabel)}</Class>`);
+                xmlOutput.push(`        <MajorDia>${fmt(extMaj)}</MajorDia>`);
+                xmlOutput.push(`        <PitchDia>${fmt(extPitch)}</PitchDia>`);
+                xmlOutput.push(`        <MinorDia>${fmt(extMin)}</MinorDia>`);
+                xmlOutput.push('      </Thread>');
 
-                for(let pass=0; pass<2; pass++) {
-                    const gender = pass === 0 ? "internal" : "external";
-                    if(extOnly && gender === "internal") continue;
+                // Innengewinde XML (Mutter)
+                if(!extOnly) {
+                    const intMaj = r(sz.nominal + delta * intFactor);
+                    const intPitch = r(pitch0 + delta * intFactor);
+                    const intMin = r(minor0 + delta * intFactor);
                     
-                    const sign = gender === "internal" ? 1 : -1;
-                    const ma = r(sz.nominal + sign * delta);
-                    const pi = r(pitch0 + sign * delta);
-                    const mi = r(minor0 + sign * delta);
-
                     xmlOutput.push('      <Thread>');
-                    xmlOutput.push(`        <Gender>${gender}</Gender>`);
+                    xmlOutput.push('        <Gender>internal</Gender>');
                     xmlOutput.push(`        <Class>${esc(classLabel)}</Class>`);
-                    xmlOutput.push(`        <MajorDia>${fmt(ma)}</MajorDia>`);
-                    xmlOutput.push(`        <PitchDia>${fmt(pi)}</PitchDia>`);
-                    xmlOutput.push(`        <MinorDia>${fmt(mi)}</MinorDia>`);
-                    if(gender === "internal") {
-                        xmlOutput.push(`        <TapDrill>${fmt(mi)}</TapDrill>`);
-                    }
+                    xmlOutput.push(`        <MajorDia>${fmt(intMaj)}</MajorDia>`);
+                    xmlOutput.push(`        <PitchDia>${fmt(intPitch)}</PitchDia>`);
+                    xmlOutput.push(`        <MinorDia>${fmt(intMin)}</MinorDia>`);
+                    xmlOutput.push(`        <TapDrill>${fmt(intMin)}</TapDrill>`);
                     xmlOutput.push('      </Thread>');
                 }
-                
+
                 xmlOutput.push('    </Designation>');
                 xmlOutput.push('  </ThreadSize>');
             }
-
+            
             xmlOutput.push('</ThreadType>');
             
             return {
-                xml: xmlOutput.join('\n'),
-                explain: explain.join('\n'),
-                firstSizeGeom: firstSizeGeom
+                xml: xmlOutput.join("\n"),
+                firstSizeGeom: firstSizeGeom,
+                explain: explain.join("\n")
             };
         }
-
         // --- SVG RENDERER ---
         function renderSVG(geom) {
             const container = document.getElementById('svg-container');
