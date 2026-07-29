@@ -554,10 +554,10 @@
                 
                 // Wir berechnen die X-Abstände für Flat am Root und Flat am Crest 
                 // basierend auf den Radien.
-                const a = r_maj - r_pitch;
-                const b = r_pitch - r_min;
-                const w_crest = P / 2 - a * tanA2;
-                const w_root = P / 2 - b * tanA2;
+                const a_rad = r_maj - r_pitch;
+                const b_rad = r_pitch - r_min;
+                const w_crest = P / 2 - 2 * a_rad * tanA2;
+                const w_root = P / 2 - 2 * b_rad * tanA2;
 
                 // Start at X=0 (Mitte des Roots)
                 let x = 0;
