@@ -6,21 +6,22 @@
     <title>Fusion 360 Custom Thread Web-Rechner</title>
     <style>
         :root {
-            --bg: #1e1e1e;
-            --bg-panel: #2d2d2d;
-            --fg: #f4f4f4;
-            --fg-muted: #aaaaaa;
-            --accent: #4a90e2;
-            --accent-hover: #357abd;
+            --bg: #f8f9fa;
+            --bg-panel: #ffffff;
+            --fg: #2c3e50;
+            --fg-muted: #7f8c8d;
+            --accent: #3498db;
+            --accent-hover: #2980b9;
             --error: #e74c3c;
             --success: #2ecc71;
             --warning: #f1c40f;
-            --border: #444;
+            --border: #e0e0e0;
             --gap-color: #ff4757;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg);
             color: var(--fg);
             margin: 0;
@@ -32,17 +33,20 @@
 
         header {
             background-color: var(--bg-panel);
-            padding: 15px 20px;
+            padding: 15px 25px;
             border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            z-index: 10;
         }
 
         h1 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
+            color: #2c3e50;
         }
 
         .container {
@@ -56,49 +60,59 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             overflow-y: auto;
         }
 
         .left-panel {
             border-right: 1px solid var(--border);
-            max-width: 50%;
+            max-width: 45%;
         }
 
         .panel-section {
             background-color: var(--bg-panel);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex: 1;
+        }
+        
+        .panel-section.auto-height {
+            flex: 0 0 auto;
         }
 
         .panel-section h2 {
             margin: 0 0 10px 0;
             font-size: 1.1rem;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 5px;
+            padding-bottom: 8px;
+            color: var(--accent);
         }
 
         textarea {
             width: 100%;
-            height: 300px;
-            background-color: #1a1a1a;
-            color: #d4d4d4;
+            flex: 1;
+            background-color: #fcfcfc;
+            color: #333;
             border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 10px;
+            border-radius: 6px;
+            padding: 12px;
             font-family: 'Consolas', 'Courier New', Courier, monospace;
             font-size: 0.9rem;
-            resize: vertical;
+            resize: none;
             box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         textarea:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
 
         .form-group {
@@ -109,74 +123,95 @@
 
         label {
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
         select, input[type="number"] {
-            background-color: #1a1a1a;
+            background-color: #ffffff;
             color: var(--fg);
             border: 1px solid var(--border);
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
         }
 
         select:focus, input:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
 
         button {
             background-color: var(--accent);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
+            padding: 10px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
         }
 
         button:hover {
             background-color: var(--accent-hover);
         }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
 
         button.secondary {
-            background-color: transparent;
-            border: 1px solid var(--border);
-            color: var(--fg);
+            background-color: #f1f2f6;
+            border: 1px solid #ced6e0;
+            color: #2f3542;
+            box-shadow: none;
         }
         
         button.secondary:hover {
-            background-color: #333;
+            background-color: #eccc68;
+            border-color: #ffa502;
+            color: #fff;
         }
 
         .status-box {
-            padding: 10px;
-            border-radius: 4px;
-            background-color: #333;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #f8f9fa;
             border-left: 4px solid var(--border);
-            font-family: monospace;
+            font-family: 'Consolas', monospace;
             white-space: pre-wrap;
             max-height: 150px;
             overflow-y: auto;
+            font-size: 0.9rem;
         }
 
-        .status-error { border-left-color: var(--error); color: #ff6b6b; }
-        .status-success { border-left-color: var(--success); color: #51cf66; }
-        .status-warning { border-left-color: var(--warning); color: #fcc419; }
+        .status-error { border-left-color: var(--error); color: #c0392b; background-color: #fadbd8; }
+        .status-success { border-left-color: var(--success); color: #27ae60; background-color: #e8f8f5; }
+        .status-warning { border-left-color: var(--warning); color: #d35400; background-color: #fdebd0; }
 
         .svg-container {
             width: 100%;
-            height: 400px;
-            background-color: #1a1a1a;
+            flex: 1;
+            background-color: #ffffff;
             border: 1px solid var(--border);
-            border-radius: 4px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         svg {
@@ -184,38 +219,13 @@
             height: 100%;
         }
 
-        .legend {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .color-box {
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-        }
-
         .xml-preview {
-            background-color: #1a1a1a;
-            color: #a6e22e;
-            padding: 10px;
-            border-radius: 4px;
+            background-color: #f4f6f7;
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 6px;
             font-family: 'Consolas', monospace;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             white-space: pre;
             overflow: auto;
             flex: 1;
@@ -280,7 +290,7 @@
             </div>
 
             <div class="right-panel">
-                <div class="panel-section" style="flex: 0 0 auto;">
+                <div class="panel-section" style="flex: 1; display: flex; flex-direction: column;">
                     <h2>Live 2D-Vorschau (Schnittbild)</h2>
                                         <div class="svg-container" id="svg-container" style="padding: 20px;">
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
