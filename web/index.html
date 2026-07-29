@@ -658,10 +658,6 @@
             document.getElementById('lbl-D-text').textContent = geom.nominal.toFixed(3);
             document.getElementById('lbl-D1-text').textContent = geom.minor0.toFixed(3);
             document.getElementById('lbl-D2-text').textContent = geom.pitch0.toFixed(3);
-            
-            // Height of fundamental triangle
-            const H = P / (2 * Math.tan(A / 2 * Math.PI / 180));
-            document.getElementById('lbl-H').textContent = "H = " + H.toFixed(3);
         }
 
         // --- EVENT HANDLERS ---
