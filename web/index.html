@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion 360 Custom Thread Web-Rechner</title>
+    <style>
+        :root {
+            --bg: #1e1e1e;
+            --bg-panel: #2d2d2d;
+            --fg: #f4f4f4;
+            --fg-muted: #aaaaaa;
+            --accent: #4a90e2;
+            --accent-hover: #357abd;
+            --error: #e74c3c;
+            --success: #2ecc71;
+            --warning: #f1c40f;
+            --border: #444;
+            --gap-color: #ff4757;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--bg-panel);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .left-panel, .right-panel {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .left-panel {
+            border-right: 1px solid var(--border);
+            max-width: 50%;
+        }
+
+        .panel-section {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .panel-section h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            background-color: #1a1a1a;
+            color: #d4d4d4;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        select, input[type="number"] {
+            background-color: #1a1a1a;
+            color: var(--fg);
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        button.secondary {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--fg);
+        }
+        
+        button.secondary:hover {
+            background-color: #333;
+        }
+
+        .status-box {
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #333;
+            border-left: 4px solid var(--border);
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .status-error { border-left-color: var(--error); color: #ff6b6b; }
+        .status-success { border-left-color: var(--success); color: #51cf66; }
+        .status-warning { border-left-color: var(--warning); color: #fcc419; }
+
+        .svg-container {
+            width: 100%;
+            height: 400px;
+            background-color: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .legend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .color-box {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .xml-preview {
+            background-color: #1a1a1a;
+            color: #a6e22e;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            white-space: pre;
+            overflow: auto;
+            flex: 1;
+            border: 1px solid var(--border);
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; width: 100%;">
+        <header>
+            <h1>Thread Recipe Web-Rechner</h1>
+            <button id="btn-download" disabled>XML Herunterladen</button>
+        </header>
+        <div class="container">
+            <div class="left-panel">
+                <div class="panel-section">
+                    <div class="row">
+                        <h2>1. JSON Rezept</h2>
+                        <button class="secondary" id="btn-load-example" style="padding: 5px 10px; font-size: 0.8rem;">Beispiel laden</button>
+                    </div>
+                    <textarea id="json-input" placeholder="Füge dein thread-recipe/1 JSON hier ein..."></textarea>
+                </div>
+                
+                <div class="panel-section">
+                    <h2>2. Konfiguration (Passung)</h2>
+                    <div class="form-group">
+                        <label for="clearance-select">Toleranz (Spiel):</label>
+                        <select id="clearance-select">
+                            <option value="0.10">0.10 mm (Stramm)</option>
+                            <option value="0.15" selected>0.15 mm (Standard)</option>
+                            <option value="0.20">0.20 mm (Locker)</option>
+                            <option value="0.25">0.25 mm</option>
+                            <option value="custom">Benutzerdefiniert...</option>
+                        </select>
+                        <input type="number" id="custom-clearance" step="0.05" min="0" max="1" value="0.15" style="display: none; width: 80px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="case-select">Fall:</label>
+                        <select id="case-select">
+                            <option value="real">Gegen echtes Teil (volles Spiel auf Druckteil)</option>
+                            <option value="both">Beide gedruckt (Spiel 50/50 aufgeteilt)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h2>Status</h2>
+                    <div id="status-box" class="status-box">Warte auf Eingabe...</div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="panel-section" style="flex: 0 0 auto;">
+                    <h2>Live 2D-Vorschau (Schnittbild)</h2>
+                    <div class="svg-container" id="svg-container">
+                        <!-- SVG wird per JS eingefügt -->
+                        <div class="legend">
+                            <div class="legend-item"><div class="color-box" style="background: #3498db;"></div> Außengewinde (Bolzen)</div>
+                            <div class="legend-item"><div class="color-box" style="background: #e67e22;"></div> Innengewinde (Mutter)</div>
+                            <div class="legend-item"><div class="color-box" style="background: var(--gap-color);"></div> Spiel (Toleranz)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-section" style="flex: 1; display: flex; flex-direction: column;">
+                    <h2>XML Vorschau</h2>
+                    <div id="xml-preview" class="xml-preview">Kein XML generiert.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- CONSTANTS & PROFILES ---
+        const PROFILES = {
+            "iso-metric":       { crest: 0.125, root: 0.25 },
+            "whitworth":        { crest: 0.166667, root: 0.166667 },
+            "iso-trapezoidal":  { crest: 0.366, root: 0.366 },
+            "acme":             { crest: 0.366, root: 0.366 },
+            "fdm-45":           { crest: 0.29289, root: 0.29289 },
+            "dans98":           { crest: 0.25, root: 0.25 }
+        };
+
+        const ANGLE_DEFAULT_PROFILE = {
+            60: "iso-metric",
+            55: "whitworth",
+            30: "iso-trapezoidal",
+            29: "acme",
+            45: "fdm-45"
+        };
+
+        // --- MATH UTILITIES ---
+        // Rundung auf 3 Nachkommastellen (Mikrometer-Präzision) wie Python's ROUND_HALF_UP bei Decimal("0.001")
+        function r(val) {
+            return Math.round(val * 1000) / 1000;
+        }
+
+        function fmt(val) {
+            let s = r(val).toFixed(3);
+            while(s.endsWith('0')) s = s.slice(0, -1);
+            if(s.endsWith('.')) s = s.slice(0, -1);
+            return s || "0";
+        }
+
+        function esc(s) {
+            if (s === null || s === undefined) return "";
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function toRadians(degrees) {
+            return degrees * (Math.PI / 180);
+        }
+
+        function flatsToAb(crest, root, pitch, angle) {
+            const t = Math.tan(toRadians(angle / 2));
+            const c = crest * pitch;
+            const f = root * pitch;
+            const a = (pitch / 2 - c) / t;
+            const b = (pitch / 2 - f) / t;
+            if (a <= 0 || b <= 0) {
+                throw new Error(\`Kopffase oder Fussfase ist zu groß für die halbe Steigung. Kann Profil nicht berechnen.\`);
+            }
+            return { a: r(a), b: r(b) };
+        }
+
+        // --- PARSING & VALIDATION ---
+        function parseAndCompute(jsonStr, clearanceVal, caseVal) {
+            let data;
+            try {
+                data = JSON.parse(jsonStr);
+            } catch(e) {
+                throw new Error("JSON Syntax Fehler: " + e.message);
+            }
+
+            if(data.schema !== "thread-recipe/1") throw new Error("Falsches Schema: muss 'thread-recipe/1' sein.");
+            if(!data.name) throw new Error("Feld 'name' fehlt.");
+            const customName = data.customName || data.custom_name;
+            if(!customName || !customName.startsWith("[3D-Print]")) throw new Error("Feld 'customName' muss mit '[3D-Print]' beginnen.");
+            if(!data.angle || data.angle < 10 || data.angle > 120) throw new Error("Winkel muss zwischen 10 und 120 liegen.");
+            const sortOrder = data.sortOrder || data.sort_order;
+            if(!sortOrder || sortOrder < 200) throw new Error("sortOrder muss >= 200 sein.");
+            if(!Array.isArray(data.sizes) || data.sizes.length === 0) throw new Error("Array 'sizes' fehlt oder ist leer.");
+
+            let explain = [];
+            let xmlOutput = [];
+            let firstSizeGeom = null; // Für die SVG-Vorschau merken wir uns die erste berechnete Size
+
+            xmlOutput.push('<?xml version="1.0" encoding="UTF-8"?>');
+            xmlOutput.push('<ThreadType>');
+            xmlOutput.push(\`  <Name>\${esc(data.name)}</Name>\`);
+            xmlOutput.push(\`  <CustomName>\${esc(customName)}</CustomName>\`);
+            xmlOutput.push(\`  <Unit>\${esc(data.unit || 'mm')}</Unit>\`);
+            xmlOutput.push(\`  <Angle>\${fmt(data.angle)}</Angle>\`);
+            xmlOutput.push(\`  <SortOrder>\${sortOrder}</SortOrder>\`);
+            
+            const extOnly = data.externalOnly || data.external_only;
+            if(extOnly) xmlOutput.push('  <ExternalOnly>yes</ExternalOnly>');
+
+            const delta = caseVal === "real" ? clearanceVal : r(clearanceVal / 2);
+            let classLabel = \`\${clearanceVal.toFixed(2)} mm\`;
+            if(clearanceVal === 0.10) classLabel += " - stramm";
+            else if(clearanceVal === 0.15) classLabel += " - Standard";
+            else if(clearanceVal === 0.20) classLabel += " - locker";
+            classLabel += \` (\${caseVal === "real" ? "gegen echtes Teil" : "beide gedruckt"})\`;
+
+            for(let i=0; i<data.sizes.length; i++) {
+                const sz = data.sizes[i];
+                const desig = sz.designation || "?";
+                if(!sz.nominal) throw new Error(\`Size \${desig}: nominal fehlt.\`);
+                
+                let pitch;
+                let pitchTag = "";
+                let pitchTagVal = "";
+                if(sz.pitch && sz.tpi) throw new Error(\`Size \${desig}: pitch und tpi dürfen nicht beide gesetzt sein.\`);
+                if(sz.pitch) {
+                    pitch = sz.pitch;
+                    pitchTag = "Pitch"; pitchTagVal = sz.pitch;
+                } else if(sz.tpi) {
+                    pitch = r(25.4 / sz.tpi);
+                    pitchTag = "TPI"; pitchTagVal = sz.tpi;
+                    explain.push(\`\${desig}: Steigung aus \${sz.tpi} TPI berechnet = \${pitch} mm.\`);
+                } else {
+                    throw new Error(\`Size \${desig}: Weder pitch noch tpi gesetzt.\`);
+                }
+
+                if(pitch >= sz.nominal) throw new Error(\`Size \${desig}: Pitch >= Nominal ist geometrisch unmöglich.\`);
+
+                let pitch0, minor0;
+                let a, b;
+                
+                if(sz.minor) {
+                    minor0 = sz.minor;
+                    if(sz.pitchDia || sz.pitch_dia) {
+                        pitch0 = sz.pitchDia || sz.pitch_dia;
+                    } else {
+                        pitch0 = r((sz.nominal + minor0) / 2);
+                        explain.push(\`\${desig}: PitchDia nicht angegeben, interpoliert = \${pitch0}\`);
+                    }
+                } else {
+                    let crest, root;
+                    let cf = sz.crestFlat !== undefined ? sz.crestFlat : sz.crest_flat;
+                    let rf = sz.rootFlat !== undefined ? sz.rootFlat : sz.root_flat;
+                    
+                    if(cf !== undefined && rf !== undefined) {
+                        crest = cf; root = rf;
+                    } else {
+                        let fam = sz.profile || data.profile || ANGLE_DEFAULT_PROFILE[data.angle];
+                        if(!fam) throw new Error(\`\${desig}: Für Winkel \${data.angle} ist kein Standardprofil bekannt. Bitte 'profile' oder Flats angeben.\`);
+                        if(!PROFILES[fam]) throw new Error(\`\${desig}: Unbekanntes Profil '\${fam}'.\`);
+                        crest = PROFILES[fam].crest;
+                        root = PROFILES[fam].root;
+                    }
+
+                    const ab = flatsToAb(crest, root, pitch, data.angle);
+                    a = ab.a; b = ab.b;
+                    pitch0 = r(sz.nominal - a);
+                    minor0 = r(pitch0 - b);
+                }
+
+                if(!(sz.nominal > pitch0 && pitch0 > minor0)) {
+                    throw new Error(\`\${desig}: Bedingung Nominal (\${sz.nominal}) > Pitch (\${pitch0}) > Minor (\${minor0}) verletzt.\`);
+                }
+
+                if(i === 0) {
+                    firstSizeGeom = {
+                        pitch: pitch,
+                        angle: data.angle,
+                        nominal: sz.nominal,
+                        pitch0: pitch0,
+                        minor0: minor0,
+                        delta: delta,
+                        extOnly: extOnly
+                    };
+                }
+
+                xmlOutput.push('  <ThreadSize>');
+                xmlOutput.push(\`    <Size>\${fmt(sz.nominal)}</Size>\`);
+                xmlOutput.push('    <Designation>');
+                xmlOutput.push(\`      <ThreadDesignation>\${esc(desig)}</ThreadDesignation>\`);
+                xmlOutput.push(\`      <CTD>\${esc(sz.ctd || desig)}</CTD>\`);
+                xmlOutput.push(\`      <\${pitchTag}>\${pitchTagVal}</\${pitchTag}>\`);
+
+                for(let pass=0; pass<2; pass++) {
+                    const gender = pass === 0 ? "internal" : "external";
+                    if(extOnly && gender === "internal") continue;
+                    
+                    const sign = gender === "internal" ? 1 : -1;
+                    const ma = r(sz.nominal + sign * delta);
+                    const pi = r(pitch0 + sign * delta);
+                    const mi = r(minor0 + sign * delta);
+
+                    xmlOutput.push('      <Thread>');
+                    xmlOutput.push(\`        <Gender>\${gender}</Gender>\`);
+                    xmlOutput.push(\`        <Class>\${esc(classLabel)}</Class>\`);
+                    xmlOutput.push(\`        <MajorDia>\${fmt(ma)}</MajorDia>\`);
+                    xmlOutput.push(\`        <PitchDia>\${fmt(pi)}</PitchDia>\`);
+                    xmlOutput.push(\`        <MinorDia>\${fmt(mi)}</MinorDia>\`);
+                    if(gender === "internal") {
+                        xmlOutput.push(\`        <TapDrill>\${fmt(mi)}</TapDrill>\`);
+                    }
+                    xmlOutput.push('      </Thread>');
+                }
+                
+                xmlOutput.push('    </Designation>');
+                xmlOutput.push('  </ThreadSize>');
+            }
+
+            xmlOutput.push('</ThreadType>');
+            
+            return {
+                xml: xmlOutput.join('\\n'),
+                explain: explain.join('\\n'),
+                firstSizeGeom: firstSizeGeom
+            };
+        }
+
+        // --- SVG RENDERER ---
+        function renderSVG(geom) {
+            const container = document.getElementById('svg-container');
+            // Lösche altes SVG, behalte Legend
+            const legend = container.querySelector('.legend');
+            container.innerHTML = '';
+            container.appendChild(legend);
+
+            if(!geom) return;
+
+            // Wir zeichnen 2 Perioden (0 bis 2*Pitch).
+            const P = geom.pitch;
+            const w = 2.5 * P;
+            
+            // Y-Bereich (Radius) bestimmen.
+            // Der Nominal-Radius ist geom.nominal / 2.
+            // Minor-Radius ist geom.minor0 / 2.
+            const R_maj = geom.nominal / 2;
+            const R_min = geom.minor0 / 2;
+            const R_pitch = geom.pitch0 / 2;
+            
+            // Höhe des Profils
+            const H_prof = R_maj - R_min;
+            
+            // ViewBox aufbauen, wir wollen etwas Margin haben.
+            const marginY = H_prof * 1.5; 
+            const minY = R_min - marginY;
+            const maxY = R_maj + marginY;
+            const h = maxY - minY;
+
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("viewBox", \`0 \${minY} \${w} \${h}\`);
+            svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+            // Y-Achse ist normal nach unten, aber wir wollen Radius nach oben (klassische Darstellung).
+            // Dazu skalieren wir Y mit -1 und verschieben (Transform).
+            const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            // viewBox Y ist von minY bis maxY. Damit +Y nach oben geht, spiegeln wir alles.
+            g.setAttribute("transform", \`translate(0, \${minY + maxY}) scale(1, -1)\`);
+            svg.appendChild(g);
+
+            // Hilfsfunktion zum Generieren der Pfad-Strings für ein Gewinde-Profil.
+            // Ein Gewinde ist ein zick-zack aus Linien.
+            // Wir erzeugen Punkte für N Perioden.
+            function createProfilePoints(r_maj, r_min, r_pitch, angle) {
+                let pts = [];
+                const tanA2 = Math.tan(toRadians(angle / 2));
+                
+                // Wir berechnen die X-Abstände für Flat am Root und Flat am Crest 
+                // basierend auf den Radien.
+                const a = r_maj - r_pitch;
+                const b = r_pitch - r_min;
+                const w_crest = P / 2 - a * tanA2;
+                const w_root = P / 2 - b * tanA2;
+
+                // Start at X=0 (Mitte des Roots)
+                let x = 0;
+                for(let i=0; i<3; i++) {
+                    // Start Root Flat (half)
+                    pts.push(\`\${x},\${r_min}\`);
+                    x += w_root / 2;
+                    pts.push(\`\${x},\${r_min}\`);
+                    
+                    // Flanke rauf
+                    const flankDx = (r_maj - r_min) * tanA2;
+                    x += flankDx;
+                    pts.push(\`\${x},\${r_maj}\`);
+                    
+                    // Crest Flat
+                    x += w_crest;
+                    pts.push(\`\${x},\${r_maj}\`);
+                    
+                    // Flanke runter
+                    x += flankDx;
+                    pts.push(\`\${x},\${r_min}\`);
+                    
+                    // End Root Flat (half)
+                    x += w_root / 2;
+                }
+                return pts;
+            }
+
+            // Externe (Bolzen) Profil
+            const dExt = geom.delta / 2; // Delta ist der Diameter-Versatz, Radius-Versatz ist Delta/2
+            const extMaj = R_maj - geom.delta/2;
+            const extMin = R_min - geom.delta/2;
+            const extPitch = R_pitch - geom.delta/2;
+            
+            const ptsExt = createProfilePoints(extMaj, extMin, extPitch, geom.angle);
+            // Für Polygon schließen wir unten ab (Zentrum bei Y=0, hier reicht minY)
+            const polyExt = [...ptsExt, \`\${w},\${minY}\`, \`0,\${minY}\`].join(" ");
+            
+            const p1 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+            p1.setAttribute("points", polyExt);
+            p1.setAttribute("fill", "#2980b9"); // Blau
+            p1.setAttribute("opacity", "0.9");
+            g.appendChild(p1);
+
+            if(!geom.extOnly) {
+                // Interne (Mutter) Profil
+                const intMaj = R_maj + geom.delta/2;
+                const intMin = R_min + geom.delta/2;
+                const intPitch = R_pitch + geom.delta/2;
+
+                const ptsInt = createProfilePoints(intMaj, intMin, intPitch, geom.angle);
+                // Für Polygon schließen wir oben ab (Y = maxY)
+                const polyInt = [...ptsInt, \`\${w},\${maxY}\`, \`0,\${maxY}\`].join(" ");
+                
+                const p2 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+                p2.setAttribute("points", polyInt);
+                p2.setAttribute("fill", "#d35400"); // Orange
+                p2.setAttribute("opacity", "0.7");
+                g.appendChild(p2);
+
+                // Den Spalt farbig hervorheben
+                // Das ist genau der Bereich zwischen ext Profil und int Profil.
+                const ptsGap = [...ptsExt];
+                const ptsIntRev = [...ptsInt].reverse(); // Rückwärts für geschlossenes Polygon
+                const polyGap = [...ptsGap, ...ptsIntRev].join(" ");
+                
+                const p3 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+                p3.setAttribute("points", polyGap);
+                p3.setAttribute("fill", "var(--gap-color)");
+                p3.setAttribute("opacity", "0.8");
+                g.appendChild(p3);
+            }
+
+            container.appendChild(svg);
+        }
+
+        // --- EVENT HANDLERS ---
+        const jsonInput = document.getElementById('json-input');
+        const clearanceSelect = document.getElementById('clearance-select');
+        const customClearance = document.getElementById('custom-clearance');
+        const caseSelect = document.getElementById('case-select');
+        const statusBox = document.getElementById('status-box');
+        const xmlPreview = document.getElementById('xml-preview');
+        const btnDownload = document.getElementById('btn-download');
+        const btnLoadExample = document.getElementById('btn-load-example');
+
+        let currentXml = null;
+        let currentFilename = "thread.xml";
+
+        const updateAll = () => {
+            const jsonStr = jsonInput.value.trim();
+            if(!jsonStr) {
+                statusBox.className = "status-box";
+                statusBox.textContent = "Bitte JSON eingeben.";
+                xmlPreview.textContent = "Kein XML generiert.";
+                btnDownload.disabled = true;
+                renderSVG(null);
+                return;
+            }
+
+            let clearanceVal = parseFloat(clearanceSelect.value);
+            if(clearanceSelect.value === "custom") {
+                clearanceVal = parseFloat(customClearance.value);
+                if(isNaN(clearanceVal) || clearanceVal < 0) clearanceVal = 0.15;
+            }
+
+            try {
+                const res = parseAndCompute(jsonStr, clearanceVal, caseSelect.value);
+                statusBox.className = "status-box status-success";
+                let msg = "Erfolgreich geparst und berechnet!\\n";
+                if(res.explain) msg += "\\nHinweise:\\n" + res.explain;
+                statusBox.textContent = msg;
+
+                currentXml = res.xml;
+                xmlPreview.textContent = currentXml;
+                btnDownload.disabled = false;
+
+                try {
+                    let j = JSON.parse(jsonStr);
+                    currentFilename = j.filename || (j.name + ".xml");
+                } catch(e) {}
+
+                renderSVG(res.firstSizeGeom);
+            } catch (err) {
+                statusBox.className = "status-box status-error";
+                statusBox.textContent = err.message;
+                xmlPreview.textContent = "Fehler bei der Generierung.";
+                btnDownload.disabled = true;
+                renderSVG(null);
+            }
+        };
+
+        clearanceSelect.addEventListener('change', (e) => {
+            if(e.target.value === "custom") {
+                customClearance.style.display = "inline-block";
+            } else {
+                customClearance.style.display = "none";
+            }
+            updateAll();
+        });
+
+        customClearance.addEventListener('input', updateAll);
+        caseSelect.addEventListener('change', updateAll);
+        jsonInput.addEventListener('input', updateAll);
+
+        btnLoadExample.addEventListener('click', () => {
+            jsonInput.value = \`{
+  "schema": "thread-recipe/1",
+  "name": "PCO 1881",
+  "customName": "[3D-Print] PCO 1881 (Flaschengewinde)",
+  "angle": 60,
+  "sortOrder": 250,
+  "filename": "PCO_1881_3D_Print.xml",
+  "sizes": [
+    {
+      "designation": "28 mm",
+      "nominal": 27.4,
+      "pitch": 2.7,
+      "minor": 24.3,
+      "pitchDia": 25.85,
+      "ctd": "PCO 1881 28mm"
+    }
+  ]
+}\`;
+            updateAll();
+        });
+
+        btnDownload.addEventListener('click', () => {
+            if(!currentXml) return;
+            const blob = new Blob([currentXml], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentFilename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
