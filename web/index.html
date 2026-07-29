@@ -550,219 +550,6 @@
                 explain: explain.join("\n")
             };
         }
-        // --- SVG RENDERER ---
-        function renderSVG(geom) {
-            const container = document.getElementById('svg-container');
-            container.innerHTML = '';
-
-            if(!geom) return;
-
-            const P = geom.pitch;
-            const w = 3 * P; 
-            
-            const R_maj = geom.nominal / 2;
-            const R_min = geom.minor0 / 2;
-            const R_pitch = geom.pitch0 / 2;
-            
-            const H_prof = R_maj - R_min;
-            const H_triangle = P / (2 * Math.tan(geom.angle / 2 * Math.PI / 180));
-            
-            const vAxisY = -H_prof * 0.8;
-            const vMinY = 0;
-            const vMajY = H_prof;
-            
-            function createProfilePoints(deltaR, angle) {
-                let pts = [];
-                const tanA2 = Math.tan(angle / 2 * Math.PI / 180);
-                
-                const rMaj = R_maj + deltaR;
-                const rMin = R_min + deltaR;
-                const rPitch = R_pitch + deltaR;
-                
-                const a_rad = rMaj - rPitch;
-                const b_rad = rPitch - rMin;
-                const w_crest = P / 2 - 2 * a_rad * tanA2;
-                const w_root = P / 2 - 2 * b_rad * tanA2;
-
-                let x = 0;
-                for(let i=0; i<4; i++) {
-                    pts.push({x: x, y: rMin});
-                    x += w_root / 2;
-                    pts.push({x: x, y: rMin});
-                    
-                    const flankDx = (rMaj - rMin) * tanA2;
-                    x += flankDx;
-                    pts.push({x: x, y: rMaj});
-                    
-                    x += w_crest;
-                    pts.push({x: x, y: rMaj});
-                    
-                    x += flankDx;
-                    pts.push({x: x, y: rMin});
-                    
-                    x += w_root / 2;
-                }
-                return pts;
-            }
-
-            const ptsExt = createProfilePoints(-geom.delta/2, geom.angle);
-            const ptsInt = createProfilePoints(geom.delta/2, geom.angle);
-
-            function toVisualY(actualY) {
-                return actualY - R_min;
-            }
-            
-            const vPtsExt = ptsExt.map(p => `${p.x},${toVisualY(p.y)}`);
-            const vPtsInt = ptsInt.map(p => `${p.x},${toVisualY(p.y)}`);
-            
-            const marginX = P * 0.5;
-            const marginY = H_prof * 2;
-            const vbW = w + marginX * 2.5;
-            const vbH = H_prof + marginY * 2;
-            
-            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svg.setAttribute("viewBox", `${-marginX*1.5} ${-(vMajY + marginY)} ${vbW} ${vbH}`);
-            svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-            svg.style.width = "100%";
-            svg.style.height = "100%";
-            
-            // Defs for arrows
-            const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-            const marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
-            marker.setAttribute("id", "arrow");
-            marker.setAttribute("viewBox", "0 0 10 10");
-            marker.setAttribute("refX", "9");
-            marker.setAttribute("refY", "5");
-            marker.setAttribute("markerWidth", "6");
-            marker.setAttribute("markerHeight", "6");
-            marker.setAttribute("orient", "auto-start-reverse");
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            path.setAttribute("d", "M 0 0 L 10 5 L 0 10 z");
-            path.setAttribute("fill", "var(--fg)");
-            marker.appendChild(path);
-            defs.appendChild(marker);
-            svg.appendChild(defs);
-            
-            const gGeo = document.createElementNS("http://www.w3.org/2000/svg", "g");
-            gGeo.setAttribute("transform", `scale(1, -1)`);
-            svg.appendChild(gGeo);
-
-            const gText = document.createElementNS("http://www.w3.org/2000/svg", "g");
-            svg.appendChild(gText);
-
-            const colExt = "#bdc3c7"; 
-            const colInt = "#ecf0f1"; 
-            const colGap = "#95a5a6"; 
-            const colLine = "var(--fg)";
-            const strokeW = P * 0.015;
-            const fontS = Math.max(P * 0.2, H_prof * 0.2); // make font proportional
-
-            // Draw Bolzen (Ext)
-            const polyExtStr = [...vPtsExt, `${w},${vAxisY}`, `0,${vAxisY}`].join(" ");
-            const pExt = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-            pExt.setAttribute("points", polyExtStr);
-            pExt.setAttribute("fill", colExt);
-            pExt.setAttribute("stroke", colLine);
-            pExt.setAttribute("stroke-width", strokeW);
-            gGeo.appendChild(pExt);
-
-            // Draw Mutter (Int)
-            if(!geom.extOnly) {
-                const polyIntStr = [...vPtsInt, `${w},${vMajY + marginY}`, `0,${vMajY + marginY}`].join(" ");
-                const pInt = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-                pInt.setAttribute("points", polyIntStr);
-                pInt.setAttribute("fill", colInt);
-                pInt.setAttribute("stroke", colLine);
-                pInt.setAttribute("stroke-width", strokeW);
-                gGeo.appendChild(pInt);
-            }
-            
-            // Draw Centerline
-            const lAxis = document.createElementNS("http://www.w3.org/2000/svg", "line");
-            lAxis.setAttribute("x1", -marginX*0.5);
-            lAxis.setAttribute("y1", -vAxisY);
-            lAxis.setAttribute("x2", w + marginX*0.5);
-            lAxis.setAttribute("y2", -vAxisY);
-            lAxis.setAttribute("stroke", colLine);
-            lAxis.setAttribute("stroke-width", strokeW);
-            lAxis.setAttribute("stroke-dasharray", `${strokeW*10},${strokeW*3},${strokeW*2},${strokeW*3}`);
-            svg.appendChild(lAxis);
-
-            // Drawing helpers
-            function drawLine(x1, y1, x2, y2, arrows=false, dashed=false) {
-                const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                l.setAttribute("x1", x1);
-                l.setAttribute("y1", -y1);
-                l.setAttribute("x2", x2);
-                l.setAttribute("y2", -y2);
-                l.setAttribute("stroke", colLine);
-                l.setAttribute("stroke-width", strokeW * 0.5);
-                if(dashed) l.setAttribute("stroke-dasharray", `${strokeW*4},${strokeW*4}`);
-                if(arrows) {
-                    l.setAttribute("marker-start", "url(#arrow)");
-                    l.setAttribute("marker-end", "url(#arrow)");
-                }
-                svg.appendChild(l);
-            }
-            
-            function drawText(x, y, text, align="middle", baseline="middle", italic=false) {
-                const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                t.setAttribute("x", x);
-                t.setAttribute("y", -y);
-                t.setAttribute("text-anchor", align);
-                t.setAttribute("dominant-baseline", baseline);
-                t.setAttribute("fill", colLine);
-                t.setAttribute("font-size", fontS);
-                if(italic) t.setAttribute("font-style", "italic");
-                t.textContent = text;
-                gText.appendChild(t);
-            }
-
-            // Dimension: Pitch (P)
-            const pY = vMinY - H_prof * 0.6;
-            drawLine(P, vMinY, P, pY - fontS);
-            drawLine(P*2, vMinY, P*2, pY - fontS);
-            drawLine(P, pY, P*2, pY, true); // true = with arrows
-            drawText(P*1.5, pY - fontS*0.8, "P = " + P.toFixed(3));
-
-            // Dimension: Angle
-            const crestX = P * 1.5;
-            const crestY = vMajY;
-            drawText(crestX, crestY + H_prof*0.5, "Angle = " + geom.angle + "°");
-            
-            // Draw a simple V to represent angle
-            const vY = crestY + H_prof*0.2;
-            const dX = (H_prof*0.2) * Math.tan(geom.angle/2 * Math.PI/180);
-            drawLine(crestX, vY, crestX - dX, vY + H_prof*0.2);
-            drawLine(crestX, vY, crestX + dX, vY + H_prof*0.2);
-
-            // Dimensions: D, D1, D2
-            const lx = -marginX * 0.2;
-            const vExtMaj = toVisualY(R_maj - geom.delta/2);
-            const vExtMin = toVisualY(R_min - geom.delta/2);
-            const vExtPitch = toVisualY(R_pitch - geom.delta/2);
-
-            drawLine(0, vExtMaj, lx - marginX*0.6, vExtMaj);
-            drawLine(lx - marginX*0.4, vAxisY, lx - marginX*0.4, vExtMaj, true); // arrows
-            drawText(lx - marginX*0.5, (vAxisY + vExtMaj)/2, "D = " + geom.nominal.toFixed(3), "end");
-
-            drawLine(P*0.25, vExtPitch, lx - marginX*0.3, vExtPitch);
-            drawLine(lx - marginX*0.2, vAxisY, lx - marginX*0.2, vExtPitch, true);
-            drawText(lx - marginX*0.25, (vAxisY + vExtPitch)/2, "D2 = " + geom.pitch0.toFixed(3), "end");
-
-            drawLine(P*0.5, vExtMin, lx, vExtMin);
-            drawLine(lx + marginX*0.1, vAxisY, lx + marginX*0.1, vExtMin, true);
-            drawText(lx + marginX*0.05, (vAxisY + vExtMin)/2, "D1 = " + geom.minor0.toFixed(3), "end");
-
-            // Labels for components
-            drawText(w*0.8, vExtMin - H_prof*0.3, "Außengewinde", "middle");
-            if(!geom.extOnly) {
-                drawText(w*0.8, vExtMaj + H_prof*0.3, "Innengewinde", "middle");
-            }
-            drawText(w*0.8, vAxisY - H_prof*0.2, "Gewindeachse", "middle");
-
-            container.appendChild(svg);
-        }
         // --- EVENT HANDLERS ---
         const jsonInput = document.getElementById('json-input');
         const clearanceSelect = document.getElementById('clearance-select');
@@ -783,7 +570,7 @@
                 statusBox.textContent = "Bitte JSON eingeben.";
                 xmlPreview.textContent = "Kein XML generiert.";
                 btnDownload.disabled = true;
-                renderSVG(null);
+                
                 return;
             }
 
@@ -809,13 +596,13 @@
                     currentFilename = j.filename || (j.name + ".xml");
                 } catch(e) {}
 
-                renderSVG(res.firstSizeGeom);
+                
             } catch (err) {
                 statusBox.className = "status-box status-error";
                 statusBox.textContent = err.message;
                 xmlPreview.textContent = "Fehler bei der Generierung.";
                 btnDownload.disabled = true;
-                renderSVG(null);
+                
             }
         };
 
