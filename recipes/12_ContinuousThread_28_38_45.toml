@@ -1,0 +1,39 @@
+# Continuous Thread (CT) - die durchgehenden Gewinde an Dosen, Tiegeln und
+# Weithalsflaschen. Bezeichnung "28-400" heisst: 28 mm Halsdurchmesser,
+# Finish-Serie 400 (eine Windung).
+#
+# Die Masse sind aus der bisherigen XML uebernommen, nicht neu recherchiert.
+# Das Profil ist bewusst flach (rund halbe ISO-Tiefe) - CT-Gewinde sind
+# tatsaechlich flacher und gerundeter als ein V-Gewinde. Die Steigungen
+# stammen nicht aus der GPI-Tabelle und sollten gegen ein echtes Teil
+# geprueft werden, bevor man sich darauf verlaesst.
+name        = "CT_Jar_3DPrint"
+custom_name = "[3D-Print] 28-400 / 38-400 / 45-400 (Dosen)"
+filename    = "12_ContinuousThread_28_38_45.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 212
+
+[[size]]
+designation = "28-400"
+ctd         = "28-400"
+nominal     = 28
+pitch       = 3.2
+pitch_dia   = 26.961
+minor       = 26.268
+
+[[size]]
+designation = "38-400"
+ctd         = "38-400"
+nominal     = 38
+pitch       = 3.8
+pitch_dia   = 36.766
+minor       = 35.943
+
+[[size]]
+designation = "45-400"
+ctd         = "45-400"
+nominal     = 45
+pitch       = 4.2
+pitch_dia   = 43.636
+minor       = 42.727

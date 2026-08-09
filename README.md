@@ -10,7 +10,7 @@
 [![Data: CC BY 4.0](https://img.shields.io/badge/Thread%20data-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-informational)](#installation)
 [![Fusion](https://img.shields.io/badge/Autodesk-Fusion-orange)](https://www.autodesk.com/products/fusion-360/)
-[![Threads](https://img.shields.io/badge/threads-41%20sizes-success)](#-whats-in-the-box)
+[![Threads](https://img.shields.io/badge/threads-50%20sizes-success)](#-whats-in-the-box)
 
 **English** · [Deutsch](README.de.md)
 
@@ -65,7 +65,7 @@ that file already account for how FDM behaves.
 
 ## 📦 What's in the box
 
-41 thread sizes across 9 definition files, all prefixed `[3D-Print]` in Fusion's dropdown:
+50 thread sizes across 13 definition files, all prefixed `[3D-Print]` in Fusion's dropdown:
 
 | # | File | Thread | Ø | Pitch | Angle | Used for |
 |:-:|------|--------|--:|------:|------:|----------|
@@ -78,6 +78,10 @@ that file already account for how FDM behaves.
 | 7 | [`07_E27_LampSocket.xml`](threads/07_E27_LampSocket.xml) | E27 | 27 mm | 3.629 mm | 60° | Lamp sockets (decor only!) |
 | 8 | [`08_Trapezoidal_FDM_TR8-TR150.xml`](threads/08_Trapezoidal_FDM_TR8-TR150.xml) | **TR8×2 → TR150×16** | 8–150 mm | 2–16 mm | **45°** | 33 sizes. Lead screws, clamps, big lids |
 | 9 | [`09_TR8x2_ISO30.xml`](threads/09_TR8x2_ISO30.xml) | TR8×2 | 8 mm | 2 mm | 30° | Standards-compliant trapezoidal[^tr8] |
+| 10 | [`10_G_Series_Pipe.xml`](threads/10_G_Series_Pipe.xml) | G 1/4" · 3/8" · 1/2" | 13.2–21 mm | 19 / 14 TPI | 55° | 3 sizes. Pipe threads (ISO 228-1) |
+| 11 | [`11_PCO1810_PET.xml`](threads/11_PCO1810_PET.xml) | PCO 1810 | 27.8 mm | 3.18 mm | 60° | Older PET bottles (pre-PCO 1881) |
+| 12 | [`12_ContinuousThread_28_38_45.xml`](threads/12_ContinuousThread_28_38_45.xml) | 28-400 · 38-400 · 45-400 | 28–45 mm | 3.2–4.2 mm | 60° | 3 sizes. Jars, tubs, wide-mouth |
+| 13 | [`13_Astro_M42_M48.xml`](threads/13_Astro_M42_M48.xml) | M42×1 (T2) · M48×0.75 | 42 / 48 mm | 1 / 0.75 mm | 60° | 2 sizes. Astro and photo adapters[^fine] |
 
 Plus:
 
@@ -443,3 +447,8 @@ welcome.
 [^tr8]: TR8×2 appears twice: standards-compliant at 30° (this file) and print-friendly at
     45° in file #8. Screwing onto a bought trapezoidal lead screw? Take 30°. Printing both
     halves yourself? Take 45°.
+
+[^fine]: Pitches of 1 mm and 0.75 mm are **below** the point where FDM smears the profile —
+    the validator warns about them for good reason. They're included anyway because the
+    counterpart is almost always a bought adapter. Print standing up, use fine layers, and
+    run a test ring first.

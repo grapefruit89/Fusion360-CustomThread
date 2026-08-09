@@ -1,0 +1,27 @@
+# G-Serie Rohrgewinde (ISO 228-1 / BSPP), zylindrisch, dichtend ueber Dichtung.
+# Profil: Whitworth 55 Grad, Kopf- und Fussfase je P/6 - die Familie 'whitworth'
+# trifft die Nennmasse exakt, daher genuegen Nennmass und TPI.
+name        = "G_Series_Pipe_3DPrint"
+custom_name = "[3D-Print] G-Series Pipe (1/4, 3/8, 1/2)"
+filename    = "10_G_Series_Pipe.xml"
+unit        = "mm"
+angle       = 55
+sort_order  = 210
+
+[[size]]
+designation = "G 1/4"
+ctd         = "G1/4"
+nominal     = 13.157
+tpi         = 19
+
+[[size]]
+designation = "G 3/8"
+ctd         = "G3/8"
+nominal     = 16.662
+tpi         = 19
+
+[[size]]
+designation = "G 1/2"
+ctd         = "G1/2"
+nominal     = 20.955
+tpi         = 14

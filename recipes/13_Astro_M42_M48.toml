@@ -1,0 +1,33 @@
+# M42x1 (T2) und M48x0.75 - die Anschlussgewinde an Teleskopen, Adaptern und
+# Kameraringen. Beides sind normale metrische Feingewinde nach ISO 68-1,
+# es gibt hier keinen Sonderfall.
+#
+# GEAENDERT gegenueber der bisherigen XML: die alten Werte hatten nur die
+# halbe Profiltiefe (M42x1: PitchDia 41.675 statt ISO 41.3505). Das
+# Gegenstueck ist bei diesen Gewinden praktisch immer ein gekaufter Ring
+# oder Adapter - ein gedrucktes Teil mit zu grossem Flankendurchmesser passt
+# dort nicht hinein. Ueber die Familie 'iso-metric' (Kopffase P/8, Fussfase
+# P/4) ergeben sich jetzt die Normmasse.
+#
+# Achtung Steigung: 1 mm und 0.75 mm liegen unter der Grenze, ab der FDM das
+# Profil verschmiert. Der Validator warnt zu Recht. Diese Gewinde lassen sich
+# drucken, brauchen aber stehende Orientierung, feine Schichten und einen
+# Testring.
+name        = "Astro_M42_M48_3DPrint"
+custom_name = "[3D-Print] M42x1 / M48x0.75 (Astro & Foto)"
+filename    = "13_Astro_M42_M48.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 213
+
+[[size]]
+designation = "M42x1 (T2)"
+ctd         = "M42x1"
+nominal     = 42
+pitch       = 1
+
+[[size]]
+designation = "M48x0.75"
+ctd         = "M48x0.75"
+nominal     = 48
+pitch       = 0.75
