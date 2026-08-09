@@ -1,0 +1,22 @@
+# PCO 1810 - der aeltere PET-Flaschenhals (vor PCO 1881, bis ca. 2010 ueblich).
+#
+# Die Masse sind aus der bisherigen XML uebernommen, nicht neu recherchiert.
+# Sie beschreiben ein flacheres Profil als ISO metrisch: a = b = 1.4 mm, das
+# entspricht Fasen von rund P/4 statt P/8 bzw. P/4. Die Schwesterdatei
+# 03_PCO1881_PET.xml nutzt dagegen das volle ISO-Profil (a/P = 0.6495).
+# Welche der beiden Annahmen stimmt, laesst sich nur am echten Flaschenhals
+# messen - siehe die offene Frage zum PCO-1881-Durchmesser.
+name        = "PCO1810_PET_3DPrint"
+custom_name = "[3D-Print] PCO 1810 (Flaschengewinde)"
+filename    = "11_PCO1810_PET.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 211
+
+[[size]]
+designation = "PCO 1810"
+ctd         = "PCO1810"
+nominal     = 27.8
+pitch       = 3.18
+pitch_dia   = 26.4
+minor       = 25.0

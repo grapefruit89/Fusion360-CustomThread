@@ -3,14 +3,22 @@
   <Name>G_Series_Pipe_3DPrint</Name>
   <CustomName>[3D-Print] G-Series Pipe (1/4, 3/8, 1/2)</CustomName>
   <Unit>mm</Unit>
-  <Angle>55.000</Angle>
-  <SortOrder>205</SortOrder>
+  <Angle>55</Angle>
+  <SortOrder>210</SortOrder>
   <ThreadSize>
     <Size>13.157</Size>
     <Designation>
       <ThreadDesignation>G 1/4</ThreadDesignation>
       <CTD>G1/4</CTD>
       <TPI>19</TPI>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>13.257</MajorDia>
+        <PitchDia>12.401</PitchDia>
+        <MinorDia>11.545</MinorDia>
+        <TapDrill>11.545</TapDrill>
+      </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
@@ -20,11 +28,11 @@
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
-        <MajorDia>13.157</MajorDia>
-        <PitchDia>12.301</PitchDia>
-        <MinorDia>11.445</MinorDia>
-        <TapDrill>11.445</TapDrill>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>13.307</MajorDia>
+        <PitchDia>12.451</PitchDia>
+        <MinorDia>11.595</MinorDia>
+        <TapDrill>11.595</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
@@ -35,11 +43,11 @@
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
-        <MajorDia>13.157</MajorDia>
-        <PitchDia>12.301</PitchDia>
-        <MinorDia>11.445</MinorDia>
-        <TapDrill>11.445</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>13.357</MajorDia>
+        <PitchDia>12.501</PitchDia>
+        <MinorDia>11.645</MinorDia>
+        <TapDrill>11.645</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
@@ -47,21 +55,6 @@
         <MajorDia>12.957</MajorDia>
         <PitchDia>12.101</PitchDia>
         <MinorDia>11.245</MinorDia>
-      </Thread>
-      <Thread>
-        <Gender>internal</Gender>
-        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
-        <MajorDia>13.157</MajorDia>
-        <PitchDia>12.301</PitchDia>
-        <MinorDia>11.445</MinorDia>
-        <TapDrill>11.445</TapDrill>
-      </Thread>
-      <Thread>
-        <Gender>external</Gender>
-        <Class>0.10 mm - stramm (beide gedruckt)</Class>
-        <MajorDia>13.107</MajorDia>
-        <PitchDia>12.251</PitchDia>
-        <MinorDia>11.395</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
@@ -73,25 +66,25 @@
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15 mm - Standard (beide gedruckt)</Class>
-        <MajorDia>13.082</MajorDia>
-        <PitchDia>12.226</PitchDia>
-        <MinorDia>11.370</MinorDia>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>13.107</MajorDia>
+        <PitchDia>12.251</PitchDia>
+        <MinorDia>11.395</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.15 mm - Standard (beide gedruckt)</Class>
         <MajorDia>13.232</MajorDia>
         <PitchDia>12.376</PitchDia>
-        <MinorDia>11.520</MinorDia>
-        <TapDrill>11.520</TapDrill>
+        <MinorDia>11.52</MinorDia>
+        <TapDrill>11.52</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20 mm - locker (beide gedruckt)</Class>
-        <MajorDia>13.057</MajorDia>
-        <PitchDia>12.201</PitchDia>
-        <MinorDia>11.345</MinorDia>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>13.082</MajorDia>
+        <PitchDia>12.226</PitchDia>
+        <MinorDia>11.37</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
@@ -100,6 +93,13 @@
         <PitchDia>12.401</PitchDia>
         <MinorDia>11.545</MinorDia>
         <TapDrill>11.545</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>13.057</MajorDia>
+        <PitchDia>12.201</PitchDia>
+        <MinorDia>11.345</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>
@@ -110,71 +110,64 @@
       <CTD>G3/8</CTD>
       <TPI>19</TPI>
       <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>16.762</MajorDia>
+        <PitchDia>15.906</PitchDia>
+        <MinorDia>15.05</MinorDia>
+        <TapDrill>15.05</TapDrill>
+      </Thread>
+      <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
         <MajorDia>16.562</MajorDia>
         <PitchDia>15.706</PitchDia>
-        <MinorDia>14.850</MinorDia>
+        <MinorDia>14.85</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
-        <MajorDia>16.662</MajorDia>
-        <PitchDia>15.806</PitchDia>
-        <MinorDia>14.950</MinorDia>
-        <TapDrill>14.950</TapDrill>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>16.812</MajorDia>
+        <PitchDia>15.956</PitchDia>
+        <MinorDia>15.1</MinorDia>
+        <TapDrill>15.1</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
         <MajorDia>16.512</MajorDia>
         <PitchDia>15.656</PitchDia>
-        <MinorDia>14.800</MinorDia>
+        <MinorDia>14.8</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
-        <MajorDia>16.662</MajorDia>
-        <PitchDia>15.806</PitchDia>
-        <MinorDia>14.950</MinorDia>
-        <TapDrill>14.950</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>16.862</MajorDia>
+        <PitchDia>16.006</PitchDia>
+        <MinorDia>15.15</MinorDia>
+        <TapDrill>15.15</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
         <Class>0.20 mm - locker (gegen echtes Teil)</Class>
         <MajorDia>16.462</MajorDia>
         <PitchDia>15.606</PitchDia>
-        <MinorDia>14.750</MinorDia>
-      </Thread>
-      <Thread>
-        <Gender>internal</Gender>
-        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
-        <MajorDia>16.662</MajorDia>
-        <PitchDia>15.806</PitchDia>
-        <MinorDia>14.950</MinorDia>
-        <TapDrill>14.950</TapDrill>
-      </Thread>
-      <Thread>
-        <Gender>external</Gender>
-        <Class>0.10 mm - stramm (beide gedruckt)</Class>
-        <MajorDia>16.612</MajorDia>
-        <PitchDia>15.756</PitchDia>
-        <MinorDia>14.900</MinorDia>
+        <MinorDia>14.75</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.10 mm - stramm (beide gedruckt)</Class>
         <MajorDia>16.712</MajorDia>
         <PitchDia>15.856</PitchDia>
-        <MinorDia>15.000</MinorDia>
-        <TapDrill>15.000</TapDrill>
+        <MinorDia>15</MinorDia>
+        <TapDrill>15</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15 mm - Standard (beide gedruckt)</Class>
-        <MajorDia>16.587</MajorDia>
-        <PitchDia>15.731</PitchDia>
-        <MinorDia>14.875</MinorDia>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>16.612</MajorDia>
+        <PitchDia>15.756</PitchDia>
+        <MinorDia>14.9</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
@@ -186,18 +179,25 @@
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20 mm - locker (beide gedruckt)</Class>
-        <MajorDia>16.562</MajorDia>
-        <PitchDia>15.706</PitchDia>
-        <MinorDia>14.850</MinorDia>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>16.587</MajorDia>
+        <PitchDia>15.731</PitchDia>
+        <MinorDia>14.875</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.20 mm - locker (beide gedruckt)</Class>
         <MajorDia>16.762</MajorDia>
         <PitchDia>15.906</PitchDia>
-        <MinorDia>15.050</MinorDia>
-        <TapDrill>15.050</TapDrill>
+        <MinorDia>15.05</MinorDia>
+        <TapDrill>15.05</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>16.562</MajorDia>
+        <PitchDia>15.706</PitchDia>
+        <MinorDia>14.85</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>
@@ -208,6 +208,14 @@
       <CTD>G1/2</CTD>
       <TPI>14</TPI>
       <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>21.055</MajorDia>
+        <PitchDia>19.893</PitchDia>
+        <MinorDia>18.731</MinorDia>
+        <TapDrill>18.731</TapDrill>
+      </Thread>
+      <Thread>
         <Gender>external</Gender>
         <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
         <MajorDia>20.855</MajorDia>
@@ -216,11 +224,11 @@
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
-        <MajorDia>20.955</MajorDia>
-        <PitchDia>19.793</PitchDia>
-        <MinorDia>18.631</MinorDia>
-        <TapDrill>18.631</TapDrill>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>21.105</MajorDia>
+        <PitchDia>19.943</PitchDia>
+        <MinorDia>18.781</MinorDia>
+        <TapDrill>18.781</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
@@ -231,11 +239,11 @@
       </Thread>
       <Thread>
         <Gender>internal</Gender>
-        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
-        <MajorDia>20.955</MajorDia>
-        <PitchDia>19.793</PitchDia>
-        <MinorDia>18.631</MinorDia>
-        <TapDrill>18.631</TapDrill>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>21.155</MajorDia>
+        <PitchDia>19.993</PitchDia>
+        <MinorDia>18.831</MinorDia>
+        <TapDrill>18.831</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
@@ -243,21 +251,6 @@
         <MajorDia>20.755</MajorDia>
         <PitchDia>19.593</PitchDia>
         <MinorDia>18.431</MinorDia>
-      </Thread>
-      <Thread>
-        <Gender>internal</Gender>
-        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
-        <MajorDia>20.955</MajorDia>
-        <PitchDia>19.793</PitchDia>
-        <MinorDia>18.631</MinorDia>
-        <TapDrill>18.631</TapDrill>
-      </Thread>
-      <Thread>
-        <Gender>external</Gender>
-        <Class>0.10 mm - stramm (beide gedruckt)</Class>
-        <MajorDia>20.905</MajorDia>
-        <PitchDia>19.743</PitchDia>
-        <MinorDia>18.581</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
@@ -269,25 +262,25 @@
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.15 mm - Standard (beide gedruckt)</Class>
-        <MajorDia>20.880</MajorDia>
-        <PitchDia>19.718</PitchDia>
-        <MinorDia>18.556</MinorDia>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>20.905</MajorDia>
+        <PitchDia>19.743</PitchDia>
+        <MinorDia>18.581</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
         <Class>0.15 mm - Standard (beide gedruckt)</Class>
-        <MajorDia>21.030</MajorDia>
+        <MajorDia>21.03</MajorDia>
         <PitchDia>19.868</PitchDia>
         <MinorDia>18.706</MinorDia>
         <TapDrill>18.706</TapDrill>
       </Thread>
       <Thread>
         <Gender>external</Gender>
-        <Class>0.20 mm - locker (beide gedruckt)</Class>
-        <MajorDia>20.855</MajorDia>
-        <PitchDia>19.693</PitchDia>
-        <MinorDia>18.531</MinorDia>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>20.88</MajorDia>
+        <PitchDia>19.718</PitchDia>
+        <MinorDia>18.556</MinorDia>
       </Thread>
       <Thread>
         <Gender>internal</Gender>
@@ -296,6 +289,13 @@
         <PitchDia>19.893</PitchDia>
         <MinorDia>18.731</MinorDia>
         <TapDrill>18.731</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>20.855</MajorDia>
+        <PitchDia>19.693</PitchDia>
+        <MinorDia>18.531</MinorDia>
       </Thread>
     </Designation>
   </ThreadSize>

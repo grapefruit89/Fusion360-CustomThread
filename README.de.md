@@ -10,7 +10,7 @@
 [![Data: CC BY 4.0](https://img.shields.io/badge/Gewindedaten-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Plattform-Windows%20%7C%20macOS-informational)](#installation)
 [![Fusion](https://img.shields.io/badge/Autodesk-Fusion-orange)](https://www.autodesk.com/products/fusion-360/)
-[![Threads](https://img.shields.io/badge/Gewinde-41%20Gr%C3%B6%C3%9Fen-success)](#-inhalt-des-pakets)
+[![Threads](https://img.shields.io/badge/Gewinde-50%20Gr%C3%B6%C3%9Fen-success)](#-inhalt-des-pakets)
 
 [English](README.md) · **Deutsch**
 
@@ -67,7 +67,7 @@ Verdrehen. Und die Zahlen in dieser Datei berücksichtigen bereits, wie sich FDM
 
 ## 📦 Inhalt des Pakets
 
-41 Gewindegrößen in 9 Dateien, alle im Fusion-Dropdown mit `[3D-Print]` vorangestellt:
+50 Gewindegrößen in 13 Dateien, alle im Fusion-Dropdown mit `[3D-Print]` vorangestellt:
 
 | # | Datei | Gewinde | Ø | Steigung | Winkel | Wofür |
 |:-:|-------|---------|--:|---------:|-------:|-------|
@@ -80,6 +80,10 @@ Verdrehen. Und die Zahlen in dieser Datei berücksichtigen bereits, wie sich FDM
 | 7 | [`07_E27_LampSocket.xml`](threads/07_E27_LampSocket.xml) | E27 | 27 mm | 3,629 mm | 60° | Lampenfassung (nur Deko!) |
 | 8 | [`08_Trapezoidal_FDM_TR8-TR150.xml`](threads/08_Trapezoidal_FDM_TR8-TR150.xml) | **TR8×2 → TR150×16** | 8–150 mm | 2–16 mm | **45°** | 33 Größen. Spindeln, Klemmen, große Deckel |
 | 9 | [`09_TR8x2_ISO30.xml`](threads/09_TR8x2_ISO30.xml) | TR8×2 | 8 mm | 2 mm | 30° | Normgerechtes Trapezgewinde[^tr8] |
+| 10 | [`10_G_Series_Pipe.xml`](threads/10_G_Series_Pipe.xml) | G 1/4" · 3/8" · 1/2" | 13,2–21 mm | 19 / 14 TPI | 55° | 3 Größen. Rohrgewinde (ISO 228-1) |
+| 11 | [`11_PCO1810_PET.xml`](threads/11_PCO1810_PET.xml) | PCO 1810 | 27,8 mm | 3,18 mm | 60° | Ältere PET-Flaschen (vor PCO 1881) |
+| 12 | [`12_ContinuousThread_28_38_45.xml`](threads/12_ContinuousThread_28_38_45.xml) | 28-400 · 38-400 · 45-400 | 28–45 mm | 3,2–4,2 mm | 60° | 3 Größen. Dosen, Tiegel, Weithals |
+| 13 | [`13_Astro_M42_M48.xml`](threads/13_Astro_M42_M48.xml) | M42×1 (T2) · M48×0,75 | 42 / 48 mm | 1 / 0,75 mm | 60° | 2 Größen. Astro- und Fotoadapter[^fein] |
 
 Dazu:
 
@@ -464,3 +468,8 @@ willkommen.
 [^tr8]: TR8×2 gibt es hier zweimal: normgerecht mit 30° (diese Datei) und druckfreundlich
     mit 45° in Datei #8. Wenn du auf eine gekaufte Trapez-Gewindestange schraubst, nimm die
     30°-Variante. Wenn du beide Teile selbst druckst, nimm 45°.
+
+[^fein]: Steigungen von 1 mm und 0,75 mm liegen **unter** der Grenze, ab der FDM das Profil
+    verschmiert — der Validator warnt zu Recht. Diese beiden Größen sind trotzdem dabei,
+    weil das Gegenstück praktisch immer ein gekaufter Adapter ist. Stehend drucken, feine
+    Schichten, und vorher einen Testring.
