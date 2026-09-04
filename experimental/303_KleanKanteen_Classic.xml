@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ThreadType>
+  <Name>KleanKanteen_Classic_3DPrint</Name>
+  <CustomName>[3D-Print] Klean Kanteen Classic (exp.)</CustomName>
+  <Unit>mm</Unit>
+  <Angle>60</Angle>
+  <SortOrder>303</SortOrder>
+  <ThreadSize>
+    <Size>43.6</Size>
+    <Designation>
+      <ThreadDesignation>KK Classic</ThreadDesignation>
+      <CTD>KK-Classic</CTD>
+      <Pitch>6.25</Pitch>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>43.7</MajorDia>
+        <PitchDia>41.65</PitchDia>
+        <MinorDia>39.6</MinorDia>
+        <TapDrill>39.6</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (gegen echtes Teil)</Class>
+        <MajorDia>43.5</MajorDia>
+        <PitchDia>41.45</PitchDia>
+        <MinorDia>39.4</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>43.75</MajorDia>
+        <PitchDia>41.7</PitchDia>
+        <MinorDia>39.65</MinorDia>
+        <TapDrill>39.65</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (gegen echtes Teil)</Class>
+        <MajorDia>43.45</MajorDia>
+        <PitchDia>41.4</PitchDia>
+        <MinorDia>39.35</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>43.8</MajorDia>
+        <PitchDia>41.75</PitchDia>
+        <MinorDia>39.7</MinorDia>
+        <TapDrill>39.7</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (gegen echtes Teil)</Class>
+        <MajorDia>43.4</MajorDia>
+        <PitchDia>41.35</PitchDia>
+        <MinorDia>39.3</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>43.65</MajorDia>
+        <PitchDia>41.6</PitchDia>
+        <MinorDia>39.55</MinorDia>
+        <TapDrill>39.55</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.10 mm - stramm (beide gedruckt)</Class>
+        <MajorDia>43.55</MajorDia>
+        <PitchDia>41.5</PitchDia>
+        <MinorDia>39.45</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>43.675</MajorDia>
+        <PitchDia>41.625</PitchDia>
+        <MinorDia>39.575</MinorDia>
+        <TapDrill>39.575</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.15 mm - Standard (beide gedruckt)</Class>
+        <MajorDia>43.525</MajorDia>
+        <PitchDia>41.475</PitchDia>
+        <MinorDia>39.425</MinorDia>
+      </Thread>
+      <Thread>
+        <Gender>internal</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>43.7</MajorDia>
+        <PitchDia>41.65</PitchDia>
+        <MinorDia>39.6</MinorDia>
+        <TapDrill>39.6</TapDrill>
+      </Thread>
+      <Thread>
+        <Gender>external</Gender>
+        <Class>0.20 mm - locker (beide gedruckt)</Class>
+        <MajorDia>43.5</MajorDia>
+        <PitchDia>41.45</PitchDia>
+        <MinorDia>39.4</MinorDia>
+      </Thread>
+    </Designation>
+  </ThreadSize>
+</ThreadType>

@@ -26,6 +26,7 @@ Warum es diesen Ordner gibt, steht in [ADR-0006](../docs/spec/adr/0006-experimen
 |-------|----------:|------------------|
 | `11_PCO1810_PET.xml` | 301 | Steigung 3,18 mm belegt, Außen-Ø je nach Quelle 27,4–28,0 mm |
 | `12_ContinuousThread_28_38_45.xml` | 302 | Steigung und Winkel herstellerabhängig, keine öffentliche Norm |
+| `303_KleanKanteen_Classic.xml` | 303 | Eine Flasche, 2013 ([bgamari](https://github.com/bgamari/klean-kanteen-cap)). Winkel 60° angenommen. Nur Classic, nicht Wide/TKWide. |
 
 Messwerte gern als [Issue](../../../issues/new/choose) oder in den
 [Discussions](../../../discussions/1).

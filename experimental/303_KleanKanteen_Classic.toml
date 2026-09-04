@@ -1,0 +1,19 @@
+# Näherung, nicht aus einer Norm.
+# Quelle: https://github.com/bgamari/klean-kanteen-cap  (cap.escad, 2013)
+# Eine gemessene Classic-Flasche. Winkel 60 Grad nicht belegt, angenommen.
+# Nur Classic — Wide und TKWide sind andere Gewinde.
+# Deckel = Außengewinde (Flasche hat Innengewinde).
+
+name        = "KleanKanteen_Classic_3DPrint"
+custom_name = "[3D-Print] Klean Kanteen Classic (exp.)"
+filename    = "303_KleanKanteen_Classic.xml"
+unit        = "mm"
+angle       = 60
+sort_order  = 303
+
+[[size]]
+designation = "KK Classic"
+ctd         = "KK-Classic"
+nominal     = 43.6
+pitch       = 6.25
+minor       = 39.5
