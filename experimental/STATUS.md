@@ -1,11 +1,9 @@
 # Status
 
-Dieser Ordner ist absichtlich fast leer.
-
-Hier landen Profile mit unsicherer Datenlage — SortOrder ≥ 300, Name mit `(exp.)`.
+Profile mit unsicherer Datenlage. SortOrder ≥ 300, Name mit `(exp.)`.
 Aufnahme nach `threads/` erst mit Norm oder zwei unabhängigen Messungen (ADR-0006).
 
-Vorgemerkt:
-
-- PCO 1810 (Ø unklar, liegt noch in `threads/11_` — Umzug ist Änderung #3)
-- 28-400 / 38-400 / 45-400 (herstellerabhängig, liegt noch in `threads/12_`)
+| Datei | SortOrder | Offen |
+|-------|----------:|-------|
+| `11_PCO1810_PET.xml` | 301 | Außen-Ø an einer echten alten PET-Flasche messen |
+| `12_ContinuousThread_28_38_45.xml` | 302 | Mehrere Gläser verschiedener Hersteller messen |

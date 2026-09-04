@@ -22,12 +22,10 @@ Warum es diesen Ordner gibt, steht in [ADR-0006](../docs/spec/adr/0006-experimen
 
 ## Aktueller Inhalt
 
-Noch leer. Vorgemerkte Kandidaten:
-
-| Gewinde | Was unsicher ist | Was fehlt |
-|---------|------------------|-----------|
-| 28-400 / 38-400 / 45-400 (Schraubgläser) | Steigung und Flankenwinkel sind herstellerabhängig, keine öffentliche Norm | Messwerte von mehreren Gläsern verschiedener Hersteller |
-| PCO 1810 | Steigung 3,18 mm ist belegt, der Gewindedurchmesser schwankt je nach Quelle zwischen 27,4 und 28,0 mm | Messung an einer echten alten PET-Flasche |
+| Datei | SortOrder | Was unsicher ist |
+|-------|----------:|------------------|
+| `11_PCO1810_PET.xml` | 301 | Steigung 3,18 mm belegt, Außen-Ø je nach Quelle 27,4–28,0 mm |
+| `12_ContinuousThread_28_38_45.xml` | 302 | Steigung und Winkel herstellerabhängig, keine öffentliche Norm |
 
 Messwerte gern als [Issue](../../../issues/new/choose) oder in den
 [Discussions](../../../discussions/1).
